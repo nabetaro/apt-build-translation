@@ -1,0 +1,143 @@
+#!/bin/sh 
+
+set -e
+
+CONFFILE="/etc/apt/apt-build.conf"
+
+
+find_arch()
+{
+    case "`dpkg-architecture -qDEB_HOST_ARCH`" in
+	i[3-9]86|x86|x86pc|k5|k6|k6-2|k6-3|pentium*|athlon*|i586-i686)
+		if [ -r /proc/cpuinfo ]; then
+		    case "`grep 'vendor_id' /proc/cpuinfo | cut -d ':' -f 2 | head -n 1`" in
+			*AMD*)
+			    db_input critical apt-build/arch_amd || true
+			    db_go
+			    db_get apt-build/arch_amd
+			    ;;
+			*Intel*)
+			    db_input critical apt-build/arch_intel || true
+			    db_go
+			    db_get apt-build/arch_intel
+			    ;;
+		    esac
+		fi
+		;;
+	sparc*)
+		db_input critical apt-build/arch_sparc || true
+		db_go
+		db_get apt-build/arch_sparc
+		;;
+	alpha)
+		db_input critical apt-build/arch_alpha || true
+		db_go
+		db_get apt-build/arch_alpha
+		;;
+	arm*)
+		db_input critical apt-build/arch_arm || true
+		db_go
+		db_get apt-build/arch_arm
+		;;
+	amd64|*-amd64)
+		db_input critical apt-build/arch_amd64 || true
+		db_go
+		db_get apt-build/arch_amd64
+		;;
+   esac
+   arch="$RET"
+}
+
+get_config()
+{
+    db_get apt-build/olevel
+    olevel="$RET"
+    find_arch
+    db_get apt-build/build_dir
+    build_dir="$RET"
+    db_get apt-build/repository_dir
+    repository_dir="$RET"
+    db_get apt-build/add_to_sourceslist
+    add_to_sourceslist="$RET"
+    db_get apt-build/options
+    options="$RET"
+    db_get apt-build/make_options
+    make_options="$RET"
+}
+
+case "$1" in
+    configure)
+	. /usr/share/debconf/confmodule
+	get_config
+
+	# Create build_dir
+	if [ ! -e "$build_dir" ]; then
+	    mkdir -p "$build_dir"
+	fi
+
+	# Create repository_dir
+	if [ ! -e "$repository_dir" ]; then
+	    mkdir -p "$repository_dir"
+	    cd "$repository_dir"
+	    ln -s . stable
+	    ln -s . dists
+	    ln -s . apt-build
+	    ln -s . main
+	    ln -s . binary-`dpkg --print-installation-architecture`
+	fi
+	
+	sed s/__arch__/`dpkg --print-installation-architecture`/ /usr/share/apt-build/Release > "$repository_dir/Release"
+
+	# Add to sources.list if asked
+	if [ "$add_to_sourceslist" = "true" ] && [ -z "`grep "$repository_dir" /etc/apt/sources.list`" ]; then
+	    tempfile=`tempfile -m 644`
+	    echo "deb file:$repository_dir apt-build main" > $tempfile
+	    cat /etc/apt/sources.list >> $tempfile
+	    mv $tempfile /etc/apt/sources.list
+	fi
+
+	# Remove one-byte Packages file created by old postinst
+	if [ -f $repository_dir/Packages.gz ] && [ $(zcat $repository_dir/Packages.gz | wc -c) -eq 1 ]; then
+            rm -f $repository_dir/Packages.gz
+        fi
+	
+	if [ ! -e "$repository_dir/Packages.gz" ]; then
+	    gzip -9 < /dev/null > "$repository_dir/Packages.gz"
+	fi
+	    
+	# Configure
+
+	echo "build-dir = $build_dir" > $CONFFILE
+	echo "repository-dir = $repository_dir" >> $CONFFILE
+
+	case "$olevel" in
+	    "Light")
+		echo "Olevel = -O1" >> $CONFFILE
+		;;
+	    "Medium")
+		echo "Olevel = -O2" >> $CONFFILE
+		;;
+	    "Strong")
+		echo "Olevel = -O3" >> $CONFFILE
+		;;
+	esac
+
+#	echo "march = -march=$arch" >> $CONFFILE
+	echo "mtune = -mtune=$arch" >> $CONFFILE
+	echo "options = \" $options\"" >> $CONFFILE
+	echo "make_options = \" $make_options\"" >> $CONFFILE
+
+	exit 0
+	;;
+
+    upgrade|abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+    *)
+	 echo "postinst called with unknown argument \`$1'" >&2
+	 exit 0
+    ;;
+esac
+
+
+#DEBHELPER#

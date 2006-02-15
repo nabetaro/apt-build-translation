@@ -1,0 +1,5 @@
+Archive: apt-build
+Component: main
+Origin: apt-build
+Label: apt-build
+Architecture: __arch__

@@ -1,0 +1,129 @@
+.TH APT-BUILD 1 "November 2003" "Debian Distribution"
+.UC 1
+.SH "NAME"
+apt-build \- Fetch sources and build packages optimized for your architecture.
+.SH "SYNOPSIS"
+.SP
+.B apt-build [
+.I options
+.B ] [ update ] [ upgrade ] [ world ] [ install
+.I pkg
+.B ] [ remove
+.I pkg
+.B ] [ info
+.I pkg
+.B ]
+.SH "DESCRIPTION"
+.PP
+.BR apt-build
+is an apt-get frontend to build and install architecture optimized packages.
+.PP
+.SH "COMMANDS"
+.TP
+.BR update
+Retrieve new lists of packages
+.TP
+.BR upgrade
+Perform an upgrade
+.TP
+.BR world
+Rebuild your system
+.TP
+.BR install
+Build and install new packages
+.TP
+.BR source
+Download and extract source in the build directory
+.TP
+.BR info
+Info on a package which could be built
+.TP
+.BR remove
+Remove packages
+.TP
+.BR clean-build
+Erase built packages
+.TP
+.BR clean-sources
+Call debian/rules clean in source directories
+.TP
+.BR build-source
+Build source without installing them
+.TP
+.BR update-source
+Update sources and rebuild them if they are missing in the repository
+.TP
+.BR build-repository
+Rebuild the repository
+.SH "OPTIONS"
+.TP
+.BR --help\ 
+Shows help
+.TP
+.BR --nowrapper
+Do not use the gcc wrapper
+.TP
+.BR --remove-builddep
+Remove build-dependencies installed by apt-build
+.TP
+.BR --no-source
+Don't download source
+.TP
+.BR --build-dir
+Specify build-dir
+.TP
+.BR --build-only
+Build package only
+.TP
+.BR --rebuild
+Rebuild a package
+.TP
+.BR --reinstall
+Build and install an already installed package
+.TP
+.BR --build-command " <"\fIcommand\fR> 
+Use this command to build package
+.TP
+.BR --patch " <"\fIfile\fR> 
+Apply this patch before build (you can use this option one or several times)
+.TP
+.BR --patch-strip ", " -p " <"\fInumber\fR>
+Prefix to strip on patch (0 = -p0, 1 = -p1 ...)
+.TP
+.BR --yes ", " -y
+Assume yes
+.TP
+.BR --purge
+Use purge instead of remove
+.TP
+.BR --noupdate
+Do not run 'apt-get update' before package installation
+.TP
+.BR --sources-list
+Specify
+.I sources.list
+file
+.TP
+.BR --apt-get
+Specify an alternative
+.I apt-get
+command
+.TP
+.BR --apt-cache
+Specify an alternative
+.I apt-cache
+command
+.TP
+.BR --config
+Specify an alternative configuration file
+.TP
+.BR --version ","\ -v
+Show version
+.SH "BUGS"
+Many.
+.PP
+
+.SH "AUTHOR"
+.PP
+.B apt-build
+was written by Julien Danjou <acid@debian.org> with many contributors.

@@ -1,0 +1,113 @@
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: apt-build 0.9.2.1\n"
+"Report-Msgid-Bugs-To: acid@debian.org\n"
+"POT-Creation-Date: 2005-09-17 16:47+0200\n"
+"PO-Revision-Date: 2005-01-13 18:19+0900\n"
+"Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
+"Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=EUC-JP\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid "Directory used by apt-build to download and build packages:"
+msgstr ""
+"apt-build がパッケージのダウンロードとビルドを行うのに使うディレクトリ:"
+
+#. Type: string
+#. Description
+#: ../templates:9
+msgid "Directory used to store packages built by apt-build:"
+msgstr "apt-build によってビルドされたパッケージを格納するディレクトリ:"
+
+#. Type: boolean
+#. Description
+#: ../templates:14
+msgid "Add apt-build repository to sources.list?"
+msgstr "apt-build のリポジトリを sources.list に追加しますか?"
+
+#. Type: boolean
+#. Description
+#: ../templates:14
+msgid ""
+"In order to install built package via APT, you must add a line like this to "
+"your sources.list:\n"
+"  deb file:${repo} apt-build main"
+msgstr ""
+"ビルドしたパッケージを APT 経由でインストールするためには、sources.list に次"
+"のような行を追加する必要があります:\n"
+"  deb file:${repo} apt-build main"
+
+#. Type: select
+#. Choices
+#: ../templates:21
+msgid "Light, Medium, Strong"
+msgstr "弱, 標準, 強"
+
+#. Type: select
+#. Description
+#: ../templates:23
+msgid "Which optimization level do you want?"
+msgstr "行いたい最適化のレベルはどれですか?"
+
+#. Type: select
+#. Description
+#: ../templates:23
+msgid ""
+"These are equivalent to -O1, -O2 and -O3. Optimization level is time "
+"dependant. The higher optimization level you choose, more time will be "
+"required for compiling, but the faster your programs will be. Warning: "
+"Strong optimization may lead to stability problems."
+msgstr ""
+"これらは -O1、-O2、-O3 にそれぞれ相当します。最適化レベルは時間と関係します。"
+"つまり、高い最適化レベルを選ぶほど、コンパイルにはより多くの時間がかかります"
+"が、プログラムはより速く動作するようになります。注意: 強い最適化は安定性に問"
+"題を引き起こすかもしれません。"
+
+#. Type: select
+#. Description
+#: ../templates:78
+msgid "What is your architecture?"
+msgstr "お使いのアーキテクチャは何ですか?"
+
+#. Type: select
+#. Description
+#: ../templates:78
+msgid ""
+"If your architecture is not here, choose one and edit your configuration "
+"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
+msgstr ""
+"お使いのアーキテクチャがここにない場合、とりあえずどれか 1 つを選び、設定ファ"
+"イル (/etc/apt/apt-build.conf) を手で編集してください。それから、wishlist と"
+"してバグ報告をしてください。"
+
+#. Type: string
+#. Description
+#: ../templates:85
+msgid "Options to add to gcc:"
+msgstr "gcc に付加したいオプション:"
+
+#. Type: string
+#. Description
+#: ../templates:89
+msgid "Options to add to make:"
+msgstr "make に付加したいオプション:"
+
+#~ msgid "Where must apt-build store built packages?"
+#~ msgstr "ビルドしたパッケージをどこに格納しますか?"

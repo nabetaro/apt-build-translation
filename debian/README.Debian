@@ -1,0 +1,60 @@
+apt-build for Debian
+--------------------
+
+WARNING:
+--------
+-> Do not upload packages on Debian:
+   If you patch and compile your own packages with apt-build, you
+   should not upload Debian packages built with a such system, because
+   it can distort a program's behavior.
+
+-> Please keep deb and deb-src line in sync in your sources.list.
+
+-> About sources.list and apt/preferences:
+   The deb line of apt-build repository must be the first line if
+   you want apt-get to prefer built packages than other packages.
+   To avoid conflicts with the `/etc/apt/preferences' mechanism,
+   you may add the following entry in the `/etc/apt/preferences' file:
+
+Package: *
+Pin: release a=apt-build
+Pin-Priority: 800
+
+----------------------------------------------------------------------
+------------------------------ FAQ -----------------------------------
+----------------------------------------------------------------------
+Q: gcc and g++ do not seem to be called with good options!
+
+A: *** They are called with them! ***
+What you see on your screen is the command called by make, but
+the wrapper wraps (yeah, it does) calls to gcc/g++ and adds options you
+specified in the apt-build configuration file.
+You won't see this on your screen.
+Try `ps ax | grep gcc' instead as a proof, while building.
+
+----------------------------------------------------------------------
+Q: Can I rebuild gcc or g++?
+
+A: If you rebuild gcc, it seems that optimizations won't be applied
+because it uses its own compiler during building.
+
+----------------------------------------------------------------------
+Q: What should be the size of my build directory?
+
+A: This directory should be large enough to contain packages and their
+build output. Some packages require at least 1 Go to be built.
+
+----------------------------------------------------------------------
+Q: How do I rebuild my whole system (apt-build world)?
+
+A: You must create a package list first.
+The simplest way to do it, is to run:
+dpkg --get-selections | \
+	awk '{if ($2=="install") print $1}' > /etc/apt/apt-build.list
+
+You should edit this file to remove some packages like gcc, kernel...
+
+Please not that using the --reinstall switch can be useful.
+----------------------------------------------------------------------
+
+ -- Julien Danjou <acid@debian.org>, Sun, 24 Apr 2005 14:23:16 +0200

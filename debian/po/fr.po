@@ -1,0 +1,116 @@
+# translation of fr.po to French
+#
+#
+#
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#    Developers do not need to manually edit POT or PO files.
+msgid ""
+msgstr ""
+"Project-Id-Version: apt-build\n"
+"Report-Msgid-Bugs-To: acid@debian.org\n"
+"POT-Creation-Date: 2005-09-17 16:47+0200\n"
+"PO-Revision-Date: 2005-01-13 07:17+0100\n"
+"Last-Translator: Christian Perrier <bubulle@debian.org>\n"
+"Language-Team: Debian french translation team <debian-l10n-french@lists."
+"debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#. Type: string
+#. Description
+#: ../templates:4
+msgid "Directory used by apt-build to download and build packages:"
+msgstr ""
+"Emplacement de téléchargement et de construction des paquets pour apt-build :"
+
+#. Type: string
+#. Description
+#: ../templates:9
+msgid "Directory used to store packages built by apt-build:"
+msgstr "Emplacement où apt-build entreposera les paquets construits :"
+
+#. Type: boolean
+#. Description
+#: ../templates:14
+msgid "Add apt-build repository to sources.list?"
+msgstr "Faut-il ajouter le dépôt d'apt-build au fichier sources.list ?"
+
+#. Type: boolean
+#. Description
+#: ../templates:14
+msgid ""
+"In order to install built package via APT, you must add a line like this to "
+"your sources.list:\n"
+"  deb file:${repo} apt-build main"
+msgstr ""
+"Pour qu'apt puisse installer le paquet construit, vous devez ajouter une "
+"ligne comme celle-ci dans votre fichier sources.list :\n"
+"  deb file:${repo} apt-build main"
+
+#. Type: select
+#. Choices
+#: ../templates:21
+msgid "Light, Medium, Strong"
+msgstr "Simple, Intermédiaire, Élevé"
+
+#. Type: select
+#. Description
+#: ../templates:23
+msgid "Which optimization level do you want?"
+msgstr "Niveau d'optimisation souhaité :"
+
+#. Type: select
+#. Description
+#: ../templates:23
+msgid ""
+"These are equivalent to -O1, -O2 and -O3. Optimization level is time "
+"dependant. The higher optimization level you choose, more time will be "
+"required for compiling, but the faster your programs will be. Warning: "
+"Strong optimization may lead to stability problems."
+msgstr ""
+"Ces niveaux d'optimisation correspondent à -O1, -O2 et -O3. L'optimisation "
+"prend du temps ; plus vous optimisez votre construction, plus longue sera la "
+"compilation, mais plus vos programmes seront rapides. Attention : "
+"l'optimisation « élevée » peut conduire à des problèmes de stabilité."
+
+#. Type: select
+#. Description
+#: ../templates:78
+msgid "What is your architecture?"
+msgstr "Architecture matérielle :"
+
+#. Type: select
+#. Description
+#: ../templates:78
+msgid ""
+"If your architecture is not here, choose one and edit your configuration "
+"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
+msgstr ""
+"Si votre architecture n'est pas présente, choisissez-en une, modifiez votre "
+"fichier de configuration (/etc/apt/apt-build.conf) à la main, et veuillez "
+"remplir un rapport de bogue (de type « wishlist »)."
+
+#. Type: string
+#. Description
+#: ../templates:85
+msgid "Options to add to gcc:"
+msgstr "Options à utiliser avec gcc :"
+
+#. Type: string
+#. Description
+#: ../templates:89
+msgid "Options to add to make:"
+msgstr "Options à utiliser avec make :"
+
+#~ msgid "Where must apt-build store built packages?"
+#~ msgstr "Emplacement où apt-build entreposera les paquets construits :"

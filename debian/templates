@@ -1,0 +1,89 @@
+Template: apt-build/build_dir
+Type: string
+Default: /var/cache/apt-build/build
+_Description: Directory used by apt-build to download and build packages:
+
+Template: apt-build/repository_dir
+Type: string
+Default: /var/cache/apt-build/repository
+_Description: Directory used to store packages built by apt-build:
+
+Template: apt-build/add_to_sourceslist
+Type: boolean
+Default: true
+_Description: Add apt-build repository to sources.list?
+ In order to install built package via APT, you must add a line like this
+ to your sources.list:
+   deb file:${repo} apt-build main
+
+Template: apt-build/olevel
+Type: select
+_Choices: Light, Medium, Strong
+Default: Medium
+_Description: Which optimization level do you want?
+ These are equivalent to -O1, -O2 and -O3. Optimization level is time
+ dependant. The higher optimization level you choose, more time will be
+ required for compiling, but the faster your programs will be.
+ Warning: Strong optimization may lead to stability problems.
+
+Template: apt-build/arch_intel
+Type: select
+Choices: pentium, pentium-mmx, pentiumpro, pentium2, pentium3, pentium3m, pentium4, pentium4m, prescott, nocona
+Default: pentium
+_Description: What is your architecture?
+ If your architecture is not here, choose one and edit your configuration
+ file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
+ (wishlist)
+
+Template: apt-build/arch_amd
+Type: select
+Choices: k6, k6-2, k6-3, athlon, athlon-tbird, athlon-4, athlon-xp, athlon-mp, k8, opteron, athlon64, athlon-fx
+Default: k6
+_Description: What is your architecture?
+ If your architecture is not here, choose one and edit your configuration
+ file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
+ (wishlist)
+
+Template: apt-build/arch_amd64
+Type: select
+Choices: nocona, k8, opteron, athlon64, athlon-fx
+Default: x86-64
+_Description: What is your architecture?
+ If your architecture is not here, choose one and edit your configuration
+ file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
+ (wishlist)
+
+Template: apt-build/arch_sparc
+Type: select
+Choices: v7, v8, sparclite, sparclet, v9
+Default: sparc
+_Description: What is your architecture?
+ If your architecture is not here, choose one and edit your configuration
+ file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
+ (wishlist)
+
+Template: apt-build/arch_arm
+Type: select
+Choices: armv2, armv2a, armv3, armv3m, armv4, armv4t, armv5, armv5t, armv5te
+Default: armv2
+_Description: What is your architecture?
+ If your architecture is not here, choose one and edit your configuration
+ file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
+ (wishlist)
+
+Template: apt-build/arch_alpha
+Type: select
+Choices: ev4, ev5, ev56, pca56, ev6, ev67
+Default: ev4
+_Description: What is your architecture?
+ If your architecture is not here, choose one and edit your configuration
+ file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
+ (wishlist)
+
+Template: apt-build/options
+Type: string
+_Description: Options to add to gcc:
+
+Template: apt-build/make_options
+Type: string
+_Description: Options to add to make:

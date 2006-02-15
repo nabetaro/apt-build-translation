@@ -1,0 +1,458 @@
+# translation of ru.po to Russian
+# Copyright (C) 2005 Free Software Foundation, Inc.
+# Yuri Kozlov <kozlov.y@gmail.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ru\n"
+"POT-Creation-Date: 2005-10-05 15:30+0200\n"
+"PO-Revision-Date: 2005-11-02 19:27+0400\n"
+"Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
+"Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+# type: TH
+#: apt-build.1:1
+#, no-wrap
+msgid "APT-BUILD"
+msgstr "APT-BUILD"
+
+# type: TH
+#: apt-build.1:1
+#, no-wrap
+msgid "November 2003"
+msgstr "ноябрь 2003"
+
+# type: TH
+#: apt-build.1:1
+#, no-wrap
+msgid "Debian Distribution"
+msgstr "дистрибутив Debian"
+
+# type: SH
+#: apt-build.1:3
+#, no-wrap
+msgid "NAME"
+msgstr "НАЗВАНИЕ"
+
+# type: Plain text
+#: apt-build.1:5
+msgid ""
+"apt-build - Fetch sources and build packages optimized for your "
+"architecture."
+msgstr ""
+"apt-build - получает исходные тексты и собирает пакеты, "
+"оптимизированные под вашу архитектуру."
+
+# type: SH
+#: apt-build.1:5
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr "СИНТАКСИС"
+
+# type: Plain text
+#: apt-build.1:16
+msgid ""
+"B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> "
+"I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
+msgstr ""
+"B<apt-build [> I<параметры> B<] [ update ] [ upgrade ] [ world ] [ install> "
+"I<пакет> B<] [ remove> I<пакет> B<] [ info> I<пакет> B<]>"
+
+# type: SH
+#: apt-build.1:16
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr "ОПИСАНИЕ"
+
+# type: Plain text
+#: apt-build.1:20
+msgid ""
+"B<apt-build> is an apt-get frontend to build and install architecture "
+"optimized packages."
+msgstr ""
+"B<apt-build> -- это обёртка к apt-get для сборки и установки пакетов, "
+"оптимизированных под нужную архитектуру."
+
+# type: SH
+#: apt-build.1:21
+#, no-wrap
+msgid "COMMANDS"
+msgstr "КОМАНДЫ"
+
+# type: TP
+#: apt-build.1:22
+#, no-wrap
+msgid "B<update>"
+msgstr "B<update>"
+
+# type: Plain text
+#: apt-build.1:25
+msgid "Retrieve new lists of packages"
+msgstr "Получить обновлённый список пакетов"
+
+# type: TP
+#: apt-build.1:25
+#, no-wrap
+msgid "B<upgrade>"
+msgstr "B<upgrade>"
+
+# type: Plain text
+#: apt-build.1:28
+msgid "Perform an upgrade"
+msgstr "Выполнить обновление системы"
+
+# type: TP
+#: apt-build.1:28
+#, no-wrap
+msgid "B<world>"
+msgstr "B<world>"
+
+# type: Plain text
+#: apt-build.1:31
+msgid "Rebuild your system"
+msgstr "Пересобрать всю систему"
+
+# type: TP
+#: apt-build.1:31
+#, no-wrap
+msgid "B<install>"
+msgstr "B<install>"
+
+# type: Plain text
+#: apt-build.1:34
+msgid "Build and install new packages"
+msgstr "Собрать и установить новые пакеты"
+
+# type: TP
+#: apt-build.1:34
+#, no-wrap
+msgid "B<source>"
+msgstr "B<source>"
+
+# type: Plain text
+#: apt-build.1:37
+msgid "Download and extract source in the build directory"
+msgstr "Загрузить и распаковать исходные тексты в каталог сборки"
+
+# type: TP
+#: apt-build.1:37
+#, no-wrap
+msgid "B<info>"
+msgstr "B<info>"
+
+# type: Plain text
+#: apt-build.1:40
+msgid "Info on a package which could be built"
+msgstr "Показать информацию на пакет, который будет собран"
+
+# type: TP
+#: apt-build.1:40
+#, no-wrap
+msgid "B<remove>"
+msgstr "B<remove>"
+
+# type: Plain text
+#: apt-build.1:43
+msgid "Remove packages"
+msgstr "Удалить пакеты"
+
+# type: TP
+#: apt-build.1:43
+#, no-wrap
+msgid "B<clean-build>"
+msgstr "B<clean-build>"
+
+# type: Plain text
+#: apt-build.1:46
+msgid "Erase built packages"
+msgstr "Стереть собранные пакеты"
+
+# type: TP
+#: apt-build.1:46
+#, no-wrap
+msgid "B<clean-sources>"
+msgstr "B<clean-sources>"
+
+# type: Plain text
+#: apt-build.1:49
+msgid "Call debian/rules clean in source directories"
+msgstr "Вызвать debian/rules clean в каталоге с исходными текстами"
+
+# type: TP
+#: apt-build.1:49
+#, no-wrap
+msgid "B<build-source>"
+msgstr "B<build-source>"
+
+# type: Plain text
+#: apt-build.1:52
+msgid "Build source without installing them"
+msgstr "Выполнить сборку из исходных текстов без установки"
+
+# type: TP
+#: apt-build.1:52
+#, no-wrap
+msgid "B<update-source>"
+msgstr "B<update-source>"
+
+# type: Plain text
+#: apt-build.1:55
+msgid "Update sources and rebuild them if they are missing in the repository"
+msgstr "Обновить исходные тексты и пересобрать пакет, если его нет в репозитории"
+
+# type: TP
+#: apt-build.1:55
+#, no-wrap
+msgid "B<build-repository>"
+msgstr "B<build-repository>"
+
+# type: Plain text
+#: apt-build.1:58
+msgid "Rebuild the repository"
+msgstr "Пересобрать репозиторий"
+
+# type: SH
+#: apt-build.1:58
+#, no-wrap
+msgid "OPTIONS"
+msgstr "ПАРАМЕТРЫ"
+
+# type: TP
+#: apt-build.1:59
+#, no-wrap
+msgid "B<--help\\ >"
+msgstr "B<--help\\ >"
+
+# type: Plain text
+#: apt-build.1:62
+msgid "Shows help"
+msgstr "Показать помощь"
+
+# type: TP
+#: apt-build.1:62
+#, no-wrap
+msgid "B<--nowrapper>"
+msgstr "B<--nowrapper>"
+
+# type: Plain text
+#: apt-build.1:65
+msgid "Do not use the gcc wrapper"
+msgstr "Не использовать обёртку gcc"
+
+# type: TP
+#: apt-build.1:65
+#, no-wrap
+msgid "B<--remove-builddep>"
+msgstr "B<--remove-builddep>"
+
+# type: Plain text
+#: apt-build.1:68
+msgid "Remove build-dependencies installed by apt-build"
+msgstr "Удалить пакеты из build-dependencies, которые установил apt-build"
+
+# type: TP
+#: apt-build.1:68
+#, no-wrap
+msgid "B<--no-source>"
+msgstr "B<--no-source>"
+
+# type: Plain text
+#: apt-build.1:71
+msgid "Don't download source"
+msgstr "Не загружать исходные тексты"
+
+# type: TP
+#: apt-build.1:71
+#, no-wrap
+msgid "B<--build-dir>"
+msgstr "B<--build-dir>"
+
+# type: Plain text
+#: apt-build.1:74
+msgid "Specify build-dir"
+msgstr "Указать каталог сборки"
+
+# type: TP
+#: apt-build.1:74
+#, no-wrap
+msgid "B<--build-only>"
+msgstr "B<--build-only>"
+
+# type: Plain text
+#: apt-build.1:77
+msgid "Build package only"
+msgstr "Выполнить только сборку пакета"
+
+# type: TP
+#: apt-build.1:77
+#, no-wrap
+msgid "B<--rebuild>"
+msgstr "B<--rebuild>"
+
+# type: Plain text
+#: apt-build.1:80
+msgid "Rebuild a package"
+msgstr "Пересобрать пакет"
+
+# type: TP
+#: apt-build.1:80
+#, no-wrap
+msgid "B<--reinstall>"
+msgstr "B<--reinstall>"
+
+# type: Plain text
+#: apt-build.1:83
+msgid "Build and install an already installed package"
+msgstr "Собрать и установить уже установленный пакет"
+
+# type: TP
+#: apt-build.1:83
+#, no-wrap
+msgid "B<--build-command> E<lt>I<command>E<gt>"
+msgstr "B<--build-command> E<lt>I<команда>E<gt>"
+
+# type: Plain text
+#: apt-build.1:86
+msgid "Use this command to build package"
+msgstr "Использовать эту команду для сборки пакета"
+
+# type: TP
+#: apt-build.1:86
+#, no-wrap
+msgid "B<--patch> E<lt>I<file>E<gt>"
+msgstr "B<--patch> E<lt>I<файл>E<gt>"
+
+# type: Plain text
+#: apt-build.1:89
+msgid "Apply this patch before build (you can use this option one or several times)"
+msgstr "Применить данный патч перед сборкой (этот параметр можно указать несколько раз)"
+
+# type: TP
+#: apt-build.1:89
+#, no-wrap
+msgid "B<--patch-strip>, B<-p> E<lt>I<number>E<gt>"
+msgstr "B<--patch-strip>, B<-p> E<lt>I<номер>E<gt>"
+
+# type: Plain text
+#: apt-build.1:92
+msgid "Prefix to strip on patch (0 = -p0, 1 = -p1 ...)"
+msgstr "Префикс для команды patch (0 = -p0, 1 = -p1 ...)"
+
+# type: TP
+#: apt-build.1:92
+#, no-wrap
+msgid "B<--yes>, B<-y>"
+msgstr "B<--yes>, B<-y>"
+
+# type: Plain text
+#: apt-build.1:95
+msgid "Assume yes"
+msgstr "Автоответ yes"
+
+# type: TP
+#: apt-build.1:95
+#, no-wrap
+msgid "B<--purge>"
+msgstr "B<--purge>"
+
+# type: Plain text
+#: apt-build.1:98
+msgid "Use purge instead of remove"
+msgstr "Выполнять вычистку вместо удаления"
+
+# type: TP
+#: apt-build.1:98
+#, no-wrap
+msgid "B<--noupdate>"
+msgstr "B<--noupdate>"
+
+# type: Plain text
+#: apt-build.1:101
+msgid "Do not run 'apt-get update' before package installation"
+msgstr "Не запускать 'apt-get update' перед установкой пакета"
+
+# type: TP
+#: apt-build.1:101
+#, no-wrap
+msgid "B<--sources-list>"
+msgstr "B<--sources-list>"
+
+# type: Plain text
+#: apt-build.1:106
+msgid "Specify I<sources.list> file"
+msgstr "Указать файл I<sources.list>"
+
+# type: TP
+#: apt-build.1:106
+#, no-wrap
+msgid "B<--apt-get>"
+msgstr "B<--apt-get>"
+
+# type: Plain text
+#: apt-build.1:111
+msgid "Specify an alternative I<apt-get> command"
+msgstr "Задать команду вместо I<apt-get>"
+
+# type: TP
+#: apt-build.1:111
+#, no-wrap
+msgid "B<--apt-cache>"
+msgstr "B<--apt-cache>"
+
+# type: Plain text
+#: apt-build.1:116
+msgid "Specify an alternative I<apt-cache> command"
+msgstr "Задать команду вместо I<apt-cache>"
+
+# type: TP
+#: apt-build.1:116
+#, no-wrap
+msgid "B<--config>"
+msgstr "B<--config>"
+
+# type: Plain text
+#: apt-build.1:119
+msgid "Specify an alternative configuration file"
+msgstr "Задать альтернативный файл конфигурации"
+
+# type: TP
+#: apt-build.1:119
+#, no-wrap
+msgid "B<--version>,\\ -v"
+msgstr "B<--version>,\\ -v"
+
+# type: Plain text
+#: apt-build.1:122
+msgid "Show version"
+msgstr "Показать версию"
+
+# type: SH
+#: apt-build.1:122
+#, no-wrap
+msgid "BUGS"
+msgstr "БАГИ"
+
+# type: Plain text
+#: apt-build.1:124
+msgid "Many."
+msgstr "Много."
+
+# type: SH
+#: apt-build.1:126
+#, no-wrap
+msgid "AUTHOR"
+msgstr "АВТОР"
+
+# type: Plain text
+#: apt-build.1:129
+msgid ""
+"B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with "
+"many contributors."
+msgstr ""
+"B<apt-build> написан Julien Danjou E<lt>acid@debian.orgE<gt> "
+"и другими."
+

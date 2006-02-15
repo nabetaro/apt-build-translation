@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# debconf lib
+. /usr/share/debconf/confmodule
+
+db_input medium apt-build/build_dir
+db_go
+#db_get apt-build/build_dir
+
+db_input medium apt-build/repository_dir
+db_go
+#db_get apt-build/repository_dir
+
+db_input critical apt-build/olevel
+db_go
+#db_get apt-build/olevel
+
+db_get apt-build/repository_dir
+db_subst apt-build/add_to_sourceslist repo $RET
+db_input critical apt-build/add_to_sourceslist
+db_go
+#db_get apt-build/add_to_sourceslist
+
+
+db_input medium apt-build/options
+db_go
+#db_get apt-build/options
+
+db_input medium apt-build/make_options
+db_go
+#db_get apt-build/options

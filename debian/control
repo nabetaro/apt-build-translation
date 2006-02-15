@@ -1,0 +1,16 @@
+Source: apt-build
+Section: devel
+Priority: optional
+Maintainer: Julien Danjou <acid@debian.org>
+Build-Depends: debhelper (>> 3.0.0), po4a
+Standards-Version: 3.6.2.1
+
+Package: apt-build
+Architecture: any
+Depends: ${perl:Depends}, apt (>= 0.5), gcc, g++, dpkg-dev (>= 1.9), libappconfig-perl (>= 1.5), libapt-pkg-perl (>= 0.1.11), debconf | debconf-2.0, devscripts, apt-utils
+Recommends: fakeroot, build-essential
+Conflicts: pentium-builder
+Description: frontend to apt to build, optimize and install packages
+ This is an apt-get front-end for compiling software optimized
+ for your architecture by creating a local repository with built packages.
+ It can manage system upgrades too.
