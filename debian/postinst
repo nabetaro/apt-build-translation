@@ -7,6 +7,8 @@ CONFFILE="/etc/apt/apt-build.conf"
 
 find_arch()
 {
+    # We need to set RET empty in case of /proc/cpuinfo is missing
+    RET=
     case "`dpkg-architecture -qDEB_HOST_ARCH`" in
 	i[3-9]86|x86|x86pc|k5|k6|k6-2|k6-3|pentium*|athlon*|i586-i686)
 		if [ -r /proc/cpuinfo ]; then
@@ -44,7 +46,6 @@ find_arch()
 		db_go
 		db_get apt-build/arch_amd64
 		;;
-   esac
    arch="$RET"
 }
 
