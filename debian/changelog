@@ -1,3 +1,9 @@
+apt-build (0.12.18) UNRELEASED; urgency=low
+
+  * Fix a bug with /proc/cpuinfo missing
+
+ -- Julien Danjou <acid@debian.org>  Fri, 28 Apr 2006 18:12:06 +0200
+
 apt-build (0.12.17) unstable; urgency=low
 
   * Fix a bug in the PATH filter (Closes: #328170)
