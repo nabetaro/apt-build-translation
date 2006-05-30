@@ -434,7 +434,7 @@ sub get_pkg_version
     my $pkg_version;
 
     # Look for candidate version
-    open APTCIN, "LANG=C " . $conf->apt_cache . " policy $pkg_name |";
+    open APTCIN, "LANGUAGE=C " . $conf->apt_cache . " policy $pkg_name |";
     while(<APTCIN>)
     { $pkg_version = $1 if(/^\s+Candidate: (.*)$/); }
     close(APTCIN);
