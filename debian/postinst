@@ -46,6 +46,7 @@ find_arch()
 		db_go
 		db_get apt-build/arch_amd64
 		;;
+   esac
    arch="$RET"
 }
 
