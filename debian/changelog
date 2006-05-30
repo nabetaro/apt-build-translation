@@ -1,8 +1,9 @@
 apt-build (0.12.18) UNRELEASED; urgency=low
 
-  * Fix a bug with /proc/cpuinfo missing
+  * Fix a bug with /proc/cpuinfo missing (Closes: #296320)
+  * Fix a bug with LANG= for apt-cache (Thanks Pierre Habouzit)
 
- -- Julien Danjou <acid@debian.org>  Fri, 28 Apr 2006 18:12:06 +0200
+ -- Julien Danjou <acid@debian.org>  Sat, 29 Apr 2006 15:12:44 +0200
 
 apt-build (0.12.17) unstable; urgency=low
 
