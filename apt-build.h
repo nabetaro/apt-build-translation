@@ -5,6 +5,7 @@
 
 #define MAKE_ARGC 0
 #define GCC_ARGC 2
+#define MAX_ARGC (MAKE_ARGC > GCC_ARGC ? MAKE_ARGC : GCC_ARGC)
 
 #define BUF_SIZE 1024
 

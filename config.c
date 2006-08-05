@@ -97,7 +97,7 @@ parse_conf (unsigned int argc, char **argv)
 
   /* Build the new command line */
   cmd_line_args =
-    (char **) malloc (sizeof (char *) * (argc + (MAKE_ARGC > GCC_ARGC ? MAKE_ARGC : GCC_ARGC) + 1));
+    (char **) malloc (sizeof (char *) * (argc + MAX_ARGC + 1));
 
   cmd_line_args[nb_apt_build_options++] = strdup (argv[0]);
 
@@ -121,7 +121,7 @@ parse_conf (unsigned int argc, char **argv)
 	  {
 		cmd_line_args = (char **)
 	    realloc (cmd_line_args,
-		     sizeof (char *) * (argc + nb_apt_build_options + 1));
+		     sizeof (char *) * (argc + MAX_ARGC + nb_apt_build_options + 1));
 	  cmd_line_args[nb_apt_build_options++] = strdup (str);
 	  }
 	  while((str = strtok(NULL, " ")));

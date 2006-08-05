@@ -20,7 +20,7 @@ Template: apt-build/olevel
 Type: select
 _Choices: Light, Medium, Strong
 Default: Medium
-_Description: Which optimization level do you want?
+_Description: Optimization level:
  These are equivalent to -O1, -O2 and -O3. Optimization level is time
  dependant. The higher optimization level you choose, more time will be
  required for compiling, but the faster your programs will be.
@@ -30,7 +30,7 @@ Template: apt-build/arch_intel
 Type: select
 Choices: pentium, pentium-mmx, pentiumpro, pentium2, pentium3, pentium3m, pentium4, pentium4m, prescott, nocona
 Default: pentium
-_Description: What is your architecture?
+_Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
  file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
  (wishlist)
@@ -39,46 +39,41 @@ Template: apt-build/arch_amd
 Type: select
 Choices: k6, k6-2, k6-3, athlon, athlon-tbird, athlon-4, athlon-xp, athlon-mp, k8, opteron, athlon64, athlon-fx
 Default: k6
-_Description: What is your architecture?
+_Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
- file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
- (wishlist)
+ file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_amd64
 Type: select
 Choices: nocona, k8, opteron, athlon64, athlon-fx
 Default: x86-64
-_Description: What is your architecture?
+_Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
- file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
- (wishlist)
+ file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_sparc
 Type: select
 Choices: v7, v8, sparclite, sparclet, v9
 Default: sparc
-_Description: What is your architecture?
+_Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
- file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
- (wishlist)
+ file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_arm
 Type: select
 Choices: armv2, armv2a, armv3, armv3m, armv4, armv4t, armv5, armv5t, armv5te
 Default: armv2
-_Description: What is your architecture?
+_Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
- file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
- (wishlist)
+ file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_alpha
 Type: select
 Choices: ev4, ev5, ev56, pca56, ev6, ev67
 Default: ev4
-_Description: What is your architecture?
+_Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
- file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
- (wishlist)
+ file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/options
 Type: string
