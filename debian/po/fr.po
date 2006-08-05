@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2005-09-17 16:47+0200\n"
+"POT-Creation-Date: 2006-08-05 22:46+0200\n"
 "PO-Revision-Date: 2005-01-13 07:17+0100\n"
 "Last-Translator: Christian Perrier <bubulle@debian.org>\n"
 "Language-Team: Debian french translation team <debian-l10n-french@lists."
@@ -28,26 +28,26 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
 msgstr ""
 "Emplacement de téléchargement et de construction des paquets pour apt-build :"
 
 #. Type: string
 #. Description
-#: ../templates:9
+#: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
 msgstr "Emplacement où apt-build entreposera les paquets construits :"
 
 #. Type: boolean
 #. Description
-#: ../templates:14
+#: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
 msgstr "Faut-il ajouter le dépôt d'apt-build au fichier sources.list ?"
 
 #. Type: boolean
 #. Description
-#: ../templates:14
+#: ../templates:3001
 msgid ""
 "In order to install built package via APT, you must add a line like this to "
 "your sources.list:\n"
@@ -59,19 +59,20 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:21
+#: ../templates:4001
 msgid "Light, Medium, Strong"
 msgstr "Simple, Intermédiaire, Élevé"
 
 #. Type: select
 #. Description
-#: ../templates:23
-msgid "Which optimization level do you want?"
+#: ../templates:4002
+#, fuzzy
+msgid "Optimization level:"
 msgstr "Niveau d'optimisation souhaité :"
 
 #. Type: select
 #. Description
-#: ../templates:23
+#: ../templates:4002
 msgid ""
 "These are equivalent to -O1, -O2 and -O3. Optimization level is time "
 "dependant. The higher optimization level you choose, more time will be "
@@ -85,13 +86,24 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:78
-msgid "What is your architecture?"
-msgstr "Architecture matérielle :"
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
+msgid "Architecture:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../templates:5001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
@@ -100,17 +112,41 @@ msgstr ""
 "fichier de configuration (/etc/apt/apt-build.conf) à la main, et veuillez "
 "remplir un rapport de bogue (de type « wishlist »)."
 
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
+#: ../templates:10001
+#, fuzzy
+msgid ""
+"If your architecture is not here, choose one and edit your configuration "
+"file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
+msgstr ""
+"Si votre architecture n'est pas présente, choisissez-en une, modifiez votre "
+"fichier de configuration (/etc/apt/apt-build.conf) à la main, et veuillez "
+"remplir un rapport de bogue (de type « wishlist »)."
+
 #. Type: string
 #. Description
-#: ../templates:85
+#: ../templates:11001
 msgid "Options to add to gcc:"
 msgstr "Options à utiliser avec gcc :"
 
 #. Type: string
 #. Description
-#: ../templates:89
+#: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Options à utiliser avec make :"
+
+#~ msgid "What is your architecture?"
+#~ msgstr "Architecture matérielle :"
 
 #~ msgid "Where must apt-build store built packages?"
 #~ msgstr "Emplacement où apt-build entreposera les paquets construits :"

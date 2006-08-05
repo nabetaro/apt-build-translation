@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.9\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2005-09-17 16:47+0200\n"
+"POT-Creation-Date: 2006-08-05 22:46+0200\n"
 "PO-Revision-Date: 2005-06-12 12:01+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -17,25 +17,25 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
 msgstr "Thư mục mà trình apt-build dùng để tải về và xây dụng gói tin:"
 
 #. Type: string
 #. Description
-#: ../templates:9
+#: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
 msgstr "Thư mục được dùng để cất giữ các gói tin mà trình apt-build xây dụng:"
 
 #. Type: boolean
 #. Description
-#: ../templates:14
+#: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
 msgstr "Thêm kho apt-build vào sources.list (danh sách các nguồn) không?"
 
 #. Type: boolean
 #. Description
-#: ../templates:14
+#: ../templates:3001
 msgid ""
 "In order to install built package via APT, you must add a line like this to "
 "your sources.list:\n"
@@ -47,19 +47,20 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:21
+#: ../templates:4001
 msgid "Light, Medium, Strong"
 msgstr "Nhẹ, Vừa, Mạnh"
 
 #. Type: select
 #. Description
-#: ../templates:23
-msgid "Which optimization level do you want?"
+#: ../templates:4002
+#, fuzzy
+msgid "Optimization level:"
 msgstr "Bạn có muốn mức độ tối ưu hóa nào?"
 
 #. Type: select
 #. Description
-#: ../templates:23
+#: ../templates:4002
 msgid ""
 "These are equivalent to -O1, -O2 and -O3. Optimization level is time "
 "dependant. The higher optimization level you choose, more time will be "
@@ -73,13 +74,24 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:78
-msgid "What is your architecture?"
-msgstr "Bạn có kiến trúc nào?"
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
+msgid "Architecture:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../templates:5001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
@@ -88,14 +100,38 @@ msgstr ""
 "tập tin cấu hình (/etc/apt/apt-build.conf), và cũng vui lòng thông báo lỗi "
 "ấy (với loại wishlist)."
 
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
+#: ../templates:10001
+#, fuzzy
+msgid ""
+"If your architecture is not here, choose one and edit your configuration "
+"file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
+msgstr ""
+"Nếu bạn không thấy kiến trúc mình ở đây thì hãy chọn một điều và tự sửa đổi "
+"tập tin cấu hình (/etc/apt/apt-build.conf), và cũng vui lòng thông báo lỗi "
+"ấy (với loại wishlist)."
+
 #. Type: string
 #. Description
-#: ../templates:85
+#: ../templates:11001
 msgid "Options to add to gcc:"
 msgstr "Tùy chọn cần thêm vào gcc:"
 
 #. Type: string
 #. Description
-#: ../templates:89
+#: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Tùy chọn cần thêm vào make:"
+
+#~ msgid "What is your architecture?"
+#~ msgstr "Bạn có kiến trúc nào?"

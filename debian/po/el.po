@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build_0.9.1_el\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2005-09-17 16:47+0200\n"
+"POT-Creation-Date: 2006-08-05 22:46+0200\n"
 "PO-Revision-Date: 2004-02-28 19:09EEST\n"
 "Last-Translator: Nick Niktaris <niktarin@yahoo.com>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:4
+#: ../templates:1001
 #, fuzzy
 msgid "Directory used by apt-build to download and build packages:"
 msgstr ""
@@ -36,20 +36,20 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../templates:9
+#: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../templates:14
+#: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
 msgstr ""
 "Θέλετε να προστεθεί το apt-build ως καταχώρηση στο αρχείο πηγών sources.list;"
 
 #. Type: boolean
 #. Description
-#: ../templates:14
+#: ../templates:3001
 #, fuzzy
 msgid ""
 "In order to install built package via APT, you must add a line like this to "
@@ -62,19 +62,20 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../templates:21
+#: ../templates:4001
 msgid "Light, Medium, Strong"
 msgstr "Χαμηλό, Μέτριο, Υψηλό"
 
 #. Type: select
 #. Description
-#: ../templates:23
-msgid "Which optimization level do you want?"
+#: ../templates:4002
+#, fuzzy
+msgid "Optimization level:"
 msgstr "Τι επίπεδο βελτιστοποίησης θέλετε;"
 
 #. Type: select
 #. Description
-#: ../templates:23
+#: ../templates:4002
 #, fuzzy
 msgid ""
 "These are equivalent to -O1, -O2 and -O3. Optimization level is time "
@@ -90,13 +91,24 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:78
-msgid "What is your architecture?"
-msgstr "Ποια είναι η αρχιτεκτονική του υπολογιστή σας;"
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
+msgid "Architecture:"
+msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:78
+#: ../templates:5001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
@@ -105,18 +117,42 @@ msgstr ""
 "αρχείο ρυθμίσεων (/etc/apt/apt-build.conf) χειροκίνητα και σας παρακαλούμε "
 "να συμπληρώσετε μια αναφορά σφάλματος. (ως wishlist)"
 
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
+#: ../templates:10001
+#, fuzzy
+msgid ""
+"If your architecture is not here, choose one and edit your configuration "
+"file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
+msgstr ""
+"Αν η αρχιτεκτονική σας δεν εμφανίζεται, επιλέξτε μια και επεξεργαστείτε το "
+"αρχείο ρυθμίσεων (/etc/apt/apt-build.conf) χειροκίνητα και σας παρακαλούμε "
+"να συμπληρώσετε μια αναφορά σφάλματος. (ως wishlist)"
+
 #. Type: string
 #. Description
-#: ../templates:85
+#: ../templates:11001
 #, fuzzy
 msgid "Options to add to gcc:"
 msgstr "Ποιες επιλογές θέλετε να προσθέσετε στο gcc;"
 
 #. Type: string
 #. Description
-#: ../templates:89
+#: ../templates:12001
 msgid "Options to add to make:"
 msgstr ""
+
+#~ msgid "What is your architecture?"
+#~ msgstr "Ποια είναι η αρχιτεκτονική του υπολογιστή σας;"
 
 #~ msgid "Where must apt-build store built packages?"
 #~ msgstr "Πού πρέπει να αποθηκεύει το apt-build τα δημιουργημένα πακέτα;"
