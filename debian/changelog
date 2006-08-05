@@ -1,4 +1,4 @@
-apt-build (0.12.18) UNRELEASED; urgency=low
+apt-build (0.12.18) unstable; urgency=low
 
   * Fix a bug with /proc/cpuinfo missing (Closes: #296320)
   * Fix a bug with LANG= for apt-cache (Thanks Pierre Habouzit)
@@ -8,8 +8,9 @@ apt-build (0.12.18) UNRELEASED; urgency=low
   * Improve debconf templates, thanks Thomas Huriaux (Closes: #378094)
   * Fix a typo in sub source_by_source (Closes: #368651)
   * Add pentium-m in templates (Closes: #375994)
+  * Bump standards version
 
- -- Julien Danjou <acid@debian.org>  Sat,  5 Aug 2006 22:39:50 +0200
+ -- Julien Danjou <acid@debian.org>  Sat,  5 Aug 2006 22:44:23 +0200
 
 apt-build (0.12.17) unstable; urgency=low
 
