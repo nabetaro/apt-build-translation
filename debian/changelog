@@ -6,8 +6,9 @@ apt-build (0.12.18) UNRELEASED; urgency=low
   * Add patch from Emmanuel Valliet to fix a bug in wrapper realloc
     (Closes: #381605)
   * Improve debconf templates, thanks Thomas Huriaux (Closes: #378094)
+  * Fix a typo in sub source_by_source (Closes: #368651)
 
- -- Julien Danjou <acid@debian.org>  Sat,  5 Aug 2006 22:36:12 +0200
+ -- Julien Danjou <acid@debian.org>  Sat,  5 Aug 2006 22:38:37 +0200
 
 apt-build (0.12.17) unstable; urgency=low
 

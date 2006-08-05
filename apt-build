@@ -258,7 +258,7 @@ sub source_by_package
 
 sub source_by_source
 {
-	my $src_name = $_[0] or die "Missing source pakcage name for source_by_source().\n";
+	my $src_name = $_[0] or die "Missing source package name for source_by_source().\n";
 	my $src_version = $_[1] or die "Missing version information for source package $src_name in source_by_source().\n";
 
     update() if $conf->update; # to be consistent with install()
