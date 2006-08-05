@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2005-07-03 20:32+0200\n"
+"POT-Creation-Date: 2006-08-05 22:43+0200\n"
 "PO-Revision-Date: 2005-07-03 20:42+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -426,8 +426,8 @@ msgstr ""
 
 # type: TP
 #: apt-build.1:119
-#, no-wrap
-msgid "B<--version>,\\ -v"
+#, fuzzy, no-wrap
+msgid "B<--version>,B<\\ -v>"
 msgstr "B<--version>,\\ -v"
 
 # type: Plain text

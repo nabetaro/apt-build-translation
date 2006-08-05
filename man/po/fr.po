@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.9\n"
-"POT-Creation-Date: 2005-07-03 20:32+0200\n"
+"POT-Creation-Date: 2006-08-05 22:43+0200\n"
 "PO-Revision-Date: 2005-06-30 19:55+0200\n"
 "Last-Translator: Pierre Machard <pierre@machard.org>\n"
 "Language-Team: l10n-french <debian-l10n-french@lists.debian.org>\n"
@@ -426,8 +426,8 @@ msgstr "Indique un fichier de configuration alternatif"
 
 # type: TP
 #: apt-build.1:119
-#, no-wrap
-msgid "B<--version>,\\ -v"
+#, fuzzy, no-wrap
+msgid "B<--version>,B<\\ -v>"
 msgstr "B<--version>,\\ -v"
 
 # type: Plain text
