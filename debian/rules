@@ -42,6 +42,7 @@ clean:
 	dh_testroot
 	rm -f build-stamp configure-stamp
 
+	debconf-updatepo
 	# Add here commands to clean up after the build process.
 	$(MAKE) clean
 	dh_clean
