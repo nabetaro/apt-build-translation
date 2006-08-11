@@ -1,3 +1,10 @@
+apt-build (0.12.19) unstable; urgency=low
+
+  * Update it translation (Closes: #382393)
+  * Update pt translation (Closes: #329874)
+
+ -- Julien Danjou <acid@debian.org>  Fri, 11 Aug 2006 16:45:57 +0200
+
 apt-build (0.12.18) unstable; urgency=low
 
   * Fix a bug with /proc/cpuinfo missing (Closes: #296320)

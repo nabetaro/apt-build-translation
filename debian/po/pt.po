@@ -1,26 +1,26 @@
 # Portuguese translation of apt-build's debconf messages.
-# 2005, Rui Branco <ruipb@netcabo.pt>>
+# 2005, Rui Branco <ruipb@debianpt.org>
+# 2005-09-26 - Rui Branco <ruipb@debianpt.org> - initial translation
+# 2006-08-07 - Rui Branco <ruipb@debianpt.org> - 2f 1u
 #
-# 2005-09-26 - Rui Branco <ruipb@netcabo.pt> - initial translation
 msgid ""
 msgstr ""
-"Project-Id-Version: apt-build 0.12.11\n"
+"Project-Id-Version: apt-build 0.12.18\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
 "POT-Creation-Date: 2006-08-05 22:46+0200\n"
-"PO-Revision-Date: 2005-09-26 18:47+0100\n"
+"PO-Revision-Date: 2006-08-07 18:05+0100\n"
 "Last-Translator: Rui Branco <ruipb@netcabo.pt>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);"
 
 #. Type: string
 #. Description
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
-msgstr ""
-"Directório utilizado pelo apt-build para download e criação dos pacotes:"
+msgstr "Directório utilizado pelo apt-build para 'download' e criação de pacotes:"
 
 #. Type: string
 #. Description
@@ -55,9 +55,8 @@ msgstr "Leve, Média, Forte"
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid "Optimization level:"
-msgstr "Que nível de optimização pretende?"
+msgstr "Nível de optimização:"
 
 #. Type: select
 #. Description
@@ -68,8 +67,8 @@ msgid ""
 "required for compiling, but the faster your programs will be. Warning: "
 "Strong optimization may lead to stability problems."
 msgstr ""
-"Estas são equivalentes a -01, -02 e -03. O nível de optimização tem "
-"consequências no tempo. Quanto maior o nível de optimização que escolher, "
+"Estas são equivalentes a -01, -02 e -03. O nível de optimização é "
+"dependente do tempo. Quanto maior o nível de optimização que escolher, "
 "maior o tempo necessário para a compilação, mas tornará os programas mais "
 "rápidos. Atenção: Optimização forte pode levar a problemas de estabilidade."
 
@@ -88,7 +87,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "Arquitectura:"
 
 #. Type: select
 #. Description
@@ -113,14 +112,13 @@ msgstr ""
 #. Description
 #: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
 #: ../templates:10001
-#, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
 msgstr ""
 "Se a sua arquitectura não estiver presente, escolha uma e edite manualmente "
 "o seu ficheiro de configuração (/etc/apt/apt-build.conf), e envie por favor "
-"um relatório de erro. (wishlist)"
+"um relatório de sugestão."
 
 #. Type: string
 #. Description
@@ -134,5 +132,6 @@ msgstr "Opções a adicionar ao gcc:"
 msgid "Options to add to make:"
 msgstr "Opções a adicionar ao make:"
 
-#~ msgid "What is your architecture?"
-#~ msgstr "Qual a arquitectura do seu sistema?"
+msgid "What is your architecture?"
+msgstr "Qual a arquitectura do seu sistema?"
+

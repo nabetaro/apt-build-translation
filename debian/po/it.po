@@ -2,14 +2,14 @@
 # Copyright (c) 2005 Software in the Public Interest
 # This file is distributed under the same license as the apt-build package.
 # Danilo Piazzalunga, 2004
-# Luca Monducci, 2005
+# Luca Monducci, 2005 - 2006
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: apt-build 0.11.8 italian debconf templates\n"
+"Project-Id-Version: apt-build 0.12.18 italian debconf templates\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
 "POT-Creation-Date: 2006-08-05 22:46+0200\n"
-"PO-Revision-Date: 2005-04-30 09:20+0200\n"
+"PO-Revision-Date: 2006-08-08 22:15+0200\n"
 "Last-Translator: Luca Monducci <luca.mo@tiscali.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Directory in cui sono salvati i pacchetti compilati da apt-build:"
 #. Description
 #: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
-msgstr "Aggiungere il repository di apt-build al file sources.list?"
+msgstr "Aggiungere il repository di apt-build in sources.list?"
 
 #. Type: boolean
 #. Description
@@ -43,7 +43,7 @@ msgid ""
 "  deb file:${repo} apt-build main"
 msgstr ""
 "Per poter installare con apt i pacchetti compilati, occorre aggiungere al "
-"file sources.list una riga simile a:\n"
+"proprio file sources.list una riga simile a:\n"
 "  deb file:${repo} apt-build main"
 
 #. Type: select
@@ -55,9 +55,8 @@ msgstr "Semplice, Intermedio, Elevato"
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid "Optimization level:"
-msgstr "Quale livello di ottimizzazione si desidera usare?"
+msgstr "Livello di ottimizzazione:"
 
 #. Type: select
 #. Description
@@ -69,7 +68,7 @@ msgid ""
 "Strong optimization may lead to stability problems."
 msgstr ""
 "Le scelte corrispondono ai livelli di ottimizzazione -O1, -O2 e -O3. Il "
-"livello di ottimizzazione ha a che fare col tempo: infatti, ad una maggiore "
+"livello di ottimizzazione è in relazione al tempo: infatti, a una maggiore "
 "ottimizzazione corrisponde un tempo di compilazione più lungo; in compenso, "
 "i programmi saranno più veloci. Attenzione: ottimizzazioni elevate possono "
 "provocare problemi di stabilità."
@@ -89,7 +88,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "Architettura:"
 
 #. Type: select
 #. Description
@@ -98,9 +97,9 @@ msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
 msgstr ""
-"Se la vostra architettura non è presente, semplicemente sceglietene una e "
-"modificate a mano il file di configurazione (/etc/apt/apt-build.conf); "
-"infine, mandate una segnalazione di bug. (wishlist)"
+"Se la propria architettura non è riportata si deve sceglierne una qualunque "
+"e modificare a mano il file di configurazione (/etc/apt/apt-build.conf); "
+"infine, inviare una segnalazione di bug (wishlist)."
 
 #. Type: select
 #. Description
@@ -114,14 +113,13 @@ msgstr ""
 #. Description
 #: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
 #: ../templates:10001
-#, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
 msgstr ""
-"Se la vostra architettura non è presente, semplicemente sceglietene una e "
-"modificate a mano il file di configurazione (/etc/apt/apt-build.conf); "
-"infine, mandate una segnalazione di bug. (wishlist)"
+"Se la propria architettura non è riportata si deve sceglierne una qualunque "
+"e modificare a mano il file di configurazione (/etc/apt/apt-build.conf); "
+"infine, inviare una segnalazione di bug (wishlist)."
 
 #. Type: string
 #. Description
@@ -134,6 +132,3 @@ msgstr "Ulteriori opzioni da passare a gcc:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Ulteriori opzioni da passare a make:"
-
-#~ msgid "What is your architecture?"
-#~ msgstr "Qual è la vostra architettura?"
