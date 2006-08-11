@@ -1,8 +1,9 @@
-apt-build (0.12.20) UNRELEASED; urgency=low
+apt-build (0.12.20) unstable; urgency=low
 
   * Update sv translation
+  * Update ru translation (Closes: #382542)
 
- -- Julien Danjou <acid@debian.org>  Fri, 11 Aug 2006 17:34:36 +0200
+ -- Julien Danjou <acid@debian.org>  Fri, 11 Aug 2006 21:52:34 +0200
 
 apt-build (0.12.19) unstable; urgency=low
 

@@ -1,3 +1,4 @@
+# translation of apt-build_0.12.19_ru.po to Russian
 # translation of ru.po to Russian
 #
 #    Translators, if you are not familiar with the PO format, gettext
@@ -10,14 +11,14 @@
 #         or http://www.debian.org/intl/l10n/po-debconf/README-trans#
 #    Developers do not need to manually edit POT or PO files.
 # Ilgiz Kalmetev <translator@ilgiz.pp.ru>, 2003.
-# Yuri Kozlov <kozlov.y@gmail.com>, 2005.
+# Yuri Kozlov <kozlov.y@gmail.com>, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
 "POT-Creation-Date: 2006-08-05 22:46+0200\n"
-"PO-Revision-Date: 2005-11-02 18:55+0400\n"
+"PO-Revision-Date: 2006-08-11 22:10+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -64,9 +65,8 @@ msgstr "Облегченная, Средняя, Усиленная"
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid "Optimization level:"
-msgstr "Задайте уровень оптимизации"
+msgstr "Уровень оптимизации:"
 
 #. Type: select
 #. Description
@@ -97,7 +97,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "Архитектура:"
 
 #. Type: select
 #. Description
@@ -122,7 +122,6 @@ msgstr ""
 #. Description
 #: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
 #: ../templates:10001
-#, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
@@ -143,5 +142,3 @@ msgstr "Дополнительные параметры для gcc:"
 msgid "Options to add to make:"
 msgstr "Дополнительные параметры для make:"
 
-#~ msgid "What is your architecture?"
-#~ msgstr "Укажите вашу архитектуру."
