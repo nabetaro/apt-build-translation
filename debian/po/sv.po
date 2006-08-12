@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.13\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-05 22:46+0200\n"
+"POT-Creation-Date: 2006-08-12 11:31+0200\n"
 "PO-Revision-Date: 2006-08-11 17:13+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -39,10 +39,12 @@ msgstr "Lägga till apt-builds förråd till sources.list?"
 #. Description
 #: ../templates:3001
 msgid ""
-"In order to install built package via APT, you must add a line like this to your sources.list:\n"
+"In order to install built package via APT, you must add a line like this to "
+"your sources.list:\n"
 "  deb file:${repo} apt-build main"
 msgstr ""
-"För att installera byggda paket via APT måste du lägga till en rad som denna till din sources.list:\n"
+"För att installera byggda paket via APT måste du lägga till en rad som denna "
+"till din sources.list:\n"
 "  deb file:${repo} apt-build main"
 
 #. Type: select
@@ -60,8 +62,16 @@ msgstr "Optimeringsnivå:"
 #. Type: select
 #. Description
 #: ../templates:4002
-msgid "These are equivalent to -O1, -O2 and -O3. Optimization level is time dependant. The higher optimization level you choose, more time will be required for compiling, but the faster your programs will be. Warning: Strong optimization may lead to stability problems."
-msgstr "Dessa motsvarar -O1, -O2 and -O3. Optimeringsnivåer är tidskrävande. Ju högre optimeringsnivå du väljer, ju mer tid går åt att kompilera men dina program kommer att köra fortare. Varning: Stark optimering kan leda till stabilitetsproblem."
+msgid ""
+"These are equivalent to -O1, -O2 and -O3. Optimization level is time "
+"dependant. The higher optimization level you choose, more time will be "
+"required for compiling, but the faster your programs will be. Warning: "
+"Strong optimization may lead to stability problems."
+msgstr ""
+"Dessa motsvarar -O1, -O2 and -O3. Optimeringsnivåer är tidskrävande. Ju "
+"högre optimeringsnivå du väljer, ju mer tid går åt att kompilera men dina "
+"program kommer att köra fortare. Varning: Stark optimering kan leda till "
+"stabilitetsproblem."
 
 #. Type: select
 #. Description
@@ -75,21 +85,13 @@ msgstr "Dessa motsvarar -O1, -O2 and -O3. Optimeringsnivåer är tidskrävande. Ju 
 #. Description
 #. Type: select
 #. Description
-#: ../templates:5001
-#: ../templates:6001
-#: ../templates:7001
-#: ../templates:8001
-#: ../templates:9001
-#: ../templates:10001
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 msgid "Architecture:"
 msgstr "Arkitektur:"
 
 #. Type: select
 #. Description
-#: ../templates:5001
-msgid "If your architecture is not here, choose one and edit your configuration file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
-msgstr "Om din arkitektur inte finns här, välj en och redigera din konfigurationsfil (/etc/apt/apt-build.conf) för hand, och skicka gärna en felrapport till oss (som wishlist)."
-
 #. Type: select
 #. Description
 #. Type: select
@@ -100,13 +102,15 @@ msgstr "Om din arkitektur inte finns här, välj en och redigera din konfiguration
 #. Description
 #. Type: select
 #. Description
-#: ../templates:6001
-#: ../templates:7001
-#: ../templates:8001
-#: ../templates:9001
-#: ../templates:10001
-msgid "If your architecture is not here, choose one and edit your configuration file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
-msgstr "Om din arkitektur inte finns med här, välj en och redigera din konfigurationsfil (/etc/apt/apt-build.conf) för hand, och skicka gärna en felrapport till oss (som wishlist)."
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
+msgid ""
+"If your architecture is not here, choose one and edit your configuration "
+"file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
+msgstr ""
+"Om din arkitektur inte finns med här, välj en och redigera din "
+"konfigurationsfil (/etc/apt/apt-build.conf) för hand, och skicka gärna en "
+"felrapport till oss (som wishlist)."
 
 #. Type: string
 #. Description
@@ -120,6 +124,14 @@ msgstr "Flaggor att skicka till gcc:"
 msgid "Options to add to make:"
 msgstr "Flaggor att skicka till make:"
 
+#~ msgid ""
+#~ "If your architecture is not here, choose one and edit your configuration "
+#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
+#~ "(wishlist)"
+#~ msgstr ""
+#~ "Om din arkitektur inte finns här, välj en och redigera din "
+#~ "konfigurationsfil (/etc/apt/apt-build.conf) för hand, och skicka gärna en "
+#~ "felrapport till oss (som wishlist)."
+
 #~ msgid "What is your architecture?"
 #~ msgstr "Vilken är din arkitektur?"
-

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build_0.9.2.3_de\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-05 22:46+0200\n"
+"POT-Creation-Date: 2006-08-12 11:31+0200\n"
 "PO-Revision-Date: 2005-01-12 22:33+0100\n"
 "Last-Translator: Erik Schanze <mail@erikschanze.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -101,16 +101,6 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../templates:5001
-msgid ""
-"If your architecture is not here, choose one and edit your configuration "
-"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
-msgstr ""
-"Wenn Ihre Rechnerarchitektur hier nicht aufgelistet ist, wählen Sie "
-"irgendeine, tragen Sie die richtige dann per Hand in die Konfigurationsdatei "
-"(/etc/apt/apt-build.conf) ein und schreiben Sie bitte einen Fehlerbericht "
-"(wishlist)."
-
 #. Type: select
 #. Description
 #. Type: select
@@ -121,8 +111,8 @@ msgstr ""
 #. Description
 #. Type: select
 #. Description
-#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
-#: ../templates:10001
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 #, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
@@ -144,6 +134,16 @@ msgstr "Zusätzliche Optionen für gcc:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Zusätzliche Optionen für make:"
+
+#~ msgid ""
+#~ "If your architecture is not here, choose one and edit your configuration "
+#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
+#~ "(wishlist)"
+#~ msgstr ""
+#~ "Wenn Ihre Rechnerarchitektur hier nicht aufgelistet ist, wählen Sie "
+#~ "irgendeine, tragen Sie die richtige dann per Hand in die "
+#~ "Konfigurationsdatei (/etc/apt/apt-build.conf) ein und schreiben Sie bitte "
+#~ "einen Fehlerbericht (wishlist)."
 
 #~ msgid "What is your architecture?"
 #~ msgstr "Welche Rechnerarchitektur haben Sie?"

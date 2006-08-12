@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-05 22:46+0200\n"
+"POT-Creation-Date: 2006-08-12 11:31+0200\n"
 "PO-Revision-Date: 2006-08-11 22:10+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -101,15 +101,6 @@ msgstr "Архитектура:"
 
 #. Type: select
 #. Description
-#: ../templates:5001
-msgid ""
-"If your architecture is not here, choose one and edit your configuration "
-"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
-msgstr ""
-"Если вашей архитектуры здесь нет, выберите любую и отредактируйте файл "
-"настроек(/etc/apt/apt-build.conf) вручную, и пришлите, пожалуйста, сообщение "
-"об ошибке (в список пожеланий)."
-
 #. Type: select
 #. Description
 #. Type: select
@@ -120,8 +111,8 @@ msgstr ""
 #. Description
 #. Type: select
 #. Description
-#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
-#: ../templates:10001
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
@@ -142,3 +133,11 @@ msgstr "Дополнительные параметры для gcc:"
 msgid "Options to add to make:"
 msgstr "Дополнительные параметры для make:"
 
+#~ msgid ""
+#~ "If your architecture is not here, choose one and edit your configuration "
+#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
+#~ "(wishlist)"
+#~ msgstr ""
+#~ "Если вашей архитектуры здесь нет, выберите любую и отредактируйте файл "
+#~ "настроек(/etc/apt/apt-build.conf) вручную, и пришлите, пожалуйста, "
+#~ "сообщение об ошибке (в список пожеланий)."

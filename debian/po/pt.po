@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.18\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-05 22:46+0200\n"
+"POT-Creation-Date: 2006-08-12 11:31+0200\n"
 "PO-Revision-Date: 2006-08-07 18:05+0100\n"
 "Last-Translator: Rui Branco <ruipb@netcabo.pt>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -92,15 +92,6 @@ msgstr "Arquitectura:"
 
 #. Type: select
 #. Description
-#: ../templates:5001
-msgid ""
-"If your architecture is not here, choose one and edit your configuration "
-"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
-msgstr ""
-"Se a sua arquitectura não estiver presente, escolha uma e edite manualmente "
-"o seu ficheiro de configuração (/etc/apt/apt-build.conf), e envie por favor "
-"um relatório de erro. (wishlist)"
-
 #. Type: select
 #. Description
 #. Type: select
@@ -111,8 +102,8 @@ msgstr ""
 #. Description
 #. Type: select
 #. Description
-#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
-#: ../templates:10001
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
@@ -132,6 +123,15 @@ msgstr "Opções a adicionar ao gcc:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Opções a adicionar ao make:"
+
+#~ msgid ""
+#~ "If your architecture is not here, choose one and edit your configuration "
+#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
+#~ "(wishlist)"
+#~ msgstr ""
+#~ "Se a sua arquitectura não estiver presente, escolha uma e edite "
+#~ "manualmente o seu ficheiro de configuração (/etc/apt/apt-build.conf), e "
+#~ "envie por favor um relatório de erro. (wishlist)"
 
 #~ msgid "What is your architecture?"
 #~ msgstr "Qual a arquitectura do seu sistema?"

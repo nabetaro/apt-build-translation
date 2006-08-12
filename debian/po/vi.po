@@ -3,10 +3,10 @@
 # Clytie Siddall <clytie@riverland.net.au>, 2005.
 # 
 msgid ""
-""
-msgstr "Project-Id-Version: apt-build 0.12.19\n"
+msgstr ""
+"Project-Id-Version: apt-build 0.12.19\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-05 22:46+0200\n"
+"POT-Creation-Date: 2006-08-12 11:31+0200\n"
 "PO-Revision-Date: 2006-08-12 14:08+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -16,117 +16,121 @@ msgstr "Project-Id-Version: apt-build 0.12.19\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: LocFactoryEditor 1.6fc1\n"
 
-#.Type: string
-#.Description
+#. Type: string
+#. Description
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
 msgstr "Thư mục được apt-build dùng để tải về và xây dựng gói:"
 
-#.Type: string
-#.Description
+#. Type: string
+#. Description
 #: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
 msgstr "Thư mục được dùng để cất giữ gói được apt-build xây dựng:"
 
-#.Type: boolean
-#.Description
+#. Type: boolean
+#. Description
 #: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
 msgstr "Thêm kho apt-build vào sources.list (danh sách các nguồn) không?"
 
-#.Type: boolean
-#.Description
+#. Type: boolean
+#. Description
 #: ../templates:3001
 msgid ""
 "In order to install built package via APT, you must add a line like this to "
 "your sources.list:\n"
 "  deb file:${repo} apt-build main"
-msgstr "Để cài đặt gói đã xây dựng bằng APT, bạn phải thêm một dòng như điều "
-"này vào tập tin sources.list (danh sách các nguồn):\n"
+msgstr ""
+"Để cài đặt gói đã xây dựng bằng APT, bạn phải thêm một dòng như điều này vào "
+"tập tin sources.list (danh sách các nguồn):\n"
 "  deb file:${repo} apt-build main"
 
-#.Type: select
-#.Choices
+#. Type: select
+#. Choices
 #: ../templates:4001
 msgid "Light, Medium, Strong"
 msgstr "Nhẹ, Vừa, Mạnh"
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:4002
 msgid "Optimization level:"
 msgstr "Cấp tối ưu hóa:"
 
-#.Type: select
-#.Description
+#. Type: select
+#. Description
 #: ../templates:4002
 msgid ""
 "These are equivalent to -O1, -O2 and -O3. Optimization level is time "
 "dependant. The higher optimization level you choose, more time will be "
 "required for compiling, but the faster your programs will be. Warning: "
 "Strong optimization may lead to stability problems."
-msgstr "Ba cấp này bằng -O1, -O2 và -O3. Cấp tối ưu hoá phụ thuộc vào thời gian. Càng cao cấp tối ưu hoá được chọn, càng lâu cần thiết để biên dịch, còn càng nhanh chương trình sẽ chạy. Cảnh giác: sự tối ưu hoá mạnh có thể gây ra vấn đề ổn định."
+msgstr ""
+"Ba cấp này bằng -O1, -O2 và -O3. Cấp tối ưu hoá phụ thuộc vào thời gian. "
+"Càng cao cấp tối ưu hoá được chọn, càng lâu cần thiết để biên dịch, còn càng "
+"nhanh chương trình sẽ chạy. Cảnh giác: sự tối ưu hoá mạnh có thể gây ra vấn "
+"đề ổn định."
 
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#: ../templates:5001
-#: ../templates:6001
-#: ../templates:7001
-#: ../templates:8001
-#: ../templates:9001
-#: ../templates:10001
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 msgid "Architecture:"
 msgstr "Kiến trúc:"
 
-#.Type: select
-#.Description
-#: ../templates:5001
-msgid ""
-"If your architecture is not here, choose one and edit your configuration "
-"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
-msgstr "Nếu kiến trúc của bạn không nằm trong danh sách này, hãy chọn một điều và tự sửa đổi tập tin cấu hình (/etc/apt/apt-build.conf); cũng xin hãy thông báo lỗi đó (với kiểu wishlist)."
-
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#.Type: select
-#.Description
-#: ../templates:6001
-#: ../templates:7001
-#: ../templates:8001
-#: ../templates:9001
-#: ../templates:10001
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
-msgstr "Nếu kiến trúc của bạn không nằm trong danh sách này, hãy chọn một điều và tự sửa đổi tập tin cấu hình (/etc/apt/apt-build.conf); cũng xin hãy thông báo lỗi đó (với kiểu wishlist)."
+msgstr ""
+"Nếu kiến trúc của bạn không nằm trong danh sách này, hãy chọn một điều và tự "
+"sửa đổi tập tin cấu hình (/etc/apt/apt-build.conf); cũng xin hãy thông báo "
+"lỗi đó (với kiểu wishlist)."
 
-#.Type: string
-#.Description
+#. Type: string
+#. Description
 #: ../templates:11001
 msgid "Options to add to gcc:"
 msgstr "Tùy chọn cần thêm vào « gcc »:"
 
-#.Type: string
-#.Description
+#. Type: string
+#. Description
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Tùy chọn cần thêm vào « make »:"
+
+#~ msgid ""
+#~ "If your architecture is not here, choose one and edit your configuration "
+#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
+#~ "(wishlist)"
+#~ msgstr ""
+#~ "Nếu kiến trúc của bạn không nằm trong danh sách này, hãy chọn một điều và "
+#~ "tự sửa đổi tập tin cấu hình (/etc/apt/apt-build.conf); cũng xin hãy thông "
+#~ "báo lỗi đó (với kiểu wishlist)."
 
 #~ msgid "What is your architecture?"
 #~ msgstr "Bạn có kiến trúc nào?"

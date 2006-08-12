@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-05 22:46+0200\n"
+"POT-Creation-Date: 2006-08-12 11:31+0200\n"
 "PO-Revision-Date: 2006-08-11 23:33+0200\n"
 "Last-Translator: Miguel Gea Milvaques <xerakko@debian.org>\n"
 "Language-Team: catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -31,13 +31,15 @@ msgstr ""
 #. Description
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
-msgstr "Directori que utilitzarà apt-build per descarregar i construir els paquets:"
+msgstr ""
+"Directori que utilitzarà apt-build per descarregar i construir els paquets:"
 
 #. Type: string
 #. Description
 #: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
-msgstr "Directori utilitzat per emmagatzemar els paquets construïts per apt-build:"
+msgstr ""
+"Directori utilitzat per emmagatzemar els paquets construïts per apt-build:"
 
 #. Type: boolean
 #. Description
@@ -102,15 +104,6 @@ msgstr "Arquitectura:"
 
 #. Type: select
 #. Description
-#: ../templates:5001
-msgid ""
-"If your architecture is not here, choose one and edit your configuration "
-"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
-msgstr ""
-"Si la vostra arquitectura no és ací, escolliu una qualsevol i editeu el "
-"fitxer de configuració (/etc/apt/apt-build.conf) a ma, i reporteu l'error. "
-"(whislist)"
-
 #. Type: select
 #. Description
 #. Type: select
@@ -121,8 +114,8 @@ msgstr ""
 #. Description
 #. Type: select
 #. Description
-#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
-#: ../templates:10001
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
@@ -143,3 +136,11 @@ msgstr "Opcions per passar-li al gcc:"
 msgid "Options to add to make:"
 msgstr "Opcions per passar-li al make:"
 
+#~ msgid ""
+#~ "If your architecture is not here, choose one and edit your configuration "
+#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
+#~ "(wishlist)"
+#~ msgstr ""
+#~ "Si la vostra arquitectura no és ací, escolliu una qualsevol i editeu el "
+#~ "fitxer de configuració (/etc/apt/apt-build.conf) a ma, i reporteu "
+#~ "l'error. (whislist)"

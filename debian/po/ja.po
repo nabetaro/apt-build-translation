@@ -13,14 +13,14 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: apt-build 0.9.2.1\n"
+"Project-Id-Version: apt-build 0.12.19\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
 "POT-Creation-Date: 2006-08-05 22:46+0200\n"
-"PO-Revision-Date: 2005-01-13 18:19+0900\n"
+"PO-Revision-Date: 2006-08-12 13:51+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=EUC-JP\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Type: string
@@ -28,19 +28,19 @@ msgstr ""
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
 msgstr ""
-"apt-build ¤¬¥Ñ¥Ã¥±¡¼¥¸¤Î¥À¥¦¥ó¥í¡¼¥É¤È¥Ó¥ë¥É¤ò¹Ô¤¦¤Î¤Ë»È¤¦¥Ç¥£¥ì¥¯¥È¥ê:"
+"apt-build ãŒãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã¨ãƒ“ãƒ«ãƒ‰ã‚’è¡Œã†ã®ã«ä½¿ã†ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª:"
 
 #. Type: string
 #. Description
 #: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
-msgstr "apt-build ¤Ë¤è¤Ã¤Æ¥Ó¥ë¥É¤µ¤ì¤¿¥Ñ¥Ã¥±¡¼¥¸¤ò³ÊÇ¼¤¹¤ë¥Ç¥£¥ì¥¯¥È¥ê:"
+msgstr "apt-build ã«ã‚ˆã£ã¦ãƒ“ãƒ«ãƒ‰ã•ã‚ŒãŸãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’æ ¼ç´ã™ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª:"
 
 #. Type: boolean
 #. Description
 #: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
-msgstr "apt-build ¤Î¥ê¥İ¥¸¥È¥ê¤ò sources.list ¤ËÄÉ²Ã¤·¤Ş¤¹¤«?"
+msgstr "apt-build ã®ãƒªãƒã‚¸ãƒˆãƒªã‚’ sources.list ã«è¿½åŠ ã—ã¾ã™ã‹?"
 
 #. Type: boolean
 #. Description
@@ -50,22 +50,21 @@ msgid ""
 "your sources.list:\n"
 "  deb file:${repo} apt-build main"
 msgstr ""
-"¥Ó¥ë¥É¤·¤¿¥Ñ¥Ã¥±¡¼¥¸¤ò APT ·ĞÍ³¤Ç¥¤¥ó¥¹¥È¡¼¥ë¤¹¤ë¤¿¤á¤Ë¤Ï¡¢sources.list ¤Ë¼¡"
-"¤Î¤è¤¦¤Ê¹Ô¤òÄÉ²Ã¤¹¤ëÉ¬Í×¤¬¤¢¤ê¤Ş¤¹:\n"
+"ãƒ“ãƒ«ãƒ‰ã—ãŸãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’ APT çµŒç”±ã§ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹ãŸã‚ã«ã¯ã€sources.list ã«æ¬¡"
+"ã®ã‚ˆã†ãªè¡Œã‚’è¿½åŠ ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™:\n"
 "  deb file:${repo} apt-build main"
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Light, Medium, Strong"
-msgstr "¼å, É¸½à, ¶¯"
+msgstr "å¼±, æ¨™æº–, å¼·"
 
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid "Optimization level:"
-msgstr "¹Ô¤¤¤¿¤¤ºÇÅ¬²½¤Î¥ì¥Ù¥ë¤Ï¤É¤ì¤Ç¤¹¤«?"
+msgstr "æœ€é©åŒ–ãƒ¬ãƒ™ãƒ«:"
 
 #. Type: select
 #. Description
@@ -76,10 +75,10 @@ msgid ""
 "required for compiling, but the faster your programs will be. Warning: "
 "Strong optimization may lead to stability problems."
 msgstr ""
-"¤³¤ì¤é¤Ï -O1¡¢-O2¡¢-O3 ¤Ë¤½¤ì¤¾¤ìÁêÅö¤·¤Ş¤¹¡£ºÇÅ¬²½¥ì¥Ù¥ë¤Ï»ş´Ö¤È´Ø·¸¤·¤Ş¤¹¡£"
-"¤Ä¤Ş¤ê¡¢¹â¤¤ºÇÅ¬²½¥ì¥Ù¥ë¤òÁª¤Ö¤Û¤É¡¢¥³¥ó¥Ñ¥¤¥ë¤Ë¤Ï¤è¤êÂ¿¤¯¤Î»ş´Ö¤¬¤«¤«¤ê¤Ş¤¹"
-"¤¬¡¢¥×¥í¥°¥é¥à¤Ï¤è¤êÂ®¤¯Æ°ºî¤¹¤ë¤è¤¦¤Ë¤Ê¤ê¤Ş¤¹¡£Ãí°Õ: ¶¯¤¤ºÇÅ¬²½¤Ï°ÂÄêÀ­¤ËÌä"
-"Âê¤ò°ú¤­µ¯¤³¤¹¤«¤â¤·¤ì¤Ş¤»¤ó¡£"
+"ã“ã‚Œã‚‰ã¯ -O1ã€-O2ã€-O3 ã«ãã‚Œãã‚Œç›¸å½“ã—ã¾ã™ã€‚æœ€é©åŒ–ãƒ¬ãƒ™ãƒ«ã¯æ™‚é–“ã¨é–¢ä¿‚ã—ã¾ã™ã€‚"
+"ã¤ã¾ã‚Šã€é«˜ã„æœ€é©åŒ–ãƒ¬ãƒ™ãƒ«ã‚’é¸ã¶ã»ã©ã€ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã«ã¯ã‚ˆã‚Šå¤šãã®æ™‚é–“ãŒã‹ã‹ã‚Šã¾ã™"
+"ãŒã€ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯ã‚ˆã‚Šé€Ÿãå‹•ä½œã™ã‚‹ã‚ˆã†ã«ãªã‚Šã¾ã™ã€‚æ³¨æ„: å¼·ã„æœ€é©åŒ–ã¯å®‰å®šæ€§ã«å•"
+"é¡Œã‚’å¼•ãèµ·ã“ã™ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ã€‚"
 
 #. Type: select
 #. Description
@@ -96,7 +95,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£:"
 
 #. Type: select
 #. Description
@@ -105,9 +104,9 @@ msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
 msgstr ""
-"¤ª»È¤¤¤Î¥¢¡¼¥­¥Æ¥¯¥Á¥ã¤¬¤³¤³¤Ë¤Ê¤¤¾ì¹ç¡¢¤È¤ê¤¢¤¨¤º¤É¤ì¤« 1 ¤Ä¤òÁª¤Ó¡¢ÀßÄê¥Õ¥¡"
-"¥¤¥ë (/etc/apt/apt-build.conf) ¤ò¼ê¤ÇÊÔ½¸¤·¤Æ¤¯¤À¤µ¤¤¡£¤½¤ì¤«¤é¡¢wishlist ¤È"
-"¤·¤Æ¥Ğ¥°Êó¹ğ¤ò¤·¤Æ¤¯¤À¤µ¤¤¡£"
+"ãŠä½¿ã„ã®ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ãŒã“ã“ã«ãªã„å ´åˆã€ã¨ã‚Šã‚ãˆãšã©ã‚Œã‹ 1 ã¤ã‚’é¸ã³ã€è¨­å®šãƒ•ã‚¡"
+"ã‚¤ãƒ« (/etc/apt/apt-build.conf) ã‚’æ‰‹ã§ç·¨é›†ã—ã¦ãã ã•ã„ã€‚ãã‚Œã‹ã‚‰ã€wishlist ã¨"
+"ã—ã¦ãƒã‚°å ±å‘Šã‚’ã—ã¦ãã ã•ã„ã€‚"
 
 #. Type: select
 #. Description
@@ -121,29 +120,19 @@ msgstr ""
 #. Description
 #: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
 #: ../templates:10001
-#, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
-msgstr ""
-"¤ª»È¤¤¤Î¥¢¡¼¥­¥Æ¥¯¥Á¥ã¤¬¤³¤³¤Ë¤Ê¤¤¾ì¹ç¡¢¤È¤ê¤¢¤¨¤º¤É¤ì¤« 1 ¤Ä¤òÁª¤Ó¡¢ÀßÄê¥Õ¥¡"
-"¥¤¥ë (/etc/apt/apt-build.conf) ¤ò¼ê¤ÇÊÔ½¸¤·¤Æ¤¯¤À¤µ¤¤¡£¤½¤ì¤«¤é¡¢wishlist ¤È"
-"¤·¤Æ¥Ğ¥°Êó¹ğ¤ò¤·¤Æ¤¯¤À¤µ¤¤¡£"
+msgstr "ãŠä½¿ã„ã®ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ãŒã“ã“ã«ãªã„å ´åˆã€ã¨ã‚Šã‚ãˆãšã©ã‚Œã‹ 1 ã¤ã‚’é¸ã³ã€è¨­å®šãƒ•ã‚¡ã‚¤ãƒ« (/etc/apt/apt-build.conf) ã‚’æ‰‹ã§ç·¨é›†ã—ã¦ãã ã•ã„ã€‚ãã‚Œã‹ã‚‰ã€wishlist ã¨ã—ã¦ãƒã‚°å ±å‘Šã‚’ã—ã¦ãã ã•ã„ã€‚"
 
 #. Type: string
 #. Description
 #: ../templates:11001
 msgid "Options to add to gcc:"
-msgstr "gcc ¤ËÉÕ²Ã¤·¤¿¤¤¥ª¥×¥·¥ç¥ó:"
+msgstr "gcc ã«ä»˜åŠ ã—ãŸã„ã‚ªãƒ—ã‚·ãƒ§ãƒ³:"
 
 #. Type: string
 #. Description
 #: ../templates:12001
 msgid "Options to add to make:"
-msgstr "make ¤ËÉÕ²Ã¤·¤¿¤¤¥ª¥×¥·¥ç¥ó:"
-
-#~ msgid "What is your architecture?"
-#~ msgstr "¤ª»È¤¤¤Î¥¢¡¼¥­¥Æ¥¯¥Á¥ã¤Ï²¿¤Ç¤¹¤«?"
-
-#~ msgid "Where must apt-build store built packages?"
-#~ msgstr "¥Ó¥ë¥É¤·¤¿¥Ñ¥Ã¥±¡¼¥¸¤ò¤É¤³¤Ë³ÊÇ¼¤·¤Ş¤¹¤«?"
+msgstr "make ã«ä»˜åŠ ã—ãŸã„ã‚ªãƒ—ã‚·ãƒ§ãƒ³:"
