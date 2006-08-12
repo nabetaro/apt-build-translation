@@ -1,4 +1,4 @@
-apt-build (0.12.21) UNRELEASED; urgency=low
+apt-build (0.12.21) unstable; urgency=low
 
   * Update ca translation (Closes: #382580)
   * Update vi translation

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.19\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-05 22:46+0200\n"
+"POT-Creation-Date: 2006-08-12 11:31+0200\n"
 "PO-Revision-Date: 2006-08-12 13:51+0900\n"
 "Last-Translator: Kenshi Muto <kmuto@debian.org>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -99,31 +99,25 @@ msgstr "アーキテクチャ:"
 
 #. Type: select
 #. Description
-#: ../templates:5001
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#. Type: select
+#. Description
+#: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
+#: ../templates:9001 ../templates:10001
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
-"file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. (wishlist)"
+"file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
 msgstr ""
 "お使いのアーキテクチャがここにない場合、とりあえずどれか 1 つを選び、設定ファ"
 "イル (/etc/apt/apt-build.conf) を手で編集してください。それから、wishlist と"
 "してバグ報告をしてください。"
-
-#. Type: select
-#. Description
-#. Type: select
-#. Description
-#. Type: select
-#. Description
-#. Type: select
-#. Description
-#. Type: select
-#. Description
-#: ../templates:6001 ../templates:7001 ../templates:8001 ../templates:9001
-#: ../templates:10001
-msgid ""
-"If your architecture is not here, choose one and edit your configuration "
-"file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
-msgstr "お使いのアーキテクチャがここにない場合、とりあえずどれか 1 つを選び、設定ファイル (/etc/apt/apt-build.conf) を手で編集してください。それから、wishlist としてバグ報告をしてください。"
 
 #. Type: string
 #. Description
@@ -136,3 +130,12 @@ msgstr "gcc に付加したいオプション:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "make に付加したいオプション:"
+
+#~ msgid ""
+#~ "If your architecture is not here, choose one and edit your configuration "
+#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
+#~ "(wishlist)"
+#~ msgstr ""
+#~ "お使いのアーキテクチャがここにない場合、とりあえずどれか 1 つを選び、設定"
+#~ "ファイル (/etc/apt/apt-build.conf) を手で編集してください。それから、"
+#~ "wishlist としてバグ報告をしてください。"
