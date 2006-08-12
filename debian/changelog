@@ -1,8 +1,10 @@
 apt-build (0.12.21) UNRELEASED; urgency=low
 
   * Update ca translation (Closes: #382580)
+  * Update vi translation
+  * Fix a string about i386 arch choices
 
- -- Julien Danjou <acid@debian.org>  Sat, 12 Aug 2006 00:18:39 +0200
+ -- Julien Danjou <acid@debian.org>  Sat, 12 Aug 2006 11:30:18 +0200
 
 apt-build (0.12.20) unstable; urgency=low
 

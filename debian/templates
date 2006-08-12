@@ -32,8 +32,7 @@ Choices: pentium, pentium-mmx, pentiumpro, pentium2, pentium3, pentium3m, pentiu
 Default: pentium
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
- file (/etc/apt/apt-build.conf) by hand, and please do a bugreport.
- (wishlist)
+ file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_amd
 Type: select
