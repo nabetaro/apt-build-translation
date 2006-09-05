@@ -17,12 +17,11 @@ msgstr ""
 "Project-Id-Version: apt-build\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
 "POT-Creation-Date: 2006-08-12 11:31+0200\n"
-"PO-Revision-Date: 2005-01-13 07:17+0100\n"
-"Last-Translator: Christian Perrier <bubulle@debian.org>\n"
-"Language-Team: Debian french translation team <debian-l10n-french@lists."
-"debian.org>\n"
+"PO-Revision-Date: 2006-08-15 14:12+0200\n"
+"Last-Translator: Thomas Huriaux <thomas.huriaux@gmail.com>\n"
+"Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
@@ -30,8 +29,7 @@ msgstr ""
 #. Description
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
-msgstr ""
-"Emplacement de téléchargement et de construction des paquets pour apt-build :"
+msgstr "Emplacement où apt-build téléchargera et construira les paquets :"
 
 #. Type: string
 #. Description
@@ -66,9 +64,8 @@ msgstr "Simple, Intermédiaire, Élevé"
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid "Optimization level:"
-msgstr "Niveau d'optimisation souhaité :"
+msgstr "Niveau d'optimisation :"
 
 #. Type: select
 #. Description
@@ -99,7 +96,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "Architecture :"
 
 #. Type: select
 #. Description
@@ -115,14 +112,13 @@ msgstr ""
 #. Description
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
-#, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
 msgstr ""
-"Si votre architecture n'est pas présente, choisissez-en une, modifiez votre "
-"fichier de configuration (/etc/apt/apt-build.conf) à la main, et veuillez "
-"remplir un rapport de bogue (de type « wishlist »)."
+"Si votre architecture n'est pas présente, choisissez-en une, puis modifiez "
+"le fichier de configuration (/etc/apt/apt-build.conf) vous-même, et "
+"remplissez un rapport de bogue (de sévérité « wishlist »)."
 
 #. Type: string
 #. Description
@@ -135,18 +131,3 @@ msgstr "Options à utiliser avec gcc :"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Options à utiliser avec make :"
-
-#~ msgid ""
-#~ "If your architecture is not here, choose one and edit your configuration "
-#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
-#~ "(wishlist)"
-#~ msgstr ""
-#~ "Si votre architecture n'est pas présente, choisissez-en une, modifiez "
-#~ "votre fichier de configuration (/etc/apt/apt-build.conf) à la main, et "
-#~ "veuillez remplir un rapport de bogue (de type « wishlist »)."
-
-#~ msgid "What is your architecture?"
-#~ msgstr "Architecture matérielle :"
-
-#~ msgid "Where must apt-build store built packages?"
-#~ msgstr "Emplacement où apt-build entreposera les paquets construits :"

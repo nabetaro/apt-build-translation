@@ -1,3 +1,12 @@
+apt-build (0.12.22) unstable; urgency=low
+
+  * Update fr translation (Closes: #384515)
+  * Update es tranlsation (Closes: #384472)
+  * Update nl translation (Closes: #383804)
+  * Add po-debconf to build-dep
+
+ -- Julien Danjou <acid@debian.org>  Tue,  5 Sep 2006 10:40:50 +0200
+
 apt-build (0.12.21) unstable; urgency=low
 
   * Update ca translation (Closes: #382580)
