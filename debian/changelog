@@ -1,5 +1,7 @@
 apt-build (0.12.23) UNRELEASED; urgency=low
 
+  * Apply patch from "C. Hangelog" <changelog@verbena.co.uk> to fix a
+    bug with +bX version numbers (Closes: #332594)
   * Update fr translation (Closes: #389271)
 
  -- Julien Danjou <acid@debian.org>  Wed, 27 Sep 2006 11:12:57 +0200

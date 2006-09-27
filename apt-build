@@ -473,6 +473,11 @@ sub install
 	$src_version = &get_src_version($pkg_name, $pkg_version);
 	$src_name = &get_src_name($pkg_name, $src_version);
 
+	if (!$src_name && $src_version =~ /\+/) {
+		$src_version =~ s/\+.*$//;
+		$src_name = &get_src_name($pkg_name, $src_version);
+	}
+
 	die "Unable to find binary candidate for $pkg_name" unless ($pkg_version);
 	die "Unable to find source information for $pkg_name" unless ($src_version && $src_name);
 	
