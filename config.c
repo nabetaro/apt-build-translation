@@ -162,7 +162,6 @@ filterout_libdir_path (void)
   if (path)
   {
     libdir = strstr (path, LIBDIR);
-    len = strlen(LIBDIR);
     if (libdir)
       setenv ("PATH", libdir + strlen (LIBDIR) + 1, 1);
   }
