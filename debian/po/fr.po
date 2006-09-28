@@ -1,34 +1,47 @@
-# Translation of apt-build manpage
-# 
+# translation of fr.po to French
+#
+#
+#
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#    Developers do not need to manually edit POT or PO files.
 msgid ""
 msgstr ""
-"Project-Id-Version: apt-build 0.12.9\n"
+"Project-Id-Version: apt-build\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
 "POT-Creation-Date: 2006-08-12 11:31+0200\n"
-"PO-Revision-Date: 2005-06-30 19:55+0200\n"
-"Last-Translator: Pierre Machard <pierre@machard.org>\n"
+"PO-Revision-Date: 2006-08-15 14:12+0200\n"
+"Last-Translator: Thomas Huriaux <thomas.huriaux@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=iso-8859-15\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #. Type: string
 #. Description
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
-msgstr ""
+msgstr "Emplacement où apt-build téléchargera et construira les paquets :"
 
 #. Type: string
 #. Description
 #: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
-msgstr ""
+msgstr "Emplacement où apt-build entreposera les paquets construits :"
 
 #. Type: boolean
 #. Description
 #: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
-msgstr ""
+msgstr "Faut-il ajouter le dépôt d'apt-build au fichier sources.list ?"
 
 #. Type: boolean
 #. Description
@@ -38,18 +51,21 @@ msgid ""
 "your sources.list:\n"
 "  deb file:${repo} apt-build main"
 msgstr ""
+"Pour qu'apt puisse installer le paquet construit, vous devez ajouter une "
+"ligne comme celle-ci dans votre fichier sources.list :\n"
+"  deb file:${repo} apt-build main"
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Light, Medium, Strong"
-msgstr ""
+msgstr "Simple, Intermédiaire, Élevé"
 
 #. Type: select
 #. Description
 #: ../templates:4002
 msgid "Optimization level:"
-msgstr ""
+msgstr "Niveau d'optimisation :"
 
 #. Type: select
 #. Description
@@ -60,6 +76,10 @@ msgid ""
 "required for compiling, but the faster your programs will be. Warning: "
 "Strong optimization may lead to stability problems."
 msgstr ""
+"Ces niveaux d'optimisation correspondent à -O1, -O2 et -O3. L'optimisation "
+"prend du temps ; plus vous optimisez votre construction, plus longue sera la "
+"compilation, mais plus vos programmes seront rapides. Attention : "
+"l'optimisation « élevée » peut conduire à des problèmes de stabilité."
 
 #. Type: select
 #. Description
@@ -76,7 +96,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "Architecture :"
 
 #. Type: select
 #. Description
@@ -96,347 +116,18 @@ msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
 msgstr ""
+"Si votre architecture n'est pas présente, choisissez-en une, puis modifiez "
+"le fichier de configuration (/etc/apt/apt-build.conf) vous-même, et "
+"remplissez un rapport de bogue (de sévérité « wishlist »)."
 
 #. Type: string
 #. Description
 #: ../templates:11001
 msgid "Options to add to gcc:"
-msgstr ""
+msgstr "Options à utiliser avec gcc :"
 
 #. Type: string
 #. Description
 #: ../templates:12001
 msgid "Options to add to make:"
-msgstr ""
-
-# type: TH
-#~ msgid "APT-BUILD"
-#~ msgstr "APT-BUILD"
-
-# type: TH
-#~ msgid "November 2003"
-#~ msgstr "Novembre 2003"
-
-# type: TH
-#~ msgid "Debian Distribution"
-#~ msgstr "Distribution Debian"
-
-# type: SH
-#~ msgid "NAME"
-#~ msgstr "NOM"
-
-# type: Plain text
-#~ msgid ""
-#~ "apt-build - Fetch sources and build packages optimized for your "
-#~ "architecture."
-#~ msgstr ""
-#~ "apt-build - Récupérer les sources et construit des paquets optimisés pour "
-#~ "l'architecture"
-
-# type: SH
-#~ msgid "SYNOPSIS"
-#~ msgstr "SYNOPSIS"
-
-# type: Plain text
-#~ msgid ""
-#~ "B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> "
-#~ "I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
-#~ msgstr ""
-#~ "B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> "
-#~ "I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
-
-# type: SH
-#~ msgid "DESCRIPTION"
-#~ msgstr "DESCRIPTION"
-
-# type: Plain text
-#~ msgid ""
-#~ "B<apt-build> is an apt-get frontend to build and install architecture "
-#~ "optimized packages."
-#~ msgstr ""
-#~ "B<apt-build> est une interface à apt-get pour construire et installer des "
-#~ "paquets optimisés pour une architecture donnée."
-
-# type: SH
-#~ msgid "COMMANDS"
-#~ msgstr "COMMANDES"
-
-# type: TP
-#~ msgid "B<update>"
-#~ msgstr "B<update>"
-
-# type: Plain text
-#~ msgid "Retrieve new lists of packages"
-#~ msgstr "Récupère les listes de nouveaux paquets"
-
-# type: TP
-#~ msgid "B<upgrade>"
-#~ msgstr "B<upgrade>"
-
-# type: Plain text
-#~ msgid "Perform an upgrade"
-#~ msgstr "Fait une mise à niveau"
-
-# type: TP
-#~ msgid "B<world>"
-#~ msgstr "B<world>"
-
-# type: Plain text
-#~ msgid "Rebuild your system"
-#~ msgstr "Reconstruit le système"
-
-# type: TP
-#~ msgid "B<install>"
-#~ msgstr "B<install>"
-
-# type: Plain text
-#~ msgid "Build and install new packages"
-#~ msgstr "Construit et installe de nouveaux paquets"
-
-# type: TP
-#~ msgid "B<source>"
-#~ msgstr "B<source>"
-
-# type: Plain text
-#~ msgid "Download and extract source in the build directory"
-#~ msgstr ""
-#~ "Télécharge et décompacte les sources dans le répertoire de construction"
-
-# type: TP
-#~ msgid "B<info>"
-#~ msgstr "B<info>"
-
-# type: Plain text
-#~ msgid "Info on a package which could be built"
-#~ msgstr "Affiche des informations sur un paquet pouvant être construit"
-
-# type: TP
-#~ msgid "B<remove>"
-#~ msgstr "B<remove>"
-
-# type: Plain text
-#~ msgid "Remove packages"
-#~ msgstr "Enlève un paquet"
-
-# type: TP
-#~ msgid "B<clean-build>"
-#~ msgstr "B<clean-build>"
-
-# type: Plain text
-#~ msgid "Erase built packages"
-#~ msgstr "Efface les paquets qui ont été construits"
-
-# type: TP
-#~ msgid "B<clean-sources>"
-#~ msgstr "B<clean-sources>"
-
-# type: Plain text
-#~ msgid "Call debian/rules clean in source directories"
-#~ msgstr "Appelle debian/rules clean dans le répertoire des sources"
-
-# type: TP
-#~ msgid "B<build-source>"
-#~ msgstr "B<build-source>"
-
-# type: Plain text
-#~ msgid "Build source without installing them"
-#~ msgstr "Construit les sources sans les installer"
-
-# type: TP
-#~ msgid "B<update-source>"
-#~ msgstr "B<update-source>"
-
-# type: Plain text
-#~ msgid ""
-#~ "Update sources and rebuild them if they are missing in the repository"
-#~ msgstr ""
-#~ "Met à jour les sources et les reconstruit si elles sont manquantes dans "
-#~ "le dépôt"
-
-# type: TP
-#~ msgid "B<build-repository>"
-#~ msgstr "B<build-repository>"
-
-# type: Plain text
-#~ msgid "Rebuild the repository"
-#~ msgstr "Met à jour le référentiel"
-
-# type: SH
-#~ msgid "OPTIONS"
-#~ msgstr "OPTIONS"
-
-# type: TP
-#~ msgid "B<--help\\ >"
-#~ msgstr "B<--help\\ >"
-
-# type: Plain text
-#~ msgid "Shows help"
-#~ msgstr "Affiche l'aide"
-
-# type: TP
-#~ msgid "B<--nowrapper>"
-#~ msgstr "B<--nowrapper>"
-
-# type: Plain text
-#~ msgid "Do not use the gcc wrapper"
-#~ msgstr "N'utilise pas le wrapper de gcc"
-
-# type: TP
-#~ msgid "B<--remove-builddep>"
-#~ msgstr "B<--remove-builddep>"
-
-# type: Plain text
-#~ msgid "Remove build-dependencies installed by apt-build"
-#~ msgstr "Enlève les dépendances de construction installées par apt-build"
-
-# type: TP
-#~ msgid "B<--no-source>"
-#~ msgstr "B<--no-source>"
-
-# type: Plain text
-#~ msgid "Don't download source"
-#~ msgstr "Ne télécharge pas les sources"
-
-# type: TP
-#~ msgid "B<--build-dir>"
-#~ msgstr "B<--build-dir>"
-
-# type: Plain text
-#~ msgid "Specify build-dir"
-#~ msgstr "Spécifie le répertoire de construction"
-
-# type: TP
-#~ msgid "B<--build-only>"
-#~ msgstr "B<--build-only>"
-
-# type: Plain text
-#~ msgid "Build package only"
-#~ msgstr "Se contente de construire le paquet"
-
-# type: TP
-#~ msgid "B<--rebuild>"
-#~ msgstr "B<--rebuild>"
-
-# type: Plain text
-#~ msgid "Rebuild a package"
-#~ msgstr "Reconstruit un paquet"
-
-# type: TP
-#~ msgid "B<--reinstall>"
-#~ msgstr "B<--reinstall>"
-
-# type: Plain text
-#~ msgid "Build and install an already installed package"
-#~ msgstr "Construit et réinstalle un paquet déjà installé sur votre système"
-
-# type: TP
-#~ msgid "B<--build-command> E<lt>I<command>E<gt>"
-#~ msgstr "B<--build-command> E<lt>I<commande>E<gt>"
-
-# type: Plain text
-#~ msgid "Use this command to build package"
-#~ msgstr "Construit un paquet"
-
-# type: TP
-#~ msgid "B<--patch> E<lt>I<file>E<gt>"
-#~ msgstr "B<--patch> E<lt>I<fichier>E<gt>"
-
-# type: Plain text
-#~ msgid ""
-#~ "Apply this patch before build (you can use this option one or several "
-#~ "times)"
-#~ msgstr ""
-#~ "Applique une rustine avant la construction (cette option peut être "
-#~ "utilisée plusieurs fois)"
-
-# type: TP
-#~ msgid "B<--patch-strip>, B<-p> E<lt>I<number>E<gt>"
-#~ msgstr "B<--patch-strip>, B<-p> E<lt>I<nombre>E<gt>"
-
-# type: Plain text
-#~ msgid "Prefix to strip on patch (0 = -p0, 1 = -p1 ...)"
-#~ msgstr "Applique le préfixe pour la rustine (0 = -p0, 1 = -p1, ...)"
-
-# type: TP
-#~ msgid "B<--yes>, B<-y>"
-#~ msgstr "B<--yes>, B<-y>"
-
-# type: Plain text
-#~ msgid "Assume yes"
-#~ msgstr "Répond oui à toutes les questions"
-
-# type: TP
-#~ msgid "B<--purge>"
-#~ msgstr "B<--purge>"
-
-# type: Plain text
-#~ msgid "Use purge instead of remove"
-#~ msgstr "Utilise « purge » plutôt que « remove »"
-
-# type: TP
-#~ msgid "B<--noupdate>"
-#~ msgstr "B<--noupdate>"
-
-# type: Plain text
-#~ msgid "Do not run 'apt-get update' before package installation"
-#~ msgstr "N'exécute pas « apt-get update » avant l'installation du paquet"
-
-# type: TP
-#~ msgid "B<--sources-list>"
-#~ msgstr "B<--sources-list>"
-
-# type: Plain text
-#~ msgid "Specify I<sources.list> file"
-#~ msgstr "Spécifie le fichier I<sources.list>"
-
-# type: TP
-#~ msgid "B<--apt-get>"
-#~ msgstr "B<--apt-get>"
-
-# type: Plain text
-#~ msgid "Specify an alternative I<apt-get> command"
-#~ msgstr "Indique une commande alternative à I<apt-get>"
-
-# type: TP
-#~ msgid "B<--apt-cache>"
-#~ msgstr "B<--apt-cache>"
-
-# type: Plain text
-#~ msgid "Specify an alternative I<apt-cache> command"
-#~ msgstr "Indique une commande alternative à I<apt-cache>"
-
-# type: TP
-#~ msgid "B<--config>"
-#~ msgstr "B<--config>"
-
-# type: Plain text
-#~ msgid "Specify an alternative configuration file"
-#~ msgstr "Indique un fichier de configuration alternatif"
-
-# type: TP
-#~ msgid "B<--version>,B<\\ -v>"
-#~ msgstr "B<--version>, B<-v>"
-
-# type: Plain text
-#~ msgid "Show version"
-#~ msgstr "Affiche la version"
-
-# type: SH
-#~ msgid "BUGS"
-#~ msgstr "BOGUES"
-
-# type: Plain text
-#~ msgid "Many."
-#~ msgstr "Beaucoup."
-
-# type: SH
-#~ msgid "AUTHOR"
-#~ msgstr "AUTEURS"
-
-# type: Plain text
-#~ msgid ""
-#~ "B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with "
-#~ "many contributors."
-#~ msgstr ""
-#~ "B<apt-build> a été écrit par Julien Danjou E<lt>acid@debian.orgE<gt>, "
-#~ "aidé de nombreux contributeurs."
+msgstr "Options à utiliser avec make :"
