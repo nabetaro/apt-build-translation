@@ -1,3 +1,9 @@
+apt-build (0.12.24) unstable; urgency=low
+
+  * Update fr translation (Closes: #389271)
+
+ -- Julien Danjou <acid@debian.org>  Thu, 28 Sep 2006 16:38:54 +0200
+
 apt-build (0.12.23) unstable; urgency=low
 
   * Apply patch from "C. Hangelog" <changelog@verbena.co.uk> to fix a
