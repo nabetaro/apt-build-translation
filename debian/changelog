@@ -1,3 +1,9 @@
+apt-build (0.12.26) unstable; urgency=low
+
+  * Fix a typo in README (Closes: #389863)
+
+ -- Julien Danjou <acid@debian.org>  Fri, 12 Jan 2007 09:03:19 +0100
+
 apt-build (0.12.25) unstable; urgency=medium
 
   * Update de debconf translation

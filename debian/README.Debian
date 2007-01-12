@@ -17,7 +17,7 @@ WARNING:
    you may add the following entry in the `/etc/apt/preferences' file:
 
 Package: *
-Pin: release a=apt-build
+Pin: release o=apt-build
 Pin-Priority: 800
 
 ----------------------------------------------------------------------
