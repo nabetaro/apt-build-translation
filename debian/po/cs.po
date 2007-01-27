@@ -16,30 +16,30 @@ msgstr ""
 "Project-Id-Version: apt-build\n"
 "Report-Msgid-Bugs-To: acid@debian.org\n"
 "POT-Creation-Date: 2006-08-12 11:31+0200\n"
-"PO-Revision-Date: 2005-01-15 16:12+0100\n"
+"PO-Revision-Date: 2007-01-27 12:31+0100\n"
 "Last-Translator: Jan Outrata <outrataj@upcase.inf.upol.cz>\n"
-"Language-Team: Czech <provoz@debian.cz>\n"
+"Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-2\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Type: string
 #. Description
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
-msgstr "Adresáø pou¾ívanı apt-buildem pro stahování a sestavování balíèkù?"
+msgstr "AdresÃ¡Å™ pouÅ¾Ã­vanÃ½ apt-buildem pro stahovÃ¡nÃ­ a sestavovÃ¡nÃ­ balÃ­kÅ¯:"
 
 #. Type: string
 #. Description
 #: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
-msgstr "Adresáø pro ukládání balíèkù sestavenıch apt-buildem:"
+msgstr "AdresÃ¡Å™ pro uklÃ¡dÃ¡nÃ­ balÃ­kÅ¯ sestavenÃ½ch apt-buildem:"
 
 #. Type: boolean
 #. Description
 #: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
-msgstr "Pøidat repozitáø apt-build do sources.list?"
+msgstr "PÅ™idat repositÃ¡Å™ apt-build do sources.list?"
 
 #. Type: boolean
 #. Description
@@ -49,22 +49,21 @@ msgid ""
 "your sources.list:\n"
 "  deb file:${repo} apt-build main"
 msgstr ""
-"Aby bylo mo¾né instalovat sestavené balíèky pomocí APT, musíte pøidat "
-"podobnı øádek do sources.list:\n"
+"Aby bylo moÅ¾nÃ© instalovat sestavenÃ© balÃ­ky pomocÃ­ APT, musÃ­te do sources.list "
+"pÅ™idat Å™Ã¡dek podobnÃ½ tomuto:\n"
 "  deb file:${repo} apt-build main"
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Light, Medium, Strong"
-msgstr "Lehká, Støední, Silná"
+msgstr "LehkÃ¡, StÅ™ednÃ­, SilnÃ¡"
 
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid "Optimization level:"
-msgstr "Jakou chcete úroveò optimalizace?"
+msgstr "ÃšroveÅˆ optimalizace:"
 
 #. Type: select
 #. Description
@@ -75,10 +74,10 @@ msgid ""
 "required for compiling, but the faster your programs will be. Warning: "
 "Strong optimization may lead to stability problems."
 msgstr ""
-"Tyto jsou ekvivalentní s -O1, -O2 a -O3. Úroveò optimalizace je èasovì "
-"závislá. Èím vy¹¹í úroveò optimalizace zvolíte, tím více èasu bude pro "
-"pøeklad potøeba, ale tím rychlej¹í va¹e programy budou. Upozornìní: Silná "
-"optimalizace mù¾e vést k problémùm se stabilitou."
+"Tyto jsou ekvivalentnÃ­ s -O1, -O2 a -O3. ÃšroveÅˆ optimalizace je ÄasovÄ› "
+"zÃ¡vislÃ¡. ÄŒÃ­m vyÅ¡Å¡Ã­ ÃºroveÅˆ optimalizace zvolÃ­te, tÃ­m vÃ­ce Äasu bude pro "
+"pÅ™eklad potÅ™eba, ale tÃ­m rychlejÅ¡Ã­ vaÅ¡e programy budou. UpozornÄ›nÃ­: SilnÃ¡ "
+"optimalizace mÅ¯Å¾e vÃ©st k problÃ©mÅ¯m se stabilitou."
 
 #. Type: select
 #. Description
@@ -95,7 +94,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "Architektura:"
 
 #. Type: select
 #. Description
@@ -111,38 +110,22 @@ msgstr ""
 #. Description
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
-#, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
 msgstr ""
-"Pokud zde va¹e architektura není, vyberte nìjakou a upravte konfiguraèní "
-"soubor (/etc/apt/apt-build.conf) ruènì, a vyplòte prosím hlá¹ení o chybì "
-"(bugreport). (wishlist)"
+"Pokud zde vaÅ¡e architektura nenÃ­, vyberte nÄ›jakou a upravte konfiguraÄnÃ­ "
+"soubor (/etc/apt/apt-build.conf) ruÄnÄ›. PotÃ© nÃ¡m prosÃ­m zaÅ¡lete hlÃ¡Å¡enÃ­ "
+"o chybÄ› se zÃ¡vaÅ¾nostÃ­ wishlist."
 
 #. Type: string
 #. Description
 #: ../templates:11001
 msgid "Options to add to gcc:"
-msgstr "Volby, které pøedat gcc:"
+msgstr "Volby, kterÃ© pÅ™edat gcc:"
 
 #. Type: string
 #. Description
 #: ../templates:12001
 msgid "Options to add to make:"
-msgstr "Volby, které pøedat make:"
-
-#~ msgid ""
-#~ "If your architecture is not here, choose one and edit your configuration "
-#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
-#~ "(wishlist)"
-#~ msgstr ""
-#~ "Pokud zde va¹e architektura není, vyberte nìjakou a upravte konfiguraèní "
-#~ "soubor (/etc/apt/apt-build.conf) ruènì, a vyplòte prosím hlá¹ení o chybì "
-#~ "(bugreport). (wishlist)"
-
-#~ msgid "What is your architecture?"
-#~ msgstr "Jaká je va¹e architektura?"
-
-#~ msgid "Where must apt-build store built packages?"
-#~ msgstr "Kde má apt-build ukládat sestavené balíèky?"
+msgstr "Volby, kterÃ© pÅ™edat make:"
