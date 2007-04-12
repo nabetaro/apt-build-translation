@@ -596,7 +596,7 @@ sub build_source
 	      #if ($missing) { $build=1; };
 	      if ($build) {
 		  builddep($src_name) unless $conf->build_only;
-		  source_by_source ($src_name, $src_version) if $conf->source;
+		  source_by_source ($src_name, $fullversion) if $conf->source;
 		  
 		  # Now build the package
 		  my ($maintver, $upver);
