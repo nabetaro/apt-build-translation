@@ -1,8 +1,9 @@
 apt-build (0.12.28) unstable; urgency=low
 
   * Fix problem with epochs (Closes: #408346)
+  * Switch to debhelper 5
 
- -- Julien Danjou <acid@debian.org>  Thu, 12 Apr 2007 15:36:53 +0200
+ -- Julien Danjou <acid@debian.org>  Thu, 12 Apr 2007 15:40:41 +0200
 
 apt-build (0.12.27) unstable; urgency=low
 
