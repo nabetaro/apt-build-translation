@@ -1,3 +1,12 @@
+apt-build (0.12.29) unstable; urgency=low
+
+  * Don't touch sources.list anymore (Closes: #446074)
+  * Don't die on no sources (Closes: #444487)
+  * Add sk translation (Closes: #437510)
+  * Fix typo in README.Debian (Closes: #434366)
+
+ -- Julien Danjou <acid@debian.org>  Mon, 26 Nov 2007 18:17:56 +0100
+
 apt-build (0.12.28) unstable; urgency=low
 
   * Fix problem with epochs (Closes: #408346)

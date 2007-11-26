@@ -56,6 +56,8 @@ install: build
 	sed 's/my $$VERSION = .*/my $$VERSION = "$(shell head -n 1 debian/changelog | cut -d " " -f 2 | sed -e 's/(//; s/)//;' | cut -d "-" -f 2)";/' apt-build > debian/apt-build/usr/bin/apt-build
 
 	install -m 644 debian/Release debian/apt-build/usr/share/apt-build/
+	mkdir -p debian/apt-build/etc/apt/sources.list.d
+	touch debian/apt-build/etc/apt/sources.list.d/apt-build
 
 # Build architecture-independent files here.
 binary-indep: build install

@@ -54,7 +54,7 @@ dpkg --get-selections | \
 
 You should edit this file to remove some packages like gcc, kernel...
 
-Please not that using the --reinstall switch can be useful.
+Please note that using the --reinstall switch can be useful.
 ----------------------------------------------------------------------
 
  -- Julien Danjou <acid@debian.org>, Sun, 24 Apr 2005 14:23:16 +0200
