@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Julien Danjou <acid@debian.org>
 Build-Depends: debhelper (>> 5.0.0), po4a, po-debconf
-Standards-Version: 3.7.2
+Standards-Version: 3.7.3
 
 Package: apt-build
 Architecture: any

@@ -2,6 +2,7 @@ apt-build (0.12.30) UNRELEASED; urgency=low
 
   * Apply Yoram patch to add PATH as make argument (Closes: #451169)
   * Apply Andrea patch to support specific distribution (Closes: #454472)
+  * Bump standards version
 
  -- Julien Danjou <acid@debian.org>  Mon, 25 Feb 2008 14:52:14 +0100
 
