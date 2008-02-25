@@ -6,6 +6,7 @@ apt-build (0.12.30) UNRELEASED; urgency=low
   * Add some missing options to manpage (Closes: #461466)
   * Depends on libc, use shlibdeps
   * Add copyright notice
+  * Add Vcs fields
 
  -- Julien Danjou <acid@debian.org>  Mon, 25 Feb 2008 14:52:14 +0100
 
