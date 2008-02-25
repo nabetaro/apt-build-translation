@@ -1,9 +1,9 @@
 # Translation of apt-build manpage
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.9\n"
-"POT-Creation-Date: 2006-08-05 22:43+0200\n"
+"POT-Creation-Date: 2008-02-25 16:28+0100\n"
 "PO-Revision-Date: 2005-06-30 19:55+0200\n"
 "Last-Translator: Pierre Machard <pierre@machard.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -412,45 +412,90 @@ msgstr "Indique une commande alternative à I<apt-cache>"
 
 # type: TP
 #: apt-build.1:116
+#, fuzzy, no-wrap
+msgid "B<--force-yes>"
+msgstr "B<--sources-list>"
+
+# type: Plain text
+#: apt-build.1:119
+msgid "Force yes"
+msgstr ""
+
+# type: TP
+#: apt-build.1:119
+#, fuzzy, no-wrap
+msgid "B<--source>"
+msgstr "B<source>"
+
+# type: Plain text
+#: apt-build.1:122
+msgid "Do not download source (sources are extracted already)"
+msgstr ""
+
+# type: TP
+#: apt-build.1:122
+#, fuzzy, no-wrap
+msgid "B<--repository-dir>"
+msgstr "B<build-repository>"
+
+# type: Plain text
+#: apt-build.1:125
+#, fuzzy
+msgid "Specify the repository directory"
+msgstr "Met à jour le référentiel"
+
+# type: TP
+#: apt-build.1:125
+#, fuzzy, no-wrap
+msgid "B<--target-release>"
+msgstr "B<--apt-cache>"
+
+# type: Plain text
+#: apt-build.1:128
+msgid "Distribution to fetch packages from"
+msgstr ""
+
+# type: TP
+#: apt-build.1:128
 #, no-wrap
 msgid "B<--config>"
 msgstr "B<--config>"
 
 # type: Plain text
-#: apt-build.1:119
+#: apt-build.1:131
 msgid "Specify an alternative configuration file"
 msgstr "Indique un fichier de configuration alternatif"
 
 # type: TP
-#: apt-build.1:119
+#: apt-build.1:131
 #, no-wrap
 msgid "B<--version>,B<\\ -v>"
 msgstr "B<--version>, B<-v>"
 
 # type: Plain text
-#: apt-build.1:122
+#: apt-build.1:134
 msgid "Show version"
 msgstr "Affiche la version"
 
 # type: SH
-#: apt-build.1:122
+#: apt-build.1:134
 #, no-wrap
 msgid "BUGS"
 msgstr "BOGUES"
 
 # type: Plain text
-#: apt-build.1:124
+#: apt-build.1:136
 msgid "Many."
 msgstr "Beaucoup."
 
 # type: SH
-#: apt-build.1:126
+#: apt-build.1:138
 #, no-wrap
 msgid "AUTHOR"
 msgstr "AUTEURS"
 
 # type: Plain text
-#: apt-build.1:129
+#: apt-build.1:141
 msgid ""
 "B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with "
 "many contributors."
