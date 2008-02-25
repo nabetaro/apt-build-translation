@@ -1,0 +1,3 @@
+*.o
+apt-build-wrapper
+man/po/apt-build.pot
