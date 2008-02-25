@@ -138,8 +138,13 @@ parse_conf (unsigned int argc, char **argv)
         cmd_line_args[nb_apt_build_options++] = args.Olevel;
       if (args.mtune)
         cmd_line_args[nb_apt_build_options++] = args.mtune;
-      
-	}
+    } else {
+      /* Add current path as argument to make */
+      char *path = getenv("PATH");
+      char *path_option = (char *) malloc (strlen(path) + 5);
+      sprintf (path_option,"PATH=%s",path);
+      cmd_line_args[nb_apt_build_options++] = path_option;
+    }
 
   cmd_line_args[nb_apt_build_options++] = NULL;
 
