@@ -1,4 +1,4 @@
-apt-build (0.12.30) UNRELEASED; urgency=low
+apt-build (0.12.30) unstable; urgency=low
 
   * Apply Yoram patch to add PATH as make argument (Closes: #451169)
   * Apply Andrea patch to support specific distribution (Closes: #454472)
