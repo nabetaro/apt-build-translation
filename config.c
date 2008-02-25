@@ -13,9 +13,10 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "config.h"
 #include "apt-build.h"
 
-char *
+static char *
 parse_options (char * file_content)
 {
   unsigned int i, j;

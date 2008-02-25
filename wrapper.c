@@ -18,14 +18,14 @@
 #include "apt-build.h"
 #include "config.h"
 
-int
+static int
 gcc_real (char **argv)
 {
   filterout_libdir_path();
   return execvp (basename (argv[0]), argv);
 }
 
-int
+static int
 gcc_apt_build (int argc, char **argv)
 {
   return gcc_real (parse_conf (argc, argv));

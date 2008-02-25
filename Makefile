@@ -3,7 +3,9 @@
 APT_BUILD = apt-build
 APT_BUILD_WRAPPER = apt-build-wrapper
 WRAP_PROGRAMMS = gcc cc g++ c++ make
-CFLAGS = -W -Wall -D_GNU_SOURCE -g
+CFLAGS = -W -Wall -Wextra -std=gnu99 -pipe -Wundef -Wshadow -Wcast-align \
+	 -Wwrite-strings -Wsign-compare -Wunused -Winit-self -Wpointer-arith -Wredundant-decls \
+	 -Wmissing-prototypes -Wmissing-format-attribute -Wmissing-noreturn -D_GNU_SOURCE -g
 INSTALL = install
 LN_S = ln -s
 BINDIR = $(DESTDIR)/usr/bin
