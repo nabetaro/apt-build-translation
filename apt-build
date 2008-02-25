@@ -431,12 +431,20 @@ sub get_src_version
 sub get_pkg_version
 {
     my $pkg_name = shift;
+    my $release  = shift || "";
     my $pkg_version;
 
     # Look for candidate version
     open APTCIN, "LANGUAGE=C " . $conf->apt_cache . " policy $pkg_name |";
     while(<APTCIN>)
-    { $pkg_version = $1 if(/^\s+Candidate: (.*)$/); }
+    {
+        $pkg_version = $1 if(/^\s+Candidate: (.*)$/ and $release eq "" );
+        if( $release )
+        {
+            last if ( /$release/ ); ## quit from while,but keep the version from the row before
+            $pkg_version = $2 if( /^\s(\*\*\*)?\s+(.*) \d/ );
+        }
+    }
     close(APTCIN);
 
     return $pkg_version;
@@ -458,20 +466,29 @@ sub build_deb_filename
 }
 
 sub install
-{   
+{
     my (@packages, @pkgs, $buildpkg);
-    my (@pkglist) = @_;
+    my @pkglist = ();
     my $nopkgs_okay = 0;
     my $special_srcver = 0;
-    
+
     for (@_)
     {
 	my $pkg_name = $_;
-	my ($pkg_version, $src_name, $src_version, $deb_file);
+	my ($pkg_version, $src_name, $src_version, $deb_file, $release);
 	
-	$pkg_version = &get_pkg_version($pkg_name);
+    ($pkg_name,$release) = ($1, $2) if ($pkg_name =~ /(.*)\/(.*)/);
+    if( $pkg_name =~ /(.*)=(.*)/ )
+    {
+        ($pkg_name, $pkg_version) = ($1, $2);
+    } else {
+        # release is ignored if empty
+        $pkg_version = &get_pkg_version($pkg_name, $release);
+    }
 	$src_version = &get_src_version($pkg_name, $pkg_version);
 	$src_name = &get_src_name($pkg_name, $src_version);
+
+    push ( @pkglist, $pkg_name );
 
 	if (!$src_name && $src_version =~ /\+/) {
 		$src_version =~ s/\+.*$//;
