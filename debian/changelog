@@ -1,3 +1,9 @@
+apt-build (0.12.30) UNRELEASED; urgency=low
+
+  * Apply Yoram patch to add PATH as make argument (Closes: #451169)
+
+ -- Julien Danjou <acid@debian.org>  Mon, 25 Feb 2008 14:52:14 +0100
+
 apt-build (0.12.29) unstable; urgency=low
 
   * Don't touch sources.list anymore (Closes: #446074)
