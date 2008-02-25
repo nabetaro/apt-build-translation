@@ -1,8 +1,7 @@
 /*
- * $Id$
  * wrapper.c - Wrapper for gcc and make used for apt-build
- * (c) 2004 - Julien Danjou <acid@debian.org>
- * (c) 2005  Raphael Bossek <bossekr@debian.org>
+ * (c) 2004-2008 - Julien Danjou <acid@debian.org>
+ * (c) 2005 - Raphael Bossek <bossekr@debian.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2, as

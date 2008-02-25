@@ -1,7 +1,6 @@
 /*
- * $Id$
- * gcc.wrapper - Wrapper for gcc used for apt-build
- * (c) 2005 - Julien Danjou <acid@debian.org>
+ * config.c - Wrapper configuration for gcc used for apt-build
+ * (c) 2005-2008 - Julien Danjou <acid@debian.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2, as
