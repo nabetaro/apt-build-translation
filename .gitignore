@@ -1,3 +1,9 @@
 *.o
 apt-build-wrapper
 man/po/apt-build.pot
+*-stamp
+debian/apt-build
+man/apt-build.*
+debian/files
+debian/apt-build.*.debhelper
+debian/apt-build.substvars
