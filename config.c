@@ -141,9 +141,13 @@ parse_conf (unsigned int argc, char **argv)
     } else {
       /* Add current path as argument to make */
       char *path = getenv("PATH");
-      char *path_option = (char *) malloc (strlen(path) + 5);
-      sprintf (path_option,"PATH=%s",path);
-      cmd_line_args[nb_apt_build_options++] = path_option;
+      if(path)
+        {
+          size_t len = strlen(path) + 6;
+          char *path_option = (char *) malloc (len * sizeof(char));
+          snprintf(path_option, len, "PATH=%s",path);
+          cmd_line_args[nb_apt_build_options++] = path_option;
+        }
     }
 
   cmd_line_args[nb_apt_build_options++] = NULL;
