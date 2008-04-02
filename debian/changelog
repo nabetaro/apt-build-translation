@@ -1,3 +1,9 @@
+apt-build (0.12.31) unstable; urgency=low
+
+  * Fix possible buffer overflow in PATH adding to make args (Closes: #471144)
+
+ -- Julien Danjou <acid@debian.org>  Wed, 02 Apr 2008 07:19:29 +0200
+
 apt-build (0.12.30) unstable; urgency=low
 
   * Apply Yoram patch to add PATH as make argument (Closes: #451169)
