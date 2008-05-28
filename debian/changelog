@@ -1,3 +1,9 @@
+apt-build (0.12.32) unstable; urgency=low
+
+  * Add gl translation (Closes: #483222)
+
+ -- Julien Danjou <acid@debian.org>  Wed, 28 May 2008 10:56:05 +0200
+
 apt-build (0.12.31) unstable; urgency=low
 
   * Fix possible buffer overflow in PATH adding to make args (Closes: #471144)
