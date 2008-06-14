@@ -94,7 +94,7 @@ case "$1" in
 	if [ "$add_to_sourceslist" = "true" ] && [ -z "`grep "$repository_dir" /etc/apt/sources.list`" ]; then
 	    tempfile=`tempfile -m 644`
 	    echo "deb file:$repository_dir apt-build main" > $tempfile
-	    mv $tempfile /etc/apt/sources.list.d/apt-build
+	    mv $tempfile /etc/apt/sources.list.d/apt-build.list
 	fi
 
 	# Remove one-byte Packages file created by old postinst

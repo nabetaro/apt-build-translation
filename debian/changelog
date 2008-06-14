@@ -1,8 +1,9 @@
 apt-build (0.12.33) unstable; urgency=low
 
   * Update fr translation (Closes: #474678)
+  * Fix list file extension (Closes: #471668)
 
- -- Julien Danjou <acid@debian.org>  Sat, 14 Jun 2008 09:10:29 +0200
+ -- Julien Danjou <acid@debian.org>  Sat, 14 Jun 2008 09:13:36 +0200
 
 apt-build (0.12.32) unstable; urgency=low
 
