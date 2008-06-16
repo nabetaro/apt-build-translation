@@ -4,12 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.9\n"
 "POT-Creation-Date: 2008-02-25 16:28+0100\n"
-"PO-Revision-Date: 2005-06-30 19:55+0200\n"
-"Last-Translator: Pierre Machard <pierre@machard.org>\n"
+"PO-Revision-Date: 2008-03-18 10:05+0100\n"
+"Last-Translator: Jean-Baka Domelevo Entfellner <domelevo@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
 
 # type: TH
 #: apt-build.1:1
@@ -40,7 +42,7 @@ msgstr "NOM"
 msgid ""
 "apt-build - Fetch sources and build packages optimized for your architecture."
 msgstr ""
-"apt-build - Récupérer les sources et construit des paquets optimisés pour "
+"apt-build - RÃ©cupÃ©rer les sources et construire des paquets optimisÃ©s pour "
 "l'architecture"
 
 # type: SH
@@ -70,8 +72,8 @@ msgid ""
 "B<apt-build> is an apt-get frontend to build and install architecture "
 "optimized packages."
 msgstr ""
-"B<apt-build> est une interface à apt-get pour construire et installer des "
-"paquets optimisés pour une architecture donnée."
+"B<apt-build> est une interface Ã  apt-get pour construire et installer des "
+"paquets optimisÃ©s pour une architecture donnÃ©e."
 
 # type: SH
 #: apt-build.1:21
@@ -88,7 +90,7 @@ msgstr "B<update>"
 # type: Plain text
 #: apt-build.1:25
 msgid "Retrieve new lists of packages"
-msgstr "Récupère les listes de nouveaux paquets"
+msgstr "RÃ©cupÃ¨re les listes de nouveaux paquets"
 
 # type: TP
 #: apt-build.1:25
@@ -99,7 +101,7 @@ msgstr "B<upgrade>"
 # type: Plain text
 #: apt-build.1:28
 msgid "Perform an upgrade"
-msgstr "Fait une mise à niveau"
+msgstr "Fait une mise Ã  niveau"
 
 # type: TP
 #: apt-build.1:28
@@ -110,7 +112,7 @@ msgstr "B<world>"
 # type: Plain text
 #: apt-build.1:31
 msgid "Rebuild your system"
-msgstr "Reconstruit le système"
+msgstr "Reconstruit le systÃ¨me"
 
 # type: TP
 #: apt-build.1:31
@@ -133,7 +135,7 @@ msgstr "B<source>"
 #: apt-build.1:37
 msgid "Download and extract source in the build directory"
 msgstr ""
-"Télécharge et décompacte les sources dans le répertoire de construction"
+"TÃ©lÃ©charge et dÃ©compacte les sources dans le rÃ©pertoire de construction"
 
 # type: TP
 #: apt-build.1:37
@@ -144,7 +146,7 @@ msgstr "B<info>"
 # type: Plain text
 #: apt-build.1:40
 msgid "Info on a package which could be built"
-msgstr "Affiche des informations sur un paquet pouvant être construit"
+msgstr "Affiche des informations sur un paquet pouvant Ãªtre construit"
 
 # type: TP
 #: apt-build.1:40
@@ -155,7 +157,7 @@ msgstr "B<remove>"
 # type: Plain text
 #: apt-build.1:43
 msgid "Remove packages"
-msgstr "Enlève un paquet"
+msgstr "EnlÃ¨ve un paquet"
 
 # type: TP
 #: apt-build.1:43
@@ -166,7 +168,7 @@ msgstr "B<clean-build>"
 # type: Plain text
 #: apt-build.1:46
 msgid "Erase built packages"
-msgstr "Efface les paquets qui ont été construits"
+msgstr "Efface les paquets qui ont Ã©tÃ© construits"
 
 # type: TP
 #: apt-build.1:46
@@ -177,7 +179,7 @@ msgstr "B<clean-sources>"
 # type: Plain text
 #: apt-build.1:49
 msgid "Call debian/rules clean in source directories"
-msgstr "Appelle debian/rules clean dans le répertoire des sources"
+msgstr "Appelle debian/rules clean dans le rÃ©pertoire des sources"
 
 # type: TP
 #: apt-build.1:49
@@ -200,8 +202,8 @@ msgstr "B<update-source>"
 #: apt-build.1:55
 msgid "Update sources and rebuild them if they are missing in the repository"
 msgstr ""
-"Met à jour les sources et les reconstruit si elles sont manquantes dans le "
-"dépôt"
+"Met Ã  jour les sources et les reconstruit si elles sont manquantes dans le "
+"dÃ©pÃ´t"
 
 # type: TP
 #: apt-build.1:55
@@ -212,7 +214,7 @@ msgstr "B<build-repository>"
 # type: Plain text
 #: apt-build.1:58
 msgid "Rebuild the repository"
-msgstr "Met à jour le référentiel"
+msgstr "Met Ã  jour le rÃ©fÃ©rentiel"
 
 # type: SH
 #: apt-build.1:58
@@ -251,7 +253,7 @@ msgstr "B<--remove-builddep>"
 # type: Plain text
 #: apt-build.1:68
 msgid "Remove build-dependencies installed by apt-build"
-msgstr "Enlève les dépendances de construction installées par apt-build"
+msgstr "EnlÃ¨ve les dÃ©pendances de construction installÃ©es par apt-build"
 
 # type: TP
 #: apt-build.1:68
@@ -262,7 +264,7 @@ msgstr "B<--no-source>"
 # type: Plain text
 #: apt-build.1:71
 msgid "Don't download source"
-msgstr "Ne télécharge pas les sources"
+msgstr "Ne tÃ©lÃ©charge pas les sources"
 
 # type: TP
 #: apt-build.1:71
@@ -273,7 +275,7 @@ msgstr "B<--build-dir>"
 # type: Plain text
 #: apt-build.1:74
 msgid "Specify build-dir"
-msgstr "Spécifie le répertoire de construction"
+msgstr "SpÃ©cifie le rÃ©pertoire de construction"
 
 # type: TP
 #: apt-build.1:74
@@ -306,7 +308,7 @@ msgstr "B<--reinstall>"
 # type: Plain text
 #: apt-build.1:83
 msgid "Build and install an already installed package"
-msgstr "Construit et réinstalle un paquet déjà installé sur votre système"
+msgstr "Construit et rÃ©installe un paquet dÃ©jÃ  installÃ© sur votre systÃ¨me"
 
 # type: TP
 #: apt-build.1:83
@@ -330,7 +332,7 @@ msgstr "B<--patch> E<lt>I<fichier>E<gt>"
 msgid ""
 "Apply this patch before build (you can use this option one or several times)"
 msgstr ""
-"Applique une rustine avant la construction (cette option peut être utilisée "
+"Applique une rustine avant la construction (cette option peut Ãªtre utilisÃ©e "
 "plusieurs fois)"
 
 # type: TP
@@ -342,7 +344,7 @@ msgstr "B<--patch-strip>, B<-p> E<lt>I<nombre>E<gt>"
 # type: Plain text
 #: apt-build.1:92
 msgid "Prefix to strip on patch (0 = -p0, 1 = -p1 ...)"
-msgstr "Applique le préfixe pour la rustine (0 = -p0, 1 = -p1, ...)"
+msgstr "Applique le prÃ©fixe pour la rustine (0 = -p0, 1 = -p1, ...)"
 
 # type: TP
 #: apt-build.1:92
@@ -353,7 +355,7 @@ msgstr "B<--yes>, B<-y>"
 # type: Plain text
 #: apt-build.1:95
 msgid "Assume yes"
-msgstr "Répond oui à toutes les questions"
+msgstr "RÃ©pond oui Ã  toutes les questions"
 
 # type: TP
 #: apt-build.1:95
@@ -364,7 +366,7 @@ msgstr "B<--purge>"
 # type: Plain text
 #: apt-build.1:98
 msgid "Use purge instead of remove"
-msgstr "Utilise « purge » plutôt que « remove »"
+msgstr "Utilise Â«Â purgeÂ Â» plutÃ´t que Â«Â removeÂ Â»"
 
 # type: TP
 #: apt-build.1:98
@@ -375,7 +377,7 @@ msgstr "B<--noupdate>"
 # type: Plain text
 #: apt-build.1:101
 msgid "Do not run 'apt-get update' before package installation"
-msgstr "N'exécute pas « apt-get update » avant l'installation du paquet"
+msgstr "N'exÃ©cute pas Â«Â apt-get updateÂ Â» avant l'installation du paquet"
 
 # type: TP
 #: apt-build.1:101
@@ -386,7 +388,7 @@ msgstr "B<--sources-list>"
 # type: Plain text
 #: apt-build.1:106
 msgid "Specify I<sources.list> file"
-msgstr "Spécifie le fichier I<sources.list>"
+msgstr "SpÃ©cifie le fichier I<sources.list>"
 
 # type: TP
 #: apt-build.1:106
@@ -397,7 +399,7 @@ msgstr "B<--apt-get>"
 # type: Plain text
 #: apt-build.1:111
 msgid "Specify an alternative I<apt-get> command"
-msgstr "Indique une commande alternative à I<apt-get>"
+msgstr "Indique une commande alternative Ã  I<apt-get>"
 
 # type: TP
 #: apt-build.1:111
@@ -408,52 +410,51 @@ msgstr "B<--apt-cache>"
 # type: Plain text
 #: apt-build.1:116
 msgid "Specify an alternative I<apt-cache> command"
-msgstr "Indique une commande alternative à I<apt-cache>"
+msgstr "Indique une commande alternative Ã  I<apt-cache>"
 
 # type: TP
 #: apt-build.1:116
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "B<--force-yes>"
-msgstr "B<--sources-list>"
+msgstr "B<--force-yes>"
 
 # type: Plain text
 #: apt-build.1:119
 msgid "Force yes"
-msgstr ""
+msgstr "RÃ©pond toujours Â«Â ouiÂ Â», en forÃ§ant si nÃ©cessaire (dangereux)"
 
 # type: TP
 #: apt-build.1:119
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "B<--source>"
-msgstr "B<source>"
+msgstr "B<--source>"
 
 # type: Plain text
 #: apt-build.1:122
 msgid "Do not download source (sources are extracted already)"
-msgstr ""
+msgstr "TÃ©lÃ©charge les fichiers source (option par dÃ©faut)"
 
 # type: TP
 #: apt-build.1:122
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "B<--repository-dir>"
-msgstr "B<build-repository>"
+msgstr "B<--repository-dir>"
 
 # type: Plain text
 #: apt-build.1:125
-#, fuzzy
 msgid "Specify the repository directory"
-msgstr "Met à jour le référentiel"
+msgstr "SpÃ©cifie le rÃ©fÃ©rentiel"
 
 # type: TP
 #: apt-build.1:125
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "B<--target-release>"
-msgstr "B<--apt-cache>"
+msgstr "B<--target-release>"
 
 # type: Plain text
 #: apt-build.1:128
 msgid "Distribution to fetch packages from"
-msgstr ""
+msgstr "Distribution oÃ¹ aller chercher les paquets"
 
 # type: TP
 #: apt-build.1:128
@@ -500,5 +501,5 @@ msgid ""
 "B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with "
 "many contributors."
 msgstr ""
-"B<apt-build> a été écrit par Julien Danjou E<lt>acid@debian.orgE<gt>, aidé "
+"B<apt-build> a Ã©tÃ© Ã©crit par Julien Danjou E<lt>acid@debian.orgE<gt>, aidÃ© "
 "de nombreux contributeurs."
