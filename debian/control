@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Julien Danjou <acid@debian.org>
 Build-Depends: debhelper (>> 5.0.0), po4a, po-debconf
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Vcs-Git: git://git.debian.org/git/apt-build/apt-build.git
 Vcs-Browser: http://git.debian.org/?p=apt-build/apt-build.git
 
