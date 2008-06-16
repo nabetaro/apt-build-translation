@@ -1,3 +1,9 @@
+apt-build (0.12.35) unstable; urgency=low
+
+  * Add tr translation (Closes: #486489)
+
+ -- Julien Danjou <acid@debian.org>  Mon, 16 Jun 2008 14:33:15 +0200
+
 apt-build (0.12.34) unstable; urgency=low
 
   * Update fr manpage translation (Closes: #474678)
