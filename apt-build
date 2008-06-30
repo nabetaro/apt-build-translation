@@ -413,7 +413,7 @@ sub get_src_version
     # By default
     $src_version = $pkg_version;
 
-    open APTCIN, $conf->apt_cache . " show $pkg_name |";
+    open APTCIN, $conf->apt_cache . " showsrc $pkg_name |";
     while(<APTCIN>)
     {
 	$special_srcver = 1 if($pkg_version and /^Version: $pkg_version$/);
