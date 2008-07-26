@@ -28,7 +28,7 @@ _Description: Optimization level:
 
 Template: apt-build/arch_intel
 Type: select
-Choices: pentium, pentium-mmx, pentiumpro, pentium2, pentium3, pentium3m, pentium-m, pentium4, pentium4m, prescott, nocona
+Choices: i486, pentium, pentium-mmx, pentiumpro, pentium2, pentium3, pentium3m, pentium-m, pentium4, pentium4m, prescott, nocona, core2
 Default: pentium
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
@@ -44,7 +44,7 @@ _Description: Architecture:
 
 Template: apt-build/arch_amd64
 Type: select
-Choices: nocona, k8, opteron, athlon64, athlon-fx
+Choices: nocona, core2, k8, opteron, athlon64, athlon-fx, k8-sse3, opteron-sse3, athlon64-sse3, amdfam10, barcelona
 Default: x86-64
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration

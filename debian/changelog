@@ -1,6 +1,7 @@
 apt-build (0.12.36) unstable; urgency=low
 
   * Use showsrc instead of show in apt-cache
+  * Add missing CPU: core2 and others (Closes: #492152, #472525)
 
  -- Julien Danjou <acid@debian.org>  Sat, 26 Jul 2008 17:44:47 +0200
 
