@@ -1,3 +1,10 @@
+apt-build (0.12.38) unstable; urgency=low
+
+  * Fix compiler names (Closes: #502377)
+  * Add support for gfortran (Closes: #502379)
+
+ -- Julien Danjou <acid@debian.org>  Thu, 16 Oct 2008 12:14:07 +0200
+
 apt-build (0.12.37) unstable; urgency=low
 
   * Move tr translation to the right place.
