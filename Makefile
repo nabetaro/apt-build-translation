@@ -28,7 +28,7 @@ install:	$(APT_BUILD_WRAPPER) $(APT_BUILD)
 	done
 ifneq ($(HOST_TYPE),)
 	for prog in gcc g++; do \
-		$(LN_S) $(APT_BUILD_WRAPPER) $(APT_BUILD_DIR)/$$prog-$(HOST_TYPE); \
+		$(LN_S) $(APT_BUILD_WRAPPER) $(APT_BUILD_DIR)/$(HOST_TYPE)-$$prog; \
 	done
 endif
 
