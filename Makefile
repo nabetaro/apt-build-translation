@@ -2,7 +2,7 @@
 
 APT_BUILD = apt-build
 APT_BUILD_WRAPPER = apt-build-wrapper
-WRAP_PROGRAMMS = gcc cc g++ c++ make
+WRAP_PROGRAMMS = gcc cc g++ c++ make gfortran
 CFLAGS = -W -Wall -Wextra -std=gnu99 -pipe -Wundef -Wshadow -Wcast-align \
 	 -Wwrite-strings -Wsign-compare -Wunused -Winit-self -Wpointer-arith -Wredundant-decls \
 	 -Wmissing-prototypes -Wmissing-format-attribute -Wmissing-noreturn -D_GNU_SOURCE -g
@@ -27,7 +27,7 @@ install:	$(APT_BUILD_WRAPPER) $(APT_BUILD)
 		$(LN_S) $(APT_BUILD_WRAPPER) $(APT_BUILD_DIR)/$$prog; \
 	done
 ifneq ($(HOST_TYPE),)
-	for prog in gcc g++; do \
+	for prog in gcc g++ gfortran; do \
 		$(LN_S) $(APT_BUILD_WRAPPER) $(APT_BUILD_DIR)/$(HOST_TYPE)-$$prog; \
 	done
 endif
