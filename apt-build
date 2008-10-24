@@ -447,6 +447,26 @@ sub get_pkg_version
     }
     close(APTCIN);
 
+    if ($pkg_version && $pkg_version !~ m/\(none\)/) {
+	return $pkg_version;
+    }
+
+    # In case we fail to find a valid candidate, which may happen if,
+    # for example, the package has no binary version but a source
+    # version, we fall back to the source version in order to avoid
+    # dying.
+    open APTCIN, "LANGUAGE=C " . $conf->apt_cache . " showsrc $pkg_name |";
+    while(<APTCIN>)
+    {
+        $pkg_version = $1 if(/^Version: (.*)$/ and $release eq "" );
+        if( $release )
+        {
+            last if ( /$release/ ); ## quit from while,but keep the version from the row before
+            $pkg_version = $2 if( /^\s(\*\*\*)?\s+(.*) \d/ );
+        }
+    }
+    close(APTCIN);
+    print $pkg_version;
     return $pkg_version;
 }
 
