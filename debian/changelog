@@ -1,3 +1,9 @@
+apt-build (0.12.39) unstable; urgency=low
+
+  * NOT RELEASED YET.
+ 
+ -- Deepak Tripathi <apenguinlinux@gmail.com>  Tue, 18 May 2010 16:32:25 -0400
+
 apt-build (0.12.38) unstable; urgency=low
 
   * Fix compiler names (Closes: #502377)
