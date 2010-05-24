@@ -43,7 +43,7 @@ use AptPkg::Cache;
 my $VERSION = "unreleased";
 my ($conf, %conf, @builddep, @apt_args);
 
-@apt_args = qw/--yes/;     # and DEFAULT => 1, down in parse_config()
+@apt_args = qw/-y/;     # and DEFAULT => 1, down in parse_config()
 
 my @actions = qw/install source remove info update upgrade world build_source update_source
 		clean_sources build_repository clean_build clean_repository moo find/;       # possible actions
@@ -126,8 +126,8 @@ Options:
   --repository-dir  - Specify the repository directory
   --target-release  - Distribution to fetch packages from
   --sources-list    - Specify sources.list file
-  --apt-get         - Specify an alternative apt-get application to use
-  --apt-cache       - Specify an alternative apt-cache application to use
+  --apt_get         - Specify an alternative apt-get application to use
+  --apt_cache       - Specify an alternative apt-cache application to use
   --config          - Specify an alternative configuration file
 ";
 	exit 1;

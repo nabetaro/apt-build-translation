@@ -1,17 +1,19 @@
-apt-build (0.12.39) unstable; urgency=low
-
-  * NOT RELEASED YET.
- 
- -- Deepak Tripathi <apenguinlinux@gmail.com>  Tue, 18 May 2010 16:32:25 -0400
-
 apt-build (0.12.38) unstable; urgency=low
-
+  
+  * New maintainer (Closed: #365427, #386521)
+  * debian/control 
+     + bumped standard version to 3.8.4 ( no changes)
+  * debian/copyright
+     + updated copyright
+  * applied patch from Bryan Wong  (Closes: #392844)  
+  
+  [ Julien Danjou ]
   * Fix compiler names (Closes: #502377)
   * Add support for gfortran (Closes: #502379)
   * Fall back to source version when binary not available
     (Closes: #179850, #291565, #292169)
 
- -- Julien Danjou <acid@debian.org>  Thu, 16 Oct 2008 12:14:07 +0200
+ -- Deepak Tripathi <apenguinlinux@gmail.com>  Sun, 23 May 2010 22:53:58 +0530
 
 apt-build (0.12.37) unstable; urgency=low
 
