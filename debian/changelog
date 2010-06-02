@@ -1,8 +1,9 @@
 apt-build (0.12.38) unstable; urgency=low
   
-  * New maintainer (Closed: #365427, #386521)
+  * New maintainer (Closes: #365427, #386521)
   * debian/control 
-     + bumped standard version to 3.8.4 ( no changes)
+     + bumped standard version to 3.8.4 ( no changes).
+     + added myself to maintainer.
   * debian/copyright
      + updated copyright
   * applied patch from Bryan Wong  (Closes: #392844)  
@@ -13,7 +14,7 @@ apt-build (0.12.38) unstable; urgency=low
   * Fall back to source version when binary not available
     (Closes: #179850, #291565, #292169)
 
- -- Deepak Tripathi <apenguinlinux@gmail.com>  Sun, 23 May 2010 22:53:58 +0530
+ -- Deepak Tripathi <apenguinlinux@gmail.com>  Wed, 02 Jun 2010 12:13:46 +0530
 
 apt-build (0.12.37) unstable; urgency=low
 

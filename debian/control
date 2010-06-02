@@ -1,7 +1,7 @@
 Source: apt-build
 Section: devel
 Priority: optional
-Maintainer: Julien Danjou <acid@debian.org>
+Maintainer: Deepak Tripathi <apenguinlinux@gmail.com>
 Build-Depends: debhelper (>> 5.0.0), po4a, po-debconf
 Standards-Version: 3.8.4
 Vcs-Git: git://git.debian.org/git/apt-build/apt-build.git
