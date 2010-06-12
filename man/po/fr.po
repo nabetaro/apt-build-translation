@@ -1,0 +1,495 @@
+# French translations for PACKAGE package
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-06-12 14:17+0530\n"
+"PO-Revision-Date: 2010-06-12 14:17+0530\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. type: TH
+#: apt-build.1:1
+#, no-wrap
+msgid "APT-BUILD"
+msgstr ""
+
+#. type: TH
+#: apt-build.1:1
+#, no-wrap
+msgid "November 2003"
+msgstr ""
+
+#. type: TH
+#: apt-build.1:1
+#, no-wrap
+msgid "Debian Distribution"
+msgstr ""
+
+#. type: SH
+#: apt-build.1:3
+#, no-wrap
+msgid "NAME"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:5
+msgid ""
+"apt-build - Fetch sources and build packages optimized for your architecture."
+msgstr ""
+
+#. type: SH
+#: apt-build.1:5
+#, no-wrap
+msgid "SYNOPSIS"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:15
+msgid ""
+"B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> "
+"I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
+msgstr ""
+
+#. type: SH
+#: apt-build.1:15
+#, no-wrap
+msgid "DESCRIPTION"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:19
+msgid ""
+"B<apt-build> is an apt-get frontend to build and install architecture "
+"optimized packages."
+msgstr ""
+
+#. type: SH
+#: apt-build.1:20
+#, no-wrap
+msgid "COMMANDS"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:21
+#, no-wrap
+msgid "B<update>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:24
+msgid "Retrieve new lists of packages"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:24
+#, no-wrap
+msgid "B<upgrade>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:27
+msgid "Perform an upgrade"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:27
+#, no-wrap
+msgid "B<world>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:30
+msgid "Rebuild your system"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:30
+#, no-wrap
+msgid "B<install>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:33
+msgid "Build and install new packages"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:33
+#, no-wrap
+msgid "B<source>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:36
+msgid "Download and extract source in the build directory"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:36
+#, no-wrap
+msgid "B<info>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:39
+msgid "Info on a package which could be built"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:39
+#, no-wrap
+msgid "B<remove>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:42
+msgid "Remove packages"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:42
+#, no-wrap
+msgid "B<clean-build>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:45
+msgid "Erase built packages"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:45
+#, no-wrap
+msgid "B<clean-sources>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:48
+msgid "Call debian/rules clean in source directories"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:48
+#, no-wrap
+msgid "B<build-source>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:51
+msgid "Build source without installing them"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:51
+#, no-wrap
+msgid "B<update-source>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:54
+msgid "Update sources and rebuild them if they are missing in the repository"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:54
+#, no-wrap
+msgid "B<build-repository>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:57
+msgid "Rebuild the repository"
+msgstr ""
+
+#. type: SH
+#: apt-build.1:57
+#, no-wrap
+msgid "OPTIONS"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:58
+#, no-wrap
+msgid "B<--help\\ >"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:61
+msgid "Shows help"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:61
+#, no-wrap
+msgid "B<--nowrapper>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:64
+msgid "Do not use the gcc wrapper"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:64
+#, no-wrap
+msgid "B<--remove-builddep>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:67
+msgid "Remove build-dependencies installed by apt-build"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:67
+#, no-wrap
+msgid "B<--no-source>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:70
+msgid "Don't download source"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:70
+#, no-wrap
+msgid "B<--build-dir>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:73
+msgid "Specify build-dir"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:73
+#, no-wrap
+msgid "B<--build-only>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:76
+msgid "Build package only"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:76
+#, no-wrap
+msgid "B<--rebuild>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:79
+msgid "Rebuild a package"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:79
+#, no-wrap
+msgid "B<--reinstall>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:82
+msgid "Build and install an already installed package"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:82
+#, no-wrap
+msgid "B<--build-command> E<lt>I<command>E<gt>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:85
+msgid "Use this command to build package"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:85
+#, no-wrap
+msgid "B<--patch> E<lt>I<file>E<gt>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:88
+msgid ""
+"Apply this patch before build (you can use this option one or several times)"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:88
+#, no-wrap
+msgid "B<--patch-strip>, B<-p> E<lt>I<number>E<gt>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:91
+msgid "Prefix to strip on patch (0 = -p0, 1 = -p1 ...)"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:91
+#, no-wrap
+msgid "B<--yes>, B<-y>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:94
+msgid "Assume yes"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:94
+#, no-wrap
+msgid "B<--purge>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:97
+msgid "Use purge instead of remove"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:97
+#, no-wrap
+msgid "B<--noupdate>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:100
+msgid "Do not run 'apt-get update' before package installation"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:100
+#, no-wrap
+msgid "B<--sources-list>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:105
+msgid "Specify I<sources.list> file"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:105
+#, no-wrap
+msgid "B<--apt-get>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:110
+msgid "Specify an alternative I<apt-get> command"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:110
+#, no-wrap
+msgid "B<--apt-cache>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:115
+msgid "Specify an alternative I<apt-cache> command"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:115
+#, no-wrap
+msgid "B<--force-yes>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:118
+msgid "Force yes"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:118
+#, no-wrap
+msgid "B<--source>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:121
+msgid "Do not download source (sources are extracted already)"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:121
+#, no-wrap
+msgid "B<--repository-dir>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:124
+msgid "Specify the repository directory"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:124
+#, no-wrap
+msgid "B<--target-release>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:127
+msgid "Distribution to fetch packages from"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:127
+#, no-wrap
+msgid "B<--config>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:130
+msgid "Specify an alternative configuration file"
+msgstr ""
+
+#. type: TP
+#: apt-build.1:130
+#, no-wrap
+msgid "B<--version>,B<\\ -v>"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:133
+msgid "Show version"
+msgstr ""
+
+#. type: SH
+#: apt-build.1:133
+#, no-wrap
+msgid "BUGS"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:135
+msgid "Many."
+msgstr ""
+
+#. type: SH
+#: apt-build.1:137
+#, no-wrap
+msgid "AUTHOR"
+msgstr ""
+
+#. type: Plain text
+#: apt-build.1:140
+msgid ""
+"B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with "
+"many contributors."
+msgstr ""
