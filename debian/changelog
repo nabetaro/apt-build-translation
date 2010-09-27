@@ -17,7 +17,9 @@ apt-build (0.12.38) unstable; urgency=low
   [ Lior Kaplan ]
   * Applied patch from Yoram Bar-Haim (Closes: #507881)
   * Don't create an empty apt-build at /etc/apt/sources.list.d (apt-get
-    complains about it), use apt-build.list instead.
+    complains about it), use apt-build.list instead. (LP: #249076)
+  * Fix usage of dpkg obsolete option --print-installation-architecture in 
+    postinst (LP: #569158)
 
  -- Deepak Tripathi <apenguinlinux@gmail.com>  Wed, 02 Jun 2010 12:13:46 +0530
 
