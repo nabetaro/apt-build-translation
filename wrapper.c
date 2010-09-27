@@ -22,7 +22,8 @@ static int
 gcc_real (char **argv)
 {
   filterout_libdir_path();
-  return execvp (basename (argv[0]), argv);
+  argv[0] = basename (argv[0]) ;
+  return execvp (argv[0], argv);
 }
 
 static int

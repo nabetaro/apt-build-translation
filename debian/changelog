@@ -14,6 +14,11 @@ apt-build (0.12.38) unstable; urgency=low
   * Fall back to source version when binary not available
     (Closes: #179850, #291565, #292169)
 
+  [ Lior Kaplan ]
+  * Applied patch from Yoram Bar-Haim (Closes: #507881)
+  * Don't create an empty apt-build at /etc/apt/sources.list.d (apt-get i
+    complains about it), use apt-build.list instead.
+
  -- Deepak Tripathi <apenguinlinux@gmail.com>  Wed, 02 Jun 2010 12:13:46 +0530
 
 apt-build (0.12.37) unstable; urgency=low
