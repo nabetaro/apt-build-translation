@@ -16,7 +16,7 @@ apt-build (0.12.38) unstable; urgency=low
 
   [ Lior Kaplan ]
   * Applied patch from Yoram Bar-Haim (Closes: #507881)
-  * Don't create an empty apt-build at /etc/apt/sources.list.d (apt-get i
+  * Don't create an empty apt-build at /etc/apt/sources.list.d (apt-get
     complains about it), use apt-build.list instead.
 
  -- Deepak Tripathi <apenguinlinux@gmail.com>  Wed, 02 Jun 2010 12:13:46 +0530
