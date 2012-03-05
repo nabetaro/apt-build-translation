@@ -85,10 +85,10 @@ case "$1" in
 	    ln -s . dists
 	    ln -s . apt-build
 	    ln -s . main
-	    ln -s . binary-`dpkg --print-installation-architecture`
+	    ln -s . binary-`dpkg --print-architecture`
 	fi
 	
-	sed s/__arch__/`dpkg --print-installation-architecture`/ /usr/share/apt-build/Release > "$repository_dir/Release"
+	sed s/__arch__/`dpkg --print-architecture`/ /usr/share/apt-build/Release > "$repository_dir/Release"
 
 	# Add to sources.list if asked
 	if [ "$add_to_sourceslist" = "true" ] && [ -z "`grep "$repository_dir" /etc/apt/sources.list`" ]; then

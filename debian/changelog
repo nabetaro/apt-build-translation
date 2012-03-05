@@ -1,3 +1,19 @@
+apt-build (0.12.38) unstable; urgency=low
+
+  * QA upload
+  * Maintainer field set to QA Group
+  * Use dpkg's option --print-architecture in place of the obsolete option
+    --print-installation-architecture in debian/postinst (Closes: #598092)
+  * Create sources.list.d file with the right extension (.list)
+  * Set the -e flag in debian/preinst
+  * Point to /usr/share/common-licenses/GPL-2 in copyright file rather than to
+    the versionless symlink /usr/share/common-licenses/GPL
+  * Updated Standards-Version
+  * Added ${misc:Depends} to dependencies as per debhelper recommended best
+    practices
+
+ -- Emanuele Rocca <ema@debian.org>  Sun, 13 Mar 2011 12:31:02 +0100
+
 apt-build (0.12.37) unstable; urgency=low
 
   * Move tr translation to the right place.

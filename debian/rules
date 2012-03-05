@@ -57,7 +57,7 @@ install: build
 
 	install -m 644 debian/Release debian/apt-build/usr/share/apt-build/
 	mkdir -p debian/apt-build/etc/apt/sources.list.d
-	touch debian/apt-build/etc/apt/sources.list.d/apt-build
+	touch debian/apt-build/etc/apt/sources.list.d/apt-build.list
 
 # Build architecture-independent files here.
 binary-indep: build install
