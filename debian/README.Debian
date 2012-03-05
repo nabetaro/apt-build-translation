@@ -1,6 +1,9 @@
 apt-build for Debian
 --------------------
 
+apt-build is an orphan package. If you want to adopt it, see
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=365427
+
 WARNING:
 --------
 -> Do not upload packages on Debian:
@@ -14,10 +17,12 @@ WARNING:
    The deb line of apt-build repository must be the first line if
    you want apt-get to prefer built packages than other packages.
    To avoid conflicts with the `/etc/apt/preferences' mechanism,
-   you may add the following entry in the `/etc/apt/preferences' file:
+   you may add the following entry in the '/etc/apt/preferences' file,
+   or the '/etc/apt/preferences.d/aptpinning' file:
 
+# Set Pin-Priority 800 to all local files
 Package: *
-Pin: release o=apt-build
+Pin: origin ""
 Pin-Priority: 800
 
 ----------------------------------------------------------------------

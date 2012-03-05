@@ -1,3 +1,15 @@
+apt-build (0.12.41) experimental; urgency=low
+
+  * QA upload.
+  * Do not use outdated apt configuration settings
+    Patch by F Couperin
+    Closes: 639859
+  * --help: Fix clean-repository description
+    Patch by F Couperin
+    Closes: 528338
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Mon, 06 Feb 2012 11:55:04 +1100
+
 apt-build (0.12.40) unstable; urgency=high
 
   * QA upload.

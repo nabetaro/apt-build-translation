@@ -79,13 +79,8 @@ case "$1" in
 
 	# Create repository_dir
 	if [ ! -e "$repository_dir" ]; then
-	    mkdir -p "$repository_dir"
-	    cd "$repository_dir"
-	    ln -s . stable
-	    ln -s . dists
-	    ln -s . apt-build
-	    ln -s . main
-	    ln -s . binary-`dpkg --print-architecture`
+	    mkdir -p "$repository_dir"/dists/apt-build/main
+	    ln -s ../../.. "$repository_dir"/dists/apt-build/main/binary-`dpkg --print-architecture`
 	fi
 	
 	sed s/__arch__/`dpkg --print-architecture`/ /usr/share/apt-build/Release > "$repository_dir/Release"

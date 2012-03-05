@@ -101,9 +101,9 @@ Commands:
   update-source     - Update all sources and rebuild them
   remove            - Remove packages
   build-repository  - Rebuild the repository
-  clean-sources     - Clean up all object files in source directories
   clean-build       - Erase downloaded packages and temporary build files
-  clean-repository  - Erase downloaded packages and temporary build files
+  clean-repository  - Erase built packages
+  clean-sources     - Clean up all object files in source directories
   world             - Rebuild and reinstall all packages on your system
   info              - Build-related package information
 
@@ -337,10 +337,10 @@ sub build_repository
     chdir $conf->repository_dir;
     my $arch = $_config->get("APT::Architecture");
     
-    system "ln -s . main" unless -e "main";
-    system "ln -s . apt-build" unless -e "apt-build";
-    system "ln -s . dists" unless -e "dists";
-    system "ln -s . binary-$arch" unless -e "binary-$arch";
+    system "mkdir dists" unless -e "dists";
+    system "mkdir dists/apt-build" unless -e "dists/apt-build";
+    system "mkdir dists/apt-build/main" unless -e "dists/apt-build/main";
+    system "ln -s ../../.. dists/apt-build/main/binary-$arch" unless -e "dists/apt-build/main/binary-$arch";
     make_release_file() unless -e "Release";
     
     system "apt-ftparchive packages . | gzip -9 > Packages.gz";
@@ -457,7 +457,15 @@ sub build_deb_filename
     my $deb_file;
 
     # Build the .deb name
-    my $arch = $_config->get("APT::Architecture");
+    # FIXME (dirty hack here)
+    # my $arch = $_config->get("APT::Architecture");
+    #     --> is not good because the arch component can be "all"
+    # but the following may be improved
+    my $arch = `apt-get --print-uris download $pkg_name`;
+    chomp $arch;
+    $arch =~ s/.*${pkg_name}_.*_//;
+    $arch =~ s/.deb.*//;
+
     my $pkg_version_file; $pkg_version_file = $pkg_version;
 
     # dpkg-buildpackage doesn't put epoch in file name, so remove it.
@@ -552,7 +560,13 @@ sub install
     if(@pkgs && !($conf->build_only))
     {
 	update() if $conf->update;
-	system($conf->apt_get . " -t apt-build @apt_args install @pkglist");
+	# FIXME (dirty hack here)
+	# We use dpkg as a work-around because
+	# "apt-get -t apt-build ..." doesn't work anymore.
+	# <system($conf->apt_get . " -t apt-build @apt_args install @pkglist");>
+	# is replaced by:
+	chdir ("$conf{repository_dir}");
+	system "dpkg -i @pkgs";
 	wait;
     }
     return 1;
@@ -654,7 +668,13 @@ sub build_source
     if( @pkgs && !($conf->build_only) )
     {
 	update() if $conf->update;
-		system($conf->apt_get . " -t apt-build @apt_args install @pkglist");
+	# FIXME (dirty hack here)
+	# We use dpkg as a work-around because
+	# "apt-get -t apt-build ..." doesn't work anymore.
+	# <system($conf->apt_get . " -t apt-build @apt_args install @pkglist");>
+	# is replaced by:
+	chdir ("$conf{repository_dir}");
+	system "dpkg -i @pkgs";
     }
 }
 
