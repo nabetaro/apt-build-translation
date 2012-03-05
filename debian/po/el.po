@@ -11,14 +11,15 @@
 #    Developers do not need to manually edit POT or PO files.
 #  Νίκος Νύκταρης (Nick Niktaris)  <niktarin@yahoo.com>, 2004.
 # Konstantinos Margaritis <markos@debian.org>, 2004.
+# Thomas Vasileiou <thomas-v@wildmail.com>, 2012
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build_0.9.1_el\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
-"PO-Revision-Date: 2004-02-28 19:09EEST\n"
-"Last-Translator: Nick Niktaris <niktarin@yahoo.com>\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
+"PO-Revision-Date: 2012-01-24 01:59+0200\n"
+"Last-Translator: Thomas Vasileiou <thomas-v@wildmail.com>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -29,17 +30,17 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:1001
-#, fuzzy
 msgid "Directory used by apt-build to download and build packages:"
 msgstr ""
-"Πού πρέπει να γίνεται η μεταφόρτωση και δημιουργία των πακέτων από το apt-"
-"build;"
+"Κατάλογος όπου θα γίνεται η μεταφόρτωση και δημιουργία των πακέτων από το "
+"apt-build;"
 
 #. Type: string
 #. Description
 #: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
 msgstr ""
+"Κατάλογος όπου θα αποθηκευτούν τα πακέτα που δημιουργήθηκαν από το apt-build:"
 
 #. Type: boolean
 #. Description
@@ -51,7 +52,6 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../templates:3001
-#, fuzzy
 msgid ""
 "In order to install built package via APT, you must add a line like this to "
 "your sources.list:\n"
@@ -64,20 +64,30 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Χαμηλό, Μέτριο, Υψηλό"
+msgid "Light"
+msgstr "Χαμηλό"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Μέτριο"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Υψηλό"
 
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid "Optimization level:"
-msgstr "Τι επίπεδο βελτιστοποίησης θέλετε;"
+msgstr "Επίπεδο βελτιστοποίησης:"
 
 #. Type: select
 #. Description
 #: ../templates:4002
-#, fuzzy
 msgid ""
 "These are equivalent to -O1, -O2 and -O3. Optimization level is time "
 "dependant. The higher optimization level you choose, more time will be "
@@ -105,7 +115,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr ""
+msgstr "Αρχιτεκτονική: "
 
 #. Type: select
 #. Description
@@ -121,7 +131,6 @@ msgstr ""
 #. Description
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
-#, fuzzy
 msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
@@ -133,15 +142,17 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../templates:11001
-#, fuzzy
 msgid "Options to add to gcc:"
-msgstr "Ποιες επιλογές θέλετε να προσθέσετε στο gcc;"
+msgstr "Ποίες επιλογές θέλετε να προσθέσετε στο gcc;"
 
 #. Type: string
 #. Description
 #: ../templates:12001
 msgid "Options to add to make:"
-msgstr ""
+msgstr "Επιλογές που θα προστεθούν στο make:"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Χαμηλό, Μέτριο, Υψηλό"
 
 #~ msgid ""
 #~ "If your architecture is not here, choose one and edit your configuration "

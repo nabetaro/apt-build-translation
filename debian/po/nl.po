@@ -19,8 +19,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.19\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2006-08-11 20:14+0100\n"
 "Last-Translator: Kurt De Bree <kdebree@telenet.be>\n"
 "Language-Team: Debian l10n Dutch <debian-l10n-dutch@lists.debian.org>\n"
@@ -62,8 +62,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Zwak, Gemiddeld, Sterk"
+msgid "Light"
+msgstr "Zwak"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Gemiddeld"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Sterk"
 
 #. Type: select
 #. Description
@@ -136,6 +148,9 @@ msgstr "Met gcc mee te geven opties:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Met make mee te geven opties:"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Zwak, Gemiddeld, Sterk"
 
 #~ msgid ""
 #~ "If your architecture is not here, choose one and edit your configuration "

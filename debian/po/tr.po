@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2008-06-16 14:52+0200\n"
 "Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
 "Language-Team: Debian L10N Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -51,8 +51,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Hafif, Orta, Ağır"
+msgid "Light"
+msgstr "Hafif"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Orta"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Ağır"
 
 #. Type: select
 #. Description
@@ -125,3 +137,6 @@ msgstr "'gcc'ye eklenecek seçenekler:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "'make'e eklenecek seçenekler:"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Hafif, Orta, Ağır"

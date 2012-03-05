@@ -14,8 +14,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.21\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2006-08-23 15:19+0200\n"
 "Last-Translator: Nacho Barrientos Arias <chipi@criptonita.com>\n"
 "Language-Team: Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -61,8 +61,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Escaso, Medio, Agresivo"
+msgid "Light"
+msgstr "Escaso"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Medio"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Agresivo"
 
 #. Type: select
 #. Description
@@ -134,3 +146,6 @@ msgstr "¿Qué opciones adicionales quiere pasarle a gcc?"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "¿Qué opciones adicionales quiere pasarle a make?"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Escaso, Medio, Agresivo"

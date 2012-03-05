@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -e
 # debconf lib
 . /usr/share/debconf/confmodule
 

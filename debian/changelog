@@ -1,3 +1,24 @@
+apt-build (0.12.39) unstable; urgency=low
+
+  * QA upload.
+  * Split Choices in debconf templates
+  * Add build-arch and build-indep build targets
+  * Bump Standards to 3.9.2
+  * Bump debhelper compatibility to 8
+    * Replace dh_clean -k by dh_prep
+  * Add "set -e" in config script
+  * Fix pending l10n issues. 
+  * Manpages translations:
+    - Spanish. Closes: #538104
+    - German. Closes: #608434
+  * Debconf translations:
+    - Danish (Joe Hansen).  Closes: #608434
+    - Greek, (Thomas Vasileiou).  Closes: #657099
+    - Polish (Michał Kułach).  Closes: #657322
+    - Brazilian Portuguese (Adriano Rafael Gomes).  Closes: #657455
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 29 Jan 2012 18:01:27 +0100
+
 apt-build (0.12.38) unstable; urgency=low
 
   * QA upload

@@ -18,7 +18,7 @@ _Description: Add apt-build repository to sources.list?
 
 Template: apt-build/olevel
 Type: select
-_Choices: Light, Medium, Strong
+__Choices: Light, Medium, Strong
 Default: Medium
 _Description: Optimization level:
  These are equivalent to -O1, -O2 and -O3. Optimization level is time

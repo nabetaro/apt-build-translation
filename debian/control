@@ -2,8 +2,8 @@ Source: apt-build
 Section: devel
 Priority: optional
 Maintainer: Debian QA Group <packages@qa.debian.org>
-Build-Depends: debhelper (>> 5.0.0), po4a, po-debconf
-Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 8), po4a, po-debconf
+Standards-Version: 3.9.2
 Vcs-Git: git://git.debian.org/git/apt-build/apt-build.git
 Vcs-Browser: http://git.debian.org/?p=apt-build/apt-build.git
 

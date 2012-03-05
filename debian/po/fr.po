@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2006-08-15 14:12+0200\n"
 "Last-Translator: Thomas Huriaux <thomas.huriaux@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -59,8 +59,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Simple, Intermédiaire, Élevé"
+msgid "Light"
+msgstr "Simple"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Intermédiaire"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Élevé"
 
 #. Type: select
 #. Description
@@ -132,3 +144,6 @@ msgstr "Options à utiliser avec gcc :"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Options à utiliser avec make :"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Simple, Intermédiaire, Élevé"
