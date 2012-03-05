@@ -1,32 +1,169 @@
 #!/bin/sh
 
 set -e
-# debconf lib
+
+CONFFILE="/etc/apt/apt-build.conf"
+build_dir=
+repository_dir=
+Olevel=
+mtune=
+options=
+make_options=
+
+# load debconf lib
 . /usr/share/debconf/confmodule
 
-db_input medium apt-build/build_dir || true
-db_go
-#db_get apt-build/build_dir
+# load config file
+if [ -e $CONFFILE ] ; then
+  
+  # TODO: instead of sed here to source config file, improve config parsing in
+  # config.c for compatibility with shell variables
+  tmpfile=$(mktemp)
+  cat $CONFFILE > $tmpfile
+  sed -i 's|^\([^=]*\) = |\1=|' $tmpfile
+  sed -i 's|build-dir|build_dir|; s|repository-dir|repository_dir|' $tmpfile
+  
+  . $tmpfile
+  rm -f $tmpfile
+  
+  db_set apt-build/build_dir "$build_dir"
+  db_set apt-build/repository_dir "$repository_dir"
+  
+  case "$Olevel" in
+    -O1)
+      olevel=Light
+      ;;
+    -O2)
+      olevel=Medium
+      ;;
+    -O3)
+      olevel=Strong
+      ;;
+    *)
+      olevel=
+      ;;
+  esac
+  db_set apt-build/olevel "$olevel"
+  
+  db_set apt-build/archtype "$mtune"
+  db_set apt-build/options "$options"
+  #db_set apt-build/make_options "$make_options"
+fi
 
-db_input medium apt-build/repository_dir || true
-db_go
-#db_get apt-build/repository_dir
+ok=
+while [ -z "$ok" ] ; do
+  db_input medium apt-build/build_dir || true
+  db_go || true
+  db_get apt-build/build_dir
+  if [ -z "$RET" ] ; then
+    db_reset apt-build/build_dir
+  else
+    ok=0
+  fi
+done
+
+repository_dir=
+while [ -z "$repository_dir" ] ; do
+  db_input medium apt-build/repository_dir || true
+  db_go || true
+  db_get apt-build/repository_dir
+  if [ -z "$RET" ] ; then
+    db_reset apt-build/repository_dir
+  else
+    repository_dir="$RET"
+  fi
+done
+
+db_subst apt-build/add_to_sourceslist repo "$RET"
+
+eval $(apt-config shell etcdir Dir::Etc)
+eval $(apt-config shell sourceslist Dir::Etc::sourcelist)
+eval $(apt-config shell sourcesparts Dir::Etc::sourceparts)
+
+if [ ! -e $CONFFILE ] ; then
+  # set to true for initial configuration (conffile does not exist)
+  db_set apt-build/add_to_sourceslist "true"
+else
+  db_set apt-build/add_to_sourceslist "false"
+  
+  # run loop to prevent errors if some sources does not exist
+  for source in /"$etcdir""$sourceslist" /"$etcdir""$sourcesparts"/*.list ; do
+    if [ -e "$source" ] ; then
+      if grep -Eq "^[[:space:]]*deb file:$repository_dir apt-build main" "$source" ; then
+        db_set apt-build/add_to_sourceslist "true"
+        break
+      fi
+    fi
+  done
+fi
+
+db_input critical apt-build/add_to_sourceslist || true
 
 db_input critical apt-build/olevel || true
-db_go
-#db_get apt-build/olevel
-
-db_get apt-build/repository_dir
-db_subst apt-build/add_to_sourceslist repo $RET
-db_input critical apt-build/add_to_sourceslist || true
-db_go
-#db_get apt-build/add_to_sourceslist
-
 
 db_input medium apt-build/options || true
-db_go
-#db_get apt-build/options
+db_go || true
 
-db_input medium apt-build/make_options || true
-db_go
-#db_get apt-build/options
+multithreaded=
+if [ -n "$make_options" ] ; then
+  multithreaded="$make_options"
+elif [ -r /proc/cpuinfo ] && [ ! -e $CONFFILE ] ; then
+  # get number of cores and set as default job argument
+  multithreaded="-j$(grep -c processor /proc/cpuinfo)"
+  # only allow whole numbers
+  case "${multithreaded#-j}" in
+    ''|*[!0-9]*|0*)
+      multithreaded=
+      ;;
+  esac
+fi
+
+db_set apt-build/make_options "$multithreaded"
+db_input high apt-build/make_options || true
+
+db_go || true
+
+# get architecture
+for i in 1 2 ; do
+  # We need to set RET empty in case of /proc/cpuinfo is missing and to support
+  # clean archtype (cpu or architecture type)
+  RET=
+  case "$(dpkg-architecture -qDEB_HOST_ARCH)" in
+    i[3-9]86|x86|x86pc|k5|k6|k6-2|k6-3|pentium*|athlon*|i586-i686)
+	    if [ -r /proc/cpuinfo ] ; then
+        case "$(grep 'vendor_id' /proc/cpuinfo | cut -d ':' -f 2 | head -n 1)" in
+		      *AMD*)
+			      db_input critical apt-build/arch_amd || true
+			      db_get apt-build/arch_amd
+			      ;;
+			    *Intel*)
+			      db_input critical apt-build/arch_intel || true
+			      db_get apt-build/arch_intel
+			      ;;
+		    esac
+	    fi
+	    ;;
+	  sparc*)
+		  db_input critical apt-build/arch_sparc || true
+		  db_get apt-build/arch_sparc
+		  ;;
+	  alpha)
+		  db_input critical apt-build/arch_alpha || true
+		  db_get apt-build/arch_alpha
+		  ;;
+	  arm*)
+		  db_input critical apt-build/arch_arm || true
+		  db_get apt-build/arch_arm
+		  ;;
+	  amd64|*-amd64)
+		  db_input critical apt-build/arch_amd64 || true
+		  db_get apt-build/arch_amd64
+		  ;;
+  esac
+  
+  if [ $i -eq 1 ] ; then
+    db_go || true
+  else
+    db_set apt-build/archtype "$RET"
+  fi
+done

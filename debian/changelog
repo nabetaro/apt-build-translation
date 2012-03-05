@@ -1,3 +1,38 @@
+apt-build (0.12.42) experimental; urgency=low
+
+  * QA upload.
+  * Bump source format to 3.0 (native).
+  * Added archive suite. Clear solution for #639859.
+  * Allow non authenticated installation from apt-build repository. Closes: 
+    #316572, #369173
+  * Added new cpu-type profiles to debconf templates.
+  * Changed default make option in template (-j`cpu_cores`). Set question
+    priority to "high".
+  * debian/dirs: Removed due to its redundancy.
+  * Prevent empty directory for build_dir and repository_dir (use loop).
+    Closes: #511853
+  * Move debconf-only related content from postinst to config file and pimp
+    debconf stuff (configuration file handling).
+  * --yes (assume-yes) functionality is now recognized by aptitude. Also
+    renamed help information from apt-get and apt-cache to aptget and aptcache.
+    (thanks to Bryant Wong) Closes: #392844
+  * Improved source version and name handling. Closes: #314155, #315102,
+    #425044, #434859
+  * Pull correct build dependencies. Closes: #624365
+  * Compilation with cmake is supported (no code changes). Closes: #507881
+  * Build with local version number (suffix +aptbuild). Closes: #391449,
+    #592006
+  * Support sources stored at /Dir::Etc::sourceparts. Closes: #596296
+  * Rebuild Packages.gz after repository cleaning.
+  * Patch from Kumar Appaiah: Allow package builds without binary packages
+    registered in sources. Closes: #179850, #291565, #292169
+  * Unregister conffiles located in /etc/apt/sources.list.d/. Changes are
+    completely managed by debconf and maintainer scripts. Closes: #660590
+  * Bump debhelper compatibility mode to 9.
+  * Bump Standards version to 3.9.3.
+
+ -- Dominique Lasserre <lasserre.d@gmail.com>  Fri, 24 Feb 2012 02:02:46 +0100
+
 apt-build (0.12.41) experimental; urgency=low
 
   * QA upload.

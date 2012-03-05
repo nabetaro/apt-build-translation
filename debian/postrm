@@ -2,8 +2,40 @@
 
 set -e
 
-if [ "$1" = purge ]; then
-    rm -f /etc/apt/apt-build.conf
+if [ "$1" = purge ] ; then
+  rm -f /etc/apt/apt-build.conf
+  
+  # prepare APT and apt-build information
+  eval $(apt-config shell etcdir Dir::Etc)
+  eval $(apt-config shell sourceslist Dir::Etc::sourcelist)
+  eval $(apt-config shell sourcesparts Dir::Etc::sourceparts)
+  sourceslist=/"$etcdir""$sourceslist"
+  sourcesparts=/"$etcdir""$sourcesparts"
+  aptbuildsource="$sourcesparts"/apt-build.list
+  
+  ## remove repository directory if it is empty
+  #db_get apt-build/repository_dir
+  #repository_dir="$RET"
+  #if [ $(zcat "$repository_dir"/Packages.gz | wc -l) -eq 0 ] ; then
+  #  rm -rf "$repository_dir"
+  #fi
+  #
+  ## remove build directory if it is empty
+  #db_get apt-build/build_dir
+  #build_dir="$RET"
+  #if [ -d "$build_dir" ] && [ ! $(ls -A "$build_dir") ] ; then
+  #  rm -rf "$build_dir"
+  #fi
+  
+  # remove apt-build.list resource file
+  if [ -f "$aptbuildsource" ] ; then
+    rm -f "$aptbuildsource"
+  fi
+fi
+
+# remove obsolete config file from apt-build <= 0.12.37
+if dpkg-maintscript-helper supports rm_conffile 2>/dev/null ; then
+  dpkg-maintscript-helper rm_conffile /etc/apt/sources.list.d/apt-build -- "$@"
 fi
 
 #DEBHELPER#
