@@ -5,11 +5,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2008-05-27 22:04+0100\n"
 "Last-Translator: Jacobo Tarrio <jtarrio@debian.org>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,8 +50,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Lixeiro, Medio, Forte"
+msgid "Light"
+msgstr "Lixeiro"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Medio"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Forte"
 
 #. Type: select
 #. Description
@@ -122,3 +135,6 @@ msgstr "Opcións a engadir a gcc:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Opcións a engadir a make:"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Lixeiro, Medio, Forte"

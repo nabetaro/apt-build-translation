@@ -43,7 +43,7 @@ use AptPkg::Cache;
 my $VERSION = "unreleased";
 my ($conf, %conf, @builddep, @apt_args);
 
-@apt_args = qw/-y/;     # and DEFAULT => 1, down in parse_config()
+@apt_args = qw/-y/;        # and DEFAULT => 1, down in parse_config()
 
 my @actions = qw/install source remove info update upgrade world build_source update_source
 		clean_sources build_repository clean_build clean_repository moo find/;       # possible actions
@@ -66,7 +66,7 @@ $_system = $_config->system;
 $_config->{quiet} = 2;
 my $_cache = new AptPkg::Cache;
 my $_version = $_system->versioning;
-my $_source = new AptPkg::Source $conf->sources_list;
+my $_source = AptPkg::Source->new();
 my $_pkg_infos = $_cache->packages;
 
 # 'no strict' makes it possible that we call "&$cmd" (so, if the user 
@@ -101,9 +101,9 @@ Commands:
   update-source     - Update all sources and rebuild them
   remove            - Remove packages
   build-repository  - Rebuild the repository
-  clean-sources     - Clean up all object files in source directories
   clean-build       - Erase downloaded packages and temporary build files
-  clean-repository  - Erase downloaded packages and temporary build files
+  clean-repository  - Erase built packages
+  clean-sources     - Clean up all object files in source directories
   world             - Rebuild and reinstall all packages on your system
   info              - Build-related package information
 
@@ -126,8 +126,8 @@ Options:
   --repository-dir  - Specify the repository directory
   --target-release  - Distribution to fetch packages from
   --sources-list    - Specify sources.list file
-  --apt_get         - Specify an alternative apt-get application to use
-  --apt_cache       - Specify an alternative apt-cache application to use
+  --aptget         - Specify an alternative apt-get application to use
+  --aptcache       - Specify an alternative apt-cache application to use
   --config          - Specify an alternative configuration file
 ";
 	exit 1;
@@ -288,11 +288,11 @@ sub build
     chdir "$src_name-$upver";
     
     # Add an entry in changelog 
-    system "debchange --append 'Built by apt-build'";
+    system "debchange --local +aptbuild 'Built by apt-build'";
     for (@{$conf->patch})
     {
 	$_ =~ s[.*/(.*)\n$][$1]gio; # basename + chomp
-		system "debchange --append 'Patched with $_'";
+		system "debchange 'Patched with $_'";
     }
 	
     # Patch if asked
@@ -310,7 +310,7 @@ sub build
 	$buildoptions = "Build options: ".
 	    $conf->Olevel." ".$conf->mtune." ".$conf->options;
 
-	system "debchange --append \"$buildoptions\"";
+	system "debchange \"$buildoptions\"";
 	
 	# Now build
 	$r = !system $conf->build_command;
@@ -337,11 +337,12 @@ sub build_repository
     chdir $conf->repository_dir;
     my $arch = $_config->get("APT::Architecture");
     
-    system "ln -s . main" unless -e "main";
-    system "ln -s . apt-build" unless -e "apt-build";
-    system "ln -s . dists" unless -e "dists";
-    system "ln -s . binary-$arch" unless -e "binary-$arch";
+    system "mkdir dists" unless -e "dists";
+    system "mkdir dists/apt-build" unless -e "dists/apt-build";
+    system "mkdir dists/apt-build/main" unless -e "dists/apt-build/main";
+    system "ln -s ../../.. dists/apt-build/main/binary-$arch" unless -e "dists/apt-build/main/binary-$arch";
     make_release_file() unless -e "Release";
+    system "ln -s ../../Release dists/apt-build/Release" unless -e "dists/apt-build/Release";
     
     system "apt-ftparchive packages . | gzip -9 > Packages.gz";
     wait;
@@ -376,11 +377,13 @@ sub clean_repository
     {
 	die "Error: what is repository_dir?";
     }
+	  build_repository();
 }
 
 sub builddep
 {
     my $pkg = shift or return;
+    my $pkg_version = $_[0] || &get_pkg_version($pkg);
     
     if ($conf->remove_builddep)
     {
@@ -388,8 +391,8 @@ sub builddep
 		      "^'", \&extract_name);
     }
     
-    print STDERR "-----> Installing build dependencies (for $pkg) <-----";
-    !system $conf->apt_get . " @apt_args build-dep $pkg"
+    print STDERR "-----> Installing build dependencies (for $pkg=$pkg_version) <-----";
+    !system $conf->apt_get . " @apt_args build-dep $pkg=$pkg_version"
 }
 
 
@@ -409,17 +412,16 @@ sub get_src_version
 {
     my $pkg_name = $_[0] || die;
     my $pkg_version = $_[1] || &get_pkg_version($pkg_name);
-    my ($src_version, $special_srcver);
+    my $src_version;
     # By default
     $src_version = $pkg_version;
 
-    open APTCIN, $conf->apt_cache . " showsrc $pkg_name |";
+    open APTCIN, "LANGUAGE=C " . $conf->apt_cache . " show $pkg_name=$pkg_version |";
     while(<APTCIN>)
     {
-	$special_srcver = 1 if($pkg_version and /^Version: $pkg_version$/);
-	if (/^Version: (\S+)$/ and ($special_srcver or not $pkg_version))
-	{
-	    $src_version = $1;
+        if (/^Source: (.*)\((.*)\)/)
+        {
+            $src_version = $2;
 	    last;
 	}
     }
@@ -447,26 +449,26 @@ sub get_pkg_version
     }
     close(APTCIN);
 
-    if ($pkg_version && $pkg_version !~ m/\(none\)/) {
-	return $pkg_version;
-    }
-
     # In case we fail to find a valid candidate, which may happen if,
     # for example, the package has no binary version but a source
     # version, we fall back to the source version in order to avoid
     # dying.
-    open APTCIN, "LANGUAGE=C " . $conf->apt_cache . " showsrc $pkg_name |";
-    while(<APTCIN>)
+    if (!$pkg_version)
     {
-        $pkg_version = $1 if(/^Version: (.*)$/ and $release eq "" );
-        if( $release )
+        open APTCIN, "LANGUAGE=C " . $conf->apt_cache . " showsrc $pkg_name |";
+        while(<APTCIN>)
         {
-            last if ( /$release/ ); ## quit from while,but keep the version from the row before
-            $pkg_version = $2 if( /^\s(\*\*\*)?\s+(.*) \d/ );
+            $pkg_version = $1 if(/^Version: (.*)$/ and $release eq "" );
+            if( $release )
+            {
+                last if ( /$release/ ); ## quit from while,but keep the version from the row before
+                $pkg_version = $2 if( /^\s(\*\*\*)?\s+(.*) \d/ );
+            }
         }
+        close(APTCIN);
     }
-    close(APTCIN);
-    print $pkg_version;
+	  die "Unable to find source candidate for $pkg_name\n" unless ($pkg_version);
+    
     return $pkg_version;
 }
 
@@ -475,14 +477,23 @@ sub build_deb_filename
 {
     my ($pkg_name, $pkg_version) = @_;
     my $deb_file;
+    # set host architecture as default value
+    my $arch = `dpkg --print-architecture`;
+    chomp $arch;
 
     # Build the .deb name
-    my $arch = $_config->get("APT::Architecture");
+    open APTCIN, "LANGUAGE=C " . $conf->apt_cache . " show $pkg_name=$pkg_version |";
+    while(<APTCIN>)
+    {
+        $arch = $1 if (/^Architecture: (.*)/)
+    }
+    close(APTCIN);
+
     my $pkg_version_file; $pkg_version_file = $pkg_version;
 
     # dpkg-buildpackage doesn't put epoch in file name, so remove it.
     $pkg_version_file =~ s/^\d://;
-    $deb_file = $pkg_name."_".$pkg_version_file."_".$arch.".deb";
+    $deb_file = $pkg_name."_".$pkg_version_file."+aptbuild_".$arch.".deb";
 }
 
 sub install
@@ -490,7 +501,6 @@ sub install
     my (@packages, @pkgs, $buildpkg);
     my @pkglist = ();
     my $nopkgs_okay = 0;
-    my $special_srcver = 0;
 
     for (@_)
     {
@@ -541,7 +551,7 @@ sub install
 	{
 	    push @pkgs, $deb_file;
 
-	    builddep($src_name) unless $conf->build_only;
+	    builddep($src_name, $src_version) unless $conf->build_only;
 	    source_by_package($pkg_name, $src_version) if $conf->source;
 
 	    # Now build the package
@@ -572,7 +582,8 @@ sub install
     if(@pkgs && !($conf->build_only))
     {
 	update() if $conf->update;
-	system($conf->apt_get . " -t apt-build @apt_args install @pkglist");
+	system($conf->apt_get . " -t apt-build @apt_args \\
+    -o Apt::Get::AllowUnauthenticated=true install @pkglist");
 	wait;
     }
     return 1;
@@ -923,10 +934,12 @@ sub apt_args_modify
 		@apt_args = grep {!/^--$name /} @apt_args; # just to be sure
 		
 		# special parsing for --sources-list
-		if($name =~ /^sources.list$/)
-		{ $name = "-oDir::Etc::SourceList=$value"; }
- 		else
-		{ $name = "--$name $value"; }
+    # that is now deprecated because Dir::Etc::SourceList and 
+    # Dir::Etc::sourceparts is already in use
+    if($name =~ /^sources.list$/)
+    { $name = "-oDir::Etc::SourceList=$value"; }
+    else
+    { $name = "--$name $value"; }
 		
 		push @apt_args, "$name";
 		

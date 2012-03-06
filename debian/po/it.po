@@ -7,11 +7,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build 0.12.18 italian debconf templates\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2006-08-08 22:15+0200\n"
 "Last-Translator: Luca Monducci <luca.mo@tiscali.it>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,8 +50,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Semplice, Intermedio, Elevato"
+msgid "Light"
+msgstr "Semplice"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Intermedio"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Elevato"
 
 #. Type: select
 #. Description
@@ -123,6 +136,9 @@ msgstr "Ulteriori opzioni da passare a gcc:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Ulteriori opzioni da passare a make:"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Semplice, Intermedio, Elevato"
 
 #~ msgid ""
 #~ "If your architecture is not here, choose one and edit your configuration "

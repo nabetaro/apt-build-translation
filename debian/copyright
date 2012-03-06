@@ -1,26 +1,15 @@
 This package was debianized by Julien Danjou <acid@debian.org> on
 Tue, 18 Jun 2002 20:23:02 +0200.
 
-It is now maintained by Deepak Tripathi <apenguinlinux@gmail.com>
-
-It was downloaded from <URL:git://git.debian.org/apt-build/apt-build.git>
-
-Upstream Authors: 
-		Copyright (c) 2002-2010 Julien Danjou <acid@debian.org>, Davor Ocelic <docelic@mail.inet.hr>
-		Copyright (c) 2010 Deepak Tripathi <apenguinlinux@gmail.com>
+Upstream Authors: Julien Danjou <acid@debian.org>
+                  Davor Ocelic <docelic@mail.inet.hr>
 
 Copyright:
 
-		Copyright 2002-2010 Julien Danjou <acid@debian.org>
+   Copyright 2002-2008 Julien Danjou <acid@debian.org>
 
-		This program is free software; you can redistribute it and/or modify
-		it under the terms of the GNU General Public License as published by
-		the Free Software Foundation; version 2 dated June, 1991.
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; version 2 dated June, 1991.
 
-		See /usr/share/common-licenses/GPL.
-
-
---
-The Debian packaging is:
-  Copyright (C) 2010 Deepak Tripathi <apenguinlinux@gmail.com> and is licensed
-  under the GPL, see `/usr/share/common-licenses/GPL-2'.
+   See /usr/share/common-licenses/GPL-2.

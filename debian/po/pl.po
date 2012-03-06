@@ -1,40 +1,40 @@
-# Debconf translations for apt-build.
-# Copyright (C) 2012 THE apt-build'S COPYRIGHT HOLDER
+# Copyright (C) 2012
 # This file is distributed under the same license as the apt-build package.
-# André Luís Lopes <andrelop@debian.org>, 2005.
-# Adriano Rafael Gomes <adrianorg@gmail.com>, 2012.
 #
+# Michał Kułach <michal.kulach@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: apt-build\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
 "POT-Creation-Date: 2012-01-30 20:19+0100\n"
-"PO-Revision-Date: 2012-01-26 10:27-0200\n"
-"Last-Translator: Adriano Rafael Gomes <adrianorg@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
-"org>\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2012-01-25 17:25+0100\n"
+"Last-Translator: Michał Kułach <michal.kulach@gmail.com>\n"
+"Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #. Type: string
 #. Description
 #: ../templates:1001
 msgid "Directory used by apt-build to download and build packages:"
-msgstr "Diretório utilizado pelo apt-build para baixar e construir pacotes:"
+msgstr "Katalog używany przez apt-build do pobierania i budowania pakietów:"
 
 #. Type: string
 #. Description
 #: ../templates:2001
 msgid "Directory used to store packages built by apt-build:"
-msgstr "Diretório utilizado para armazenar pacotes construídos pelo apt-build:"
+msgstr "Katalog używany do przechowywanie pakietów budowanych przez apt-build:"
 
 #. Type: boolean
 #. Description
 #: ../templates:3001
 msgid "Add apt-build repository to sources.list?"
-msgstr "Adicionar o repositório apt-build ao arquivo sources.list?"
+msgstr "Dodać repozytorium apt-build do sources.list?"
 
 #. Type: boolean
 #. Description
@@ -44,33 +44,33 @@ msgid ""
 "your sources.list:\n"
 "  deb file:${repo} apt-build main"
 msgstr ""
-"Para poder instalar os pacotes construídos usando o APT, é necessário "
-"adicionar uma linha como esta em seu arquivo sources.list:\n"
+"Aby zainstalować pakiet za pomocą APT-a, należy dodać wiersz podobny do "
+"poniższego, do sources.list:\n"
 "  deb file:${repo} apt-build main"
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Light"
-msgstr "Leve"
+msgstr "niski"
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Medium"
-msgstr "Médio"
+msgstr "średni"
 
 #. Type: select
 #. Choices
 #: ../templates:4001
 msgid "Strong"
-msgstr "Forte"
+msgstr "wysoki"
 
 #. Type: select
 #. Description
 #: ../templates:4002
 msgid "Optimization level:"
-msgstr "Nível de otimização:"
+msgstr "Poziom optymalizacji:"
 
 #. Type: select
 #. Description
@@ -81,11 +81,10 @@ msgid ""
 "required for compiling, but the faster your programs will be. Warning: "
 "Strong optimization may lead to stability problems."
 msgstr ""
-"Esses níveis são equivalentes às opções -O1, -O2 e -O3. O nível de "
-"otimização é dependente de tempo. Quanto maior o nível de otimização que "
-"você escolher, mais tempo será necessário para a compilação terminar, mas "
-"seus programas ficarão mais rápidos. Aviso: otimização forte pode levar a "
-"problemas de estabilidade."
+"Jest to odpowiednik opcji -O1, -O2 i -O3. Poziom optymalizacji jest zależny "
+"od czasu. Lepsza optymalizacja zabiera więcej czasu na kompilację, ale za to "
+"programy będą działały szybciej. Ostrzeżenie: Wysoki poziom optymalizacji "
+"może powodować problemy ze stabilnością."
 
 #. Type: select
 #. Description
@@ -102,7 +101,7 @@ msgstr ""
 #: ../templates:5001 ../templates:6001 ../templates:7001 ../templates:8001
 #: ../templates:9001 ../templates:10001
 msgid "Architecture:"
-msgstr "Arquitetura:"
+msgstr "Architektura:"
 
 #. Type: select
 #. Description
@@ -122,38 +121,21 @@ msgid ""
 "If your architecture is not here, choose one and edit your configuration "
 "file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport."
 msgstr ""
-"Caso sua arquitetura não esteja listada aqui, escolha uma e edite seu "
-"arquivo de configuração (/etc/apt/apt-build.conf) manualmente e, por favor, "
-"envie um relatório de problemas (bug) com a prioridade \"lista de desejos"
-"\" (wishlist)."
+"Jeśli nie ma tutaj używanej architektury, należy wybrać właściwą i zedytować "
+"plik konfiguracyjny (/etc/apt/apt-build.conf) ręcznie. Prosimy także o "
+"wysłanie raportu o błędzie, z priorytetem \"wishlist\"."
 
 #. Type: string
 #. Description
 #: ../templates:11001
 msgid "Options to add to gcc:"
-msgstr "Opções a serem adicionadas ao gcc:"
+msgstr "Opcje przekazywane do gcc:"
 
 #. Type: string
 #. Description
 #: ../templates:12001
 msgid "Options to add to make:"
-msgstr "Opções a serem adicionadas ao make:"
+msgstr "Opcje przekazywane do make:"
 
 #~ msgid "Light, Medium, Strong"
-#~ msgstr "Leve, Médio, Forte"
-
-#~ msgid ""
-#~ "If your architecture is not here, choose one and edit your configuration "
-#~ "file (/etc/apt/apt-build.conf) by hand, and please do a bugreport. "
-#~ "(wishlist)"
-#~ msgstr ""
-#~ "Caso sua arquitetura não esteja listada aqui, escolha uma e edite seu "
-#~ "arquivo de configuração (/etc/apt/apt-build.conf) manualmente. E, por "
-#~ "favor, envie um relatório de problemas (bug) com a prioridade \"lista de "
-#~ "desejos\" (wishlist)."
-
-#~ msgid "What is your architecture?"
-#~ msgstr "Qual é sua arquitetura ?"
-
-#~ msgid "Where must apt-build store built packages?"
-#~ msgstr "Onde o apt-build deve armazenar os pacotes construídos ?"
+#~ msgstr "niski, średni, wysoki"

@@ -14,11 +14,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: apt-build_0.12.24_de\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2006-11-18 22:27+0100\n"
 "Last-Translator: Erik Schanze <eriks@debian.org>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,8 +60,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Gering, Mittel, Hoch"
+msgid "Light"
+msgstr "Gering"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Mittel"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Hoch"
 
 #. Type: select
 #. Description
@@ -132,3 +145,6 @@ msgstr "Zusätzliche Optionen für GCC:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Zusätzliche Optionen für Make:"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Gering, Mittel, Hoch"

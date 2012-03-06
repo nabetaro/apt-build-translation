@@ -16,11 +16,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
-"Report-Msgid-Bugs-To: acid@debian.org\n"
-"POT-Creation-Date: 2006-08-12 11:31+0200\n"
+"Report-Msgid-Bugs-To: apt-build@packages.debian.org\n"
+"POT-Creation-Date: 2012-01-30 20:19+0100\n"
 "PO-Revision-Date: 2006-08-11 22:10+0300\n"
 "Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,8 +60,20 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../templates:4001
-msgid "Light, Medium, Strong"
-msgstr "Облегченная, Средняя, Усиленная"
+msgid "Light"
+msgstr "Облегченная"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Medium"
+msgstr "Средняя"
+
+#. Type: select
+#. Choices
+#: ../templates:4001
+msgid "Strong"
+msgstr "Усиленная"
 
 #. Type: select
 #. Description
@@ -132,6 +145,9 @@ msgstr "Дополнительные параметры для gcc:"
 #: ../templates:12001
 msgid "Options to add to make:"
 msgstr "Дополнительные параметры для make:"
+
+#~ msgid "Light, Medium, Strong"
+#~ msgstr "Облегченная, Средняя, Усиленная"
 
 #~ msgid ""
 #~ "If your architecture is not here, choose one and edit your configuration "

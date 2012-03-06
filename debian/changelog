@@ -1,27 +1,105 @@
-apt-build (0.12.38) unstable; urgency=low
-  
-  * New maintainer (Closes: #365427, #386521)
-  * debian/control 
-     + bumped standard version to 3.8.4 ( no changes).
-     + added myself to maintainer.
-  * debian/copyright
-     + updated copyright
-  * applied patch from Bryan Wong  (Closes: #392844)  
+apt-build (0.12.43) unstable; urgency=low
   
   [ Julien Danjou ]
   * Fix compiler names (Closes: #502377)
   * Add support for gfortran (Closes: #502379)
-  * Fall back to source version when binary not available
-    (Closes: #179850, #291565, #292169)
 
-  [ Lior Kaplan ]
-  * Applied patch from Yoram Bar-Haim (Closes: #507881)
-  * Don't create an empty apt-build at /etc/apt/sources.list.d (apt-get
-    complains about it), use apt-build.list instead. (LP: #249076)
-  * Fix usage of dpkg obsolete option --print-installation-architecture in 
-    postinst (LP: #569158)
+  [ Dominique Lasserre ]
+  * QA upload.
+  * Upload to unstable.
 
- -- Deepak Tripathi <apenguinlinux@gmail.com>  Wed, 02 Jun 2010 12:13:46 +0530
+ -- Dominique Lasserre <lasserre.d@gmail.com>  Tue, 06 Mar 2012 02:36:40 +0100
+
+apt-build (0.12.42) experimental; urgency=low
+
+  * QA upload.
+  * Bump source format to 3.0 (native).
+  * Added archive suite. Clear solution for #639859.
+  * Allow non authenticated installation from apt-build repository. Closes: 
+    #316572, #369173
+  * Added new cpu-type profiles to debconf templates.
+  * Changed default make option in template (-j`cpu_cores`). Set question
+    priority to "high".
+  * debian/dirs: Removed due to its redundancy.
+  * Prevent empty directory for build_dir and repository_dir (use loop).
+    Closes: #511853
+  * Move debconf-only related content from postinst to config file and pimp
+    debconf stuff (configuration file handling).
+  * --yes (assume-yes) functionality is now recognized by aptitude. Also
+    renamed help information from apt-get and apt-cache to aptget and aptcache.
+    (thanks to Bryant Wong) Closes: #392844
+  * Improved source version and name handling. Closes: #314155, #315102,
+    #425044, #434859
+  * Pull correct build dependencies. Closes: #624365
+  * Compilation with cmake is supported (no code changes). Closes: #507881
+  * Build with local version number (suffix +aptbuild). Closes: #391449,
+    #592006
+  * Support sources stored at /Dir::Etc::sourceparts. Closes: #596296
+  * Rebuild Packages.gz after repository cleaning.
+  * Patch from Kumar Appaiah: Allow package builds without binary packages
+    registered in sources. Closes: #179850, #291565, #292169
+  * Unregister conffiles located in /etc/apt/sources.list.d/. Changes are
+    completely managed by debconf and maintainer scripts. Closes: #660590
+  * Bump debhelper compatibility mode to 9.
+  * Bump Standards version to 3.9.3.
+
+ -- Dominique Lasserre <lasserre.d@gmail.com>  Fri, 24 Feb 2012 02:02:46 +0100
+
+apt-build (0.12.41) experimental; urgency=low
+
+  * QA upload.
+  * Do not use outdated apt configuration settings
+    Patch by F Couperin
+    Closes: 639859
+  * --help: Fix clean-repository description
+    Patch by F Couperin
+    Closes: 528338
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Mon, 06 Feb 2012 11:55:04 +1100
+
+apt-build (0.12.40) unstable; urgency=high
+
+  * QA upload.
+  * Prevent error if debconf cannot display questions. Closes: #658098
+
+ -- Dominique Lasserre <lasserre.d@gmail.com>  Tue, 31 Jan 2012 22:18:25 +0100
+
+apt-build (0.12.39) unstable; urgency=low
+
+  * QA upload.
+  * Split Choices in debconf templates
+  * Add build-arch and build-indep build targets
+  * Bump Standards to 3.9.2
+  * Bump debhelper compatibility to 8
+    * Replace dh_clean -k by dh_prep
+  * Add "set -e" in config script
+  * Fix pending l10n issues. 
+  * Manpages translations:
+    - Spanish. Closes: #538104
+    - German. Closes: #608434
+  * Debconf translations:
+    - Danish (Joe Hansen).  Closes: #608434
+    - Greek, (Thomas Vasileiou).  Closes: #657099
+    - Polish (Michał Kułach).  Closes: #657322
+    - Brazilian Portuguese (Adriano Rafael Gomes).  Closes: #657455
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 29 Jan 2012 18:01:27 +0100
+
+apt-build (0.12.38) unstable; urgency=low
+
+  * QA upload
+  * Maintainer field set to QA Group
+  * Use dpkg's option --print-architecture in place of the obsolete option
+    --print-installation-architecture in debian/postinst (Closes: #598092)
+  * Create sources.list.d file with the right extension (.list)
+  * Set the -e flag in debian/preinst
+  * Point to /usr/share/common-licenses/GPL-2 in copyright file rather than to
+    the versionless symlink /usr/share/common-licenses/GPL
+  * Updated Standards-Version
+  * Added ${misc:Depends} to dependencies as per debhelper recommended best
+    practices
+
+ -- Emanuele Rocca <ema@debian.org>  Sun, 13 Mar 2011 12:31:02 +0100
 
 apt-build (0.12.37) unstable; urgency=low
 

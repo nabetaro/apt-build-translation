@@ -18,7 +18,7 @@ _Description: Add apt-build repository to sources.list?
 
 Template: apt-build/olevel
 Type: select
-_Choices: Light, Medium, Strong
+__Choices: Light, Medium, Strong
 Default: Medium
 _Description: Optimization level:
  These are equivalent to -O1, -O2 and -O3. Optimization level is time
@@ -28,48 +28,48 @@ _Description: Optimization level:
 
 Template: apt-build/arch_intel
 Type: select
-Choices: i486, pentium, pentium-mmx, pentiumpro, pentium2, pentium3, pentium3m, pentium-m, pentium4, pentium4m, prescott, nocona, core2
-Default: pentium
+Choices: generic, native, i386, i486, i586, pentium, pentium-mmx, pentiumpro, i686, pentium2, pentium3, pentium3m, pentium-m, pentium4, pentium4m, prescott, nocona, core2, corei7, corei7-avx, core-avx-i, atom
+Default: native
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
  file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_amd
 Type: select
-Choices: k6, k6-2, k6-3, athlon, athlon-tbird, athlon-4, athlon-xp, athlon-mp, k8, opteron, athlon64, athlon-fx
-Default: k6
+Choices: native, k6, k6-2, k6-3, athlon, athlon-tbird, athlon-4, athlon-xp, athlon-mp, k8, opteron, athlon64, athlon-fx, i8-sse3, opteron-sse3, athlon64-sse3, amdfam10, barcelona, bdver1, btver1
+Default: native
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
  file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_amd64
 Type: select
-Choices: nocona, core2, k8, opteron, athlon64, athlon-fx, k8-sse3, opteron-sse3, athlon64-sse3, amdfam10, barcelona
-Default: x86-64
+Choices: native, nocona, core2, corei7, corei7-avx, core-avx-i, atom, k8, opteron, athlon64, athlon-fx, k8-sse3, opteron-sse3, athlon64-sse3, amdfam10, barcelona, bdver1, btver1
+Default: native
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
  file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_sparc
 Type: select
-Choices: v7, v8, sparclite, sparclet, v9
-Default: sparc
+Choices: native, v7, v8, sparclite, sparclet, v9, cypress, supersparc, hypersparc, leon, f930, f934, sparclite86x, tsc701, ultrasparc, ultrasparc3, niagara, niagara2, niagara3, niagara4
+Default: native
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
  file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_arm
 Type: select
-Choices: armv2, armv2a, armv3, armv3m, armv4, armv4t, armv5, armv5t, armv5te
-Default: armv2
+Choices: native, armv2, armv2a, armv3, armv3m, armv4, armv4t, armv5, armv5t, armv5te, armv6, armv6j, armv6t2, armv6zk, armv6-m, armv7, armv7-a, armv7-r, armv7-m, iwmmxt, iwmmxt2, ep9312
+Default: native
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
  file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
 
 Template: apt-build/arch_alpha
 Type: select
-Choices: ev4, ev5, ev56, pca56, ev6, ev67
-Default: ev4
+Choices: native, ev4, ev5, ev56, pca56, ev6, ev67
+Default: native
 _Description: Architecture:
  If your architecture is not here, choose one and edit your configuration
  file (/etc/apt/apt-build.conf) by hand, and please do a wishlist bugreport.
@@ -81,3 +81,7 @@ _Description: Options to add to gcc:
 Template: apt-build/make_options
 Type: string
 _Description: Options to add to make:
+
+Template: apt-build/archtype
+Type: string
+Description: for internal use

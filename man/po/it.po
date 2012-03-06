@@ -1,495 +1,505 @@
-# Italian translations for PACKAGE package
-# Copyright (C) 2010 Free Software Foundation, Inc.
-# This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2010.
+# Italian translation for apt-build's manpage.
+# Copyright (c) 2006 Free Software Foundation, Inc.
+# This file is distributed under the same license as the apt-build package.
+# Luca Monducci <luca.mo@tiscali.it>, 2006
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-06-12 14:17+0530\n"
-"PO-Revision-Date: 2010-06-12 14:17+0530\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Project-Id-Version: apt-build 0.12.18 italian manpage\n"
+"POT-Creation-Date: 2008-02-25 16:28+0100\n"
+"PO-Revision-Date: 2006-08-09 21:22+0200\n"
+"Last-Translator: Luca Monducci <luca.mo@tiscali.it>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. type: TH
+# type: TH
 #: apt-build.1:1
 #, no-wrap
 msgid "APT-BUILD"
-msgstr ""
+msgstr "APT-BUILD"
 
-#. type: TH
+# type: TH
 #: apt-build.1:1
 #, no-wrap
 msgid "November 2003"
-msgstr ""
+msgstr "Novembre 2003"
 
-#. type: TH
+# type: TH
 #: apt-build.1:1
 #, no-wrap
 msgid "Debian Distribution"
-msgstr ""
+msgstr "Distribuzione Debian"
 
-#. type: SH
+# type: SH
 #: apt-build.1:3
 #, no-wrap
 msgid "NAME"
-msgstr ""
+msgstr "NOME"
 
-#. type: Plain text
+# type: Plain text
 #: apt-build.1:5
 msgid ""
 "apt-build - Fetch sources and build packages optimized for your architecture."
 msgstr ""
+"apt-build - Recupera i sorgenti dei pacchetti e li compila ottimizzandoli "
+"per la propria architettura."
 
-#. type: SH
+# type: SH
 #: apt-build.1:5
 #, no-wrap
 msgid "SYNOPSIS"
-msgstr ""
+msgstr "SINTASSI"
 
-#. type: Plain text
-#: apt-build.1:15
+# type: Plain text
+#: apt-build.1:16
 msgid ""
 "B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> "
 "I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
 msgstr ""
+"B<apt-build [> I<opzioni> B<] [ update ] [ upgrade ] [ world ] [ install> "
+"I<pacchetto> B<] [ remove> I<pacchetto> B<] [ info> I<pacchetto> B<]>"
 
-#. type: SH
-#: apt-build.1:15
+# type: SH
+#: apt-build.1:16
 #, no-wrap
 msgid "DESCRIPTION"
-msgstr ""
+msgstr "DESCRIZIONE"
 
-#. type: Plain text
-#: apt-build.1:19
+# type: Plain text
+#: apt-build.1:20
 msgid ""
 "B<apt-build> is an apt-get frontend to build and install architecture "
 "optimized packages."
 msgstr ""
+"B<apt-build> è una interfaccia per compilare e installare dei pacchetti "
+"ottimizzati per la propria architettura."
 
-#. type: SH
-#: apt-build.1:20
-#, no-wrap
-msgid "COMMANDS"
-msgstr ""
-
-#. type: TP
+# type: SH
 #: apt-build.1:21
 #, no-wrap
+msgid "COMMANDS"
+msgstr "COMANDI"
+
+# type: TP
+#: apt-build.1:22
+#, no-wrap
 msgid "B<update>"
-msgstr ""
+msgstr "B<update>"
 
-#. type: Plain text
-#: apt-build.1:24
+# type: Plain text
+#: apt-build.1:25
 msgid "Retrieve new lists of packages"
-msgstr ""
+msgstr "Recupera un nuovo elenco dei pacchetti"
 
-#. type: TP
-#: apt-build.1:24
+# type: TP
+#: apt-build.1:25
 #, no-wrap
 msgid "B<upgrade>"
-msgstr ""
+msgstr "B<upgrade>"
 
-#. type: Plain text
-#: apt-build.1:27
+# type: Plain text
+#: apt-build.1:28
 msgid "Perform an upgrade"
-msgstr ""
+msgstr "Effettua un aggiornamento"
 
-#. type: TP
-#: apt-build.1:27
+# type: TP
+#: apt-build.1:28
 #, no-wrap
 msgid "B<world>"
-msgstr ""
+msgstr "B<world>"
 
-#. type: Plain text
-#: apt-build.1:30
+# type: Plain text
+#: apt-build.1:31
 msgid "Rebuild your system"
-msgstr ""
+msgstr "Ricompila l'intero sistema"
 
-#. type: TP
-#: apt-build.1:30
+# type: TP
+#: apt-build.1:31
 #, no-wrap
 msgid "B<install>"
-msgstr ""
+msgstr "B<install>"
 
-#. type: Plain text
-#: apt-build.1:33
+# type: Plain text
+#: apt-build.1:34
 msgid "Build and install new packages"
-msgstr ""
+msgstr "Compila e installa un nuovo pacchetto"
 
-#. type: TP
-#: apt-build.1:33
+# type: TP
+#: apt-build.1:34
 #, no-wrap
 msgid "B<source>"
-msgstr ""
+msgstr "B<source>"
 
-#. type: Plain text
-#: apt-build.1:36
+# type: Plain text
+#: apt-build.1:37
 msgid "Download and extract source in the build directory"
-msgstr ""
+msgstr "Scarica ed estrae i sorgenti nella directory di compilazione"
 
-#. type: TP
-#: apt-build.1:36
+# type: TP
+#: apt-build.1:37
 #, no-wrap
 msgid "B<info>"
-msgstr ""
+msgstr "B<info>"
 
-#. type: Plain text
-#: apt-build.1:39
+# type: Plain text
+#: apt-build.1:40
 msgid "Info on a package which could be built"
-msgstr ""
+msgstr "Informazioni su un pacchetto che può essere compilato"
 
-#. type: TP
-#: apt-build.1:39
+# type: TP
+#: apt-build.1:40
 #, no-wrap
 msgid "B<remove>"
-msgstr ""
+msgstr "B<remove>"
 
-#. type: Plain text
-#: apt-build.1:42
+# type: Plain text
+#: apt-build.1:43
 msgid "Remove packages"
-msgstr ""
+msgstr "Rimuove i pacchetti"
 
-#. type: TP
-#: apt-build.1:42
+# type: TP
+#: apt-build.1:43
 #, no-wrap
 msgid "B<clean-build>"
-msgstr ""
+msgstr "B<clean-build>"
 
-#. type: Plain text
-#: apt-build.1:45
+# type: Plain text
+#: apt-build.1:46
 msgid "Erase built packages"
-msgstr ""
+msgstr "Rimuove i pacchetti compilati"
 
-#. type: TP
-#: apt-build.1:45
+# type: TP
+#: apt-build.1:46
 #, no-wrap
 msgid "B<clean-sources>"
-msgstr ""
+msgstr "B<clean-sources>"
 
-#. type: Plain text
-#: apt-build.1:48
+# type: Plain text
+#: apt-build.1:49
 msgid "Call debian/rules clean in source directories"
-msgstr ""
+msgstr "Chiama debian/rules clean nelle directory con i sorgenti"
 
-#. type: TP
-#: apt-build.1:48
+# type: TP
+#: apt-build.1:49
 #, no-wrap
 msgid "B<build-source>"
-msgstr ""
+msgstr "B<build-source>"
 
-#. type: Plain text
-#: apt-build.1:51
+# type: Plain text
+#: apt-build.1:52
 msgid "Build source without installing them"
-msgstr ""
+msgstr "Compila i sorgenti senza installarli"
 
-#. type: TP
-#: apt-build.1:51
+# type: TP
+#: apt-build.1:52
 #, no-wrap
 msgid "B<update-source>"
-msgstr ""
+msgstr "B<update-source>"
 
-#. type: Plain text
-#: apt-build.1:54
+# type: Plain text
+#: apt-build.1:55
 msgid "Update sources and rebuild them if they are missing in the repository"
-msgstr ""
+msgstr "Aggiorna i sorgenti e li ricompila se non presenti nel repository"
 
-#. type: TP
-#: apt-build.1:54
+# type: TP
+#: apt-build.1:55
 #, no-wrap
 msgid "B<build-repository>"
-msgstr ""
+msgstr "B<build-repository>"
 
-#. type: Plain text
-#: apt-build.1:57
+# type: Plain text
+#: apt-build.1:58
 msgid "Rebuild the repository"
-msgstr ""
+msgstr "Ricompila il repository"
 
-#. type: SH
-#: apt-build.1:57
-#, no-wrap
-msgid "OPTIONS"
-msgstr ""
-
-#. type: TP
+# type: SH
 #: apt-build.1:58
 #, no-wrap
+msgid "OPTIONS"
+msgstr "OPZIONI"
+
+# type: TP
+#: apt-build.1:59
+#, no-wrap
 msgid "B<--help\\ >"
-msgstr ""
+msgstr "B<--help\\ >"
 
-#. type: Plain text
-#: apt-build.1:61
+# type: Plain text
+#: apt-build.1:62
 msgid "Shows help"
-msgstr ""
+msgstr "Mostra l'aiuto"
 
-#. type: TP
-#: apt-build.1:61
+# type: TP
+#: apt-build.1:62
 #, no-wrap
 msgid "B<--nowrapper>"
-msgstr ""
+msgstr "B<--nowrapper>"
 
-#. type: Plain text
-#: apt-build.1:64
+# type: Plain text
+#: apt-build.1:65
 msgid "Do not use the gcc wrapper"
-msgstr ""
+msgstr "Non usa il wrapper gcc"
 
-#. type: TP
-#: apt-build.1:64
+# type: TP
+#: apt-build.1:65
 #, no-wrap
 msgid "B<--remove-builddep>"
-msgstr ""
+msgstr "B<--remove-builddep>"
 
-#. type: Plain text
-#: apt-build.1:67
+# type: Plain text
+#: apt-build.1:68
 msgid "Remove build-dependencies installed by apt-build"
-msgstr ""
+msgstr "Rimuove le dipendenze per la compilazione installate da apt-build"
 
-#. type: TP
-#: apt-build.1:67
+# type: TP
+#: apt-build.1:68
 #, no-wrap
 msgid "B<--no-source>"
-msgstr ""
+msgstr "B<--no-source>"
 
-#. type: Plain text
-#: apt-build.1:70
+# type: Plain text
+#: apt-build.1:71
 msgid "Don't download source"
-msgstr ""
+msgstr "Non scarica i sorgenti"
 
-#. type: TP
-#: apt-build.1:70
+# type: TP
+#: apt-build.1:71
 #, no-wrap
 msgid "B<--build-dir>"
-msgstr ""
+msgstr "B<--build-dir>"
 
-#. type: Plain text
-#: apt-build.1:73
+# type: Plain text
+#: apt-build.1:74
 msgid "Specify build-dir"
-msgstr ""
+msgstr "Specifica la directory di compilazione"
 
-#. type: TP
-#: apt-build.1:73
+# type: TP
+#: apt-build.1:74
 #, no-wrap
 msgid "B<--build-only>"
-msgstr ""
+msgstr "B<--build-only>"
 
-#. type: Plain text
-#: apt-build.1:76
+# type: Plain text
+#: apt-build.1:77
 msgid "Build package only"
-msgstr ""
+msgstr "Effettua la sola compilazione"
 
-#. type: TP
-#: apt-build.1:76
+# type: TP
+#: apt-build.1:77
 #, no-wrap
 msgid "B<--rebuild>"
-msgstr ""
+msgstr "B<--rebuild>"
 
-#. type: Plain text
-#: apt-build.1:79
+# type: Plain text
+#: apt-build.1:80
 msgid "Rebuild a package"
-msgstr ""
+msgstr "Ricompila un pacchetto"
 
-#. type: TP
-#: apt-build.1:79
+# type: TP
+#: apt-build.1:80
 #, no-wrap
 msgid "B<--reinstall>"
-msgstr ""
+msgstr "B<--reinstall>"
 
-#. type: Plain text
-#: apt-build.1:82
+# type: Plain text
+#: apt-build.1:83
 msgid "Build and install an already installed package"
-msgstr ""
+msgstr "Compila e installa un pacchetto già installato"
 
-#. type: TP
-#: apt-build.1:82
+# type: TP
+#: apt-build.1:83
 #, no-wrap
 msgid "B<--build-command> E<lt>I<command>E<gt>"
-msgstr ""
+msgstr "B<--build-command> E<lt>I<comando>E<gt>"
 
-#. type: Plain text
-#: apt-build.1:85
+# type: Plain text
+#: apt-build.1:86
 msgid "Use this command to build package"
-msgstr ""
+msgstr "Usa questo comando per compilare il pacchetto"
 
-#. type: TP
-#: apt-build.1:85
+# type: TP
+#: apt-build.1:86
 #, no-wrap
 msgid "B<--patch> E<lt>I<file>E<gt>"
-msgstr ""
+msgstr "B<--patch> E<lt>I<file>E<gt>"
 
-#. type: Plain text
-#: apt-build.1:88
+# type: Plain text
+#: apt-build.1:89
 msgid ""
 "Apply this patch before build (you can use this option one or several times)"
 msgstr ""
+"Applica la patch prima della compilazione (questa opzione può essere "
+"specificata più volte)"
 
-#. type: TP
-#: apt-build.1:88
+# type: TP
+#: apt-build.1:89
 #, no-wrap
 msgid "B<--patch-strip>, B<-p> E<lt>I<number>E<gt>"
-msgstr ""
+msgstr "B<--patch-strip>, B<-p> E<lt>I<numero>E<gt>"
 
-#. type: Plain text
-#: apt-build.1:91
+# type: Plain text
+#: apt-build.1:92
 msgid "Prefix to strip on patch (0 = -p0, 1 = -p1 ...)"
-msgstr ""
+msgstr "Prefisso da togliere alla patch (0 = -p0, 1 = -p1 ...)"
 
-#. type: TP
-#: apt-build.1:91
+# type: TP
+#: apt-build.1:92
 #, no-wrap
 msgid "B<--yes>, B<-y>"
-msgstr ""
+msgstr "B<--yes>, B<-y>"
 
-#. type: Plain text
-#: apt-build.1:94
+# type: Plain text
+#: apt-build.1:95
 msgid "Assume yes"
-msgstr ""
+msgstr "Assume sì come risposta a tutte le domande"
 
-#. type: TP
-#: apt-build.1:94
+# type: TP
+#: apt-build.1:95
 #, no-wrap
 msgid "B<--purge>"
-msgstr ""
+msgstr "B<--purge>"
 
-#. type: Plain text
-#: apt-build.1:97
+# type: Plain text
+#: apt-build.1:98
 msgid "Use purge instead of remove"
-msgstr ""
+msgstr "Usa «purge» al posto di «remove»"
 
-#. type: TP
-#: apt-build.1:97
+# type: TP
+#: apt-build.1:98
 #, no-wrap
 msgid "B<--noupdate>"
-msgstr ""
+msgstr "B<--noupdate>"
 
-#. type: Plain text
-#: apt-build.1:100
+# type: Plain text
+#: apt-build.1:101
 msgid "Do not run 'apt-get update' before package installation"
-msgstr ""
+msgstr "Non esegue «apt-get update» prima dell'installazione del pacchetto"
 
-#. type: TP
-#: apt-build.1:100
+# type: TP
+#: apt-build.1:101
 #, no-wrap
 msgid "B<--sources-list>"
-msgstr ""
+msgstr "B<--sources-list>"
 
-#. type: Plain text
-#: apt-build.1:105
+# type: Plain text
+#: apt-build.1:106
 msgid "Specify I<sources.list> file"
-msgstr ""
+msgstr "Specifica il file I<sources.list>"
 
-#. type: TP
-#: apt-build.1:105
+# type: TP
+#: apt-build.1:106
 #, no-wrap
 msgid "B<--apt-get>"
-msgstr ""
+msgstr "B<--apt-get>"
 
-#. type: Plain text
-#: apt-build.1:110
+# type: Plain text
+#: apt-build.1:111
 msgid "Specify an alternative I<apt-get> command"
-msgstr ""
+msgstr "Specifica un comando alternativo a I<apt-get>"
 
-#. type: TP
-#: apt-build.1:110
+# type: TP
+#: apt-build.1:111
 #, no-wrap
 msgid "B<--apt-cache>"
-msgstr ""
+msgstr "B<--apt-cache>"
 
-#. type: Plain text
-#: apt-build.1:115
+# type: Plain text
+#: apt-build.1:116
 msgid "Specify an alternative I<apt-cache> command"
-msgstr ""
+msgstr "Specifica un comando alternativo a I<apt-cache>"
 
-#. type: TP
-#: apt-build.1:115
-#, no-wrap
+# type: TP
+#: apt-build.1:116
+#, fuzzy, no-wrap
 msgid "B<--force-yes>"
-msgstr ""
+msgstr "B<--sources-list>"
 
-#. type: Plain text
-#: apt-build.1:118
+# type: Plain text
+#: apt-build.1:119
 msgid "Force yes"
 msgstr ""
 
-#. type: TP
-#: apt-build.1:118
-#, no-wrap
+# type: TP
+#: apt-build.1:119
+#, fuzzy, no-wrap
 msgid "B<--source>"
-msgstr ""
+msgstr "B<source>"
 
-#. type: Plain text
-#: apt-build.1:121
+# type: Plain text
+#: apt-build.1:122
 msgid "Do not download source (sources are extracted already)"
 msgstr ""
 
-#. type: TP
-#: apt-build.1:121
-#, no-wrap
+# type: TP
+#: apt-build.1:122
+#, fuzzy, no-wrap
 msgid "B<--repository-dir>"
-msgstr ""
+msgstr "B<build-repository>"
 
-#. type: Plain text
-#: apt-build.1:124
+# type: Plain text
+#: apt-build.1:125
+#, fuzzy
 msgid "Specify the repository directory"
-msgstr ""
+msgstr "Ricompila il repository"
 
-#. type: TP
-#: apt-build.1:124
-#, no-wrap
+# type: TP
+#: apt-build.1:125
+#, fuzzy, no-wrap
 msgid "B<--target-release>"
-msgstr ""
+msgstr "B<--apt-cache>"
 
-#. type: Plain text
-#: apt-build.1:127
+# type: Plain text
+#: apt-build.1:128
 msgid "Distribution to fetch packages from"
 msgstr ""
 
-#. type: TP
-#: apt-build.1:127
+# type: TP
+#: apt-build.1:128
 #, no-wrap
 msgid "B<--config>"
-msgstr ""
+msgstr "B<--config>"
 
-#. type: Plain text
-#: apt-build.1:130
+# type: Plain text
+#: apt-build.1:131
 msgid "Specify an alternative configuration file"
-msgstr ""
+msgstr "Specifica un file di configurazione alternativo"
 
-#. type: TP
-#: apt-build.1:130
+# type: TP
+#: apt-build.1:131
 #, no-wrap
 msgid "B<--version>,B<\\ -v>"
-msgstr ""
+msgstr "B<--version>,B<\\ -v>"
 
-#. type: Plain text
-#: apt-build.1:133
+# type: Plain text
+#: apt-build.1:134
 msgid "Show version"
-msgstr ""
+msgstr "Mostra la versione"
 
-#. type: SH
-#: apt-build.1:133
+# type: SH
+#: apt-build.1:134
 #, no-wrap
 msgid "BUGS"
-msgstr ""
+msgstr "BUG"
 
-#. type: Plain text
-#: apt-build.1:135
+# type: Plain text
+#: apt-build.1:136
 msgid "Many."
-msgstr ""
+msgstr "Molti."
 
-#. type: SH
-#: apt-build.1:137
+# type: SH
+#: apt-build.1:138
 #, no-wrap
 msgid "AUTHOR"
-msgstr ""
+msgstr "AUTORE"
 
-#. type: Plain text
-#: apt-build.1:140
+# type: Plain text
+#: apt-build.1:141
 msgid ""
 "B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with "
 "many contributors."
 msgstr ""
+"B<apt-build> è stato scritto da Julien Danjou E<lt>acid@debian.orgE<gt> con "
+"la collaborazione di molte altre persone."
