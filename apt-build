@@ -2,7 +2,7 @@
 #
 # $Id: apt-build 842 2005-12-11 17:26:48Z jd $
 # 
-# (c) 2002-2005 Julien Danjou <acid@debian.org>
+# (c) 2002-2007 Julien Danjou <acid@debian.org>
 # (c) 2003 Davor Ocelic <docelic@linux.hr> (apt-build first rewrite)
 # (c) 2004 Alexander Ehlert <ehlert@linux.de> (implemented buildsource)
 #
