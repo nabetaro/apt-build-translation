@@ -27,7 +27,7 @@ configure-stamp:
 build: build-arch build-indep
 build-arch: build-stamp
 build-indep: build-stamp
-build-stamp: configure-stamp 
+build-stamp: configure-stamp
 	dh_testdir
 	
 	# Add here commands to compile the package.
@@ -67,10 +67,10 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir
 	dh_testroot
-	dh_installdebconf 
+	dh_installdebconf
 	dh_installdocs
 	dh_installman
-	dh_installchangelogs 
+	dh_installchangelogs
 	dh_link
 	dh_strip
 	dh_compress

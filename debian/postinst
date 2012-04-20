@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 
 set -e
 
@@ -10,59 +10,59 @@ if dpkg-maintscript-helper supports rm_conffile 2>/dev/null ; then
 fi
 
 if [ "$1" = "configure" ] ; then
-	. /usr/share/debconf/confmodule
-  
+  . /usr/share/debconf/confmodule
+
   db_get apt-build/olevel
-	case "$RET" in
-	  "Light")
-		  Olevel="-O1"
-		  ;;
-	  "Medium")
-		  Olevel="-O2"
-		  ;;
-	  "Strong")
-		  Olevel="-O3"
+  case "$RET" in
+    "Light")
+      Olevel="-O1"
       ;;
-	esac
-  
+    "Medium")
+      Olevel="-O2"
+      ;;
+    "Strong")
+      Olevel="-O3"
+      ;;
+  esac
+
   db_get apt-build/build_dir
   build_dir="$RET"
-  
+
   db_get apt-build/repository_dir
   repository_dir="$RET"
-  
+
   db_get apt-build/add_to_sourceslist
   add_to_sourceslist="$RET"
-  
+
   db_get apt-build/options
   options="$RET"
-  
+
   db_get apt-build/make_options
   make_options="$RET"
-  
+
   db_get apt-build/archtype
   #march=-march="$RET"
   mtune=-mtune="$RET"
-  
-	# Create build_dir
-	if [ ! -e "$build_dir" ] ; then
-	  mkdir -p "$build_dir"
-	fi
-  
-	# Create repository_dir
-	if [ ! -e "$repository_dir" ] ; then
-	    mkdir -p "$repository_dir"/dists/apt-build/main
+
+  # Create build_dir
+  if [ ! -e "$build_dir" ] ; then
+    mkdir -p "$build_dir"
+  fi
+
+  # Create repository_dir
+  if [ ! -e "$repository_dir" ] ; then
+      mkdir -p "$repository_dir"/dists/apt-build/main
       ln -s ../../.. "$repository_dir"/dists/apt-build/main/binary-$(dpkg --print-architecture)
   fi
-  
+
   # link release file for apt-build distribution (for upgrade from 0.12.41)
   if [ ! -e "$repository_dir"/dists/apt-build/Release ] ; then
     ln -s ../../Release "$repository_dir"/dists/apt-build/Release
   fi
-  
+
   sed s/__arch__/$(dpkg --print-architecture)/ /usr/share/apt-build/Release > "$repository_dir/Release"
-  
-  
+
+
   # prepare sources.list entry
   eval $(apt-config shell etcdir Dir::Etc)
   eval $(apt-config shell sourceslist Dir::Etc::sourcelist)
@@ -72,31 +72,31 @@ if [ "$1" = "configure" ] ; then
   aptbuildsource="$sourcesparts"/apt-build.list
   debline="deb file:$repository_dir apt-build main"
   src_enabled="false"
-  
+
   # run loop to prevent errors if some sources does not exist
   for source in "$sourceslist" "$sourcesparts"/*.list ; do
     if [ -e "$source" ] ; then
-	    # comment in all sources lists if asked
-	    if [ "$add_to_sourceslist" = "false" ] ; then
+      # comment in all sources lists if asked
+      if [ "$add_to_sourceslist" = "false" ] ; then
         sed -i -e "s|^[:space:]*$debline.*|#$debline|" "$source"
-      
+
       # check if source entry is already enabled
       elif grep -Eq "^[[:space:]]*$debline" "$source" ; then
         src_enabled="true"
       fi
     fi
   done
-  
+
   # do not modify anything if source entry is already enabled
   if [ "$add_to_sourceslist" = "true" ] && [ $src_enabled = "false" ] ; then
     if [ ! -e "$sourcesparts" ] ; then
       mkdir -p "$sourcesparts"
     fi
-    
+
     if [ ! -e "$aptbuildsource" ] ; then
       echo "$debline" > "$aptbuildsource"
     fi
-    
+
     if grep -q "$debline" "$aptbuildsource" ; then
       # modify only first occurrence of $debline to prevent duplicate entries
       sed -i -e "0,\|^.*$debline|s||$debline|" "$aptbuildsource"
@@ -105,17 +105,17 @@ if [ "$1" = "configure" ] ; then
     fi
   fi
 
-	# Remove one-byte Packages file created by old postinst
-	if [ -f $repository_dir/Packages.gz ] && [ $(zcat $repository_dir/Packages.gz | wc -c) -eq 1 ] ; then
+  # Remove one-byte Packages file created by old postinst
+  if [ -f $repository_dir/Packages.gz ] && [ $(zcat $repository_dir/Packages.gz | wc -c) -eq 1 ] ; then
     rm -f $repository_dir/Packages.gz
   fi
-	
-	if [ ! -e "$repository_dir/Packages.gz" ] ; then
-	  gzip -9 < /dev/null > "$repository_dir/Packages.gz"
-	fi
-	
-  
-	# Configuration options
+
+  if [ ! -e "$repository_dir/Packages.gz" ] ; then
+    gzip -9 < /dev/null > "$repository_dir/Packages.gz"
+  fi
+
+
+  # Configuration options
   # if config file does not exist
   if [ ! -e $CONFFILE ] ; then
     echo "build-dir =" > $CONFFILE
@@ -126,9 +126,9 @@ if [ "$1" = "configure" ] ; then
     echo "options =" >> $CONFFILE
     echo "make_options =" >> $CONFFILE
   fi
-  
+
   cp -a -f $CONFFILE $CONFFILE.tmp
-  
+
   # (re)add deleted or commented variables
   test -z "build-dir" || grep -Eq '^[[:space:]]*build-dir =' $CONFFILE || \
     echo "build-dir =" >> $CONFFILE
@@ -144,7 +144,7 @@ if [ "$1" = "configure" ] ; then
     echo "options =" >> $CONFFILE
   test -z "make_options" || grep -Eq '^[[:space:]]*make_options =' $CONFFILE || \
     echo "make_options =" >> $CONFFILE
-  
+
   sed -e "s|^[:space:]*build-dir =.*|build-dir = $build_dir|" \
       -e "s|^[:space:]*repository-dir =.*|repository-dir = $repository_dir|" \
       -e "s|^[:space:]*Olevel =.*|Olevel = $Olevel|" \
@@ -152,7 +152,7 @@ if [ "$1" = "configure" ] ; then
       -e "s|^[:space:]*options =.*|options = \" $options\"|" \
       -e "s|^[:space:]*make_options =.*|make_options = \" $make_options\"|" \
       < $CONFFILE > $CONFFILE.tmp
-  
+
   mv -f $CONFFILE.tmp $CONFFILE
 fi
 

@@ -4,7 +4,7 @@ set -e
 
 if [ "$1" = purge ] ; then
   rm -f /etc/apt/apt-build.conf
-  
+
   # prepare APT and apt-build information
   eval $(apt-config shell etcdir Dir::Etc)
   eval $(apt-config shell sourceslist Dir::Etc::sourcelist)
@@ -12,7 +12,7 @@ if [ "$1" = purge ] ; then
   sourceslist=/"$etcdir""$sourceslist"
   sourcesparts=/"$etcdir""$sourcesparts"
   aptbuildsource="$sourcesparts"/apt-build.list
-  
+
   ## remove repository directory if it is empty
   #db_get apt-build/repository_dir
   #repository_dir="$RET"
@@ -26,7 +26,7 @@ if [ "$1" = purge ] ; then
   #if [ -d "$build_dir" ] && [ ! $(ls -A "$build_dir") ] ; then
   #  rm -rf "$build_dir"
   #fi
-  
+
   # remove apt-build.list resource file
   if [ -f "$aptbuildsource" ] ; then
     rm -f "$aptbuildsource"

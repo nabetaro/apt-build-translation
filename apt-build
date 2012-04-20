@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 #
 # $Id: apt-build 842 2005-12-11 17:26:48Z jd $
-# 
+#
 # (c) 2002-2007 Julien Danjou <acid@debian.org>
 # (c) 2003 Davor Ocelic <docelic@linux.hr> (apt-build first rewrite)
 # (c) 2004 Alexander Ehlert <ehlert@linux.de> (implemented buildsource)
@@ -31,7 +31,7 @@ use strict;
 use warnings;
 use AppConfig qw/:expand :argcount/;
 use Fatal qw/chdir open/;                           # see Fatal
-use Env qw/@PATH $APT_BUILD_WRAPPER/;               # perldoc Env 
+use Env qw/@PATH $APT_BUILD_WRAPPER/;               # perldoc Env
 use AptPkg::Config qw/$_config/;                    # see libapt-pkg-perl
 use AptPkg::System qw/$_system/;                    #
 use AptPkg::Version;
@@ -46,11 +46,11 @@ my ($conf, %conf, @builddep, @apt_args);
 @apt_args = qw/-y/;        # and DEFAULT => 1, down in parse_config()
 
 my @actions = qw/install source remove info update upgrade world build_source update_source
-		clean_sources build_repository clean_build clean_repository moo find/;       # possible actions
+        clean_sources build_repository clean_build clean_repository moo find/;       # possible actions
 
 $\ = "\n";                 # automatic newline after each print()
 
-# Ok, we start here... 
+# Ok, we start here...
 $_config->init;
 parse_config() or die "Can't parse config\n"; # all config-related
 
@@ -69,7 +69,7 @@ my $_version = $_system->versioning;
 my $_source = AptPkg::Source->new();
 my $_pkg_infos = $_cache->packages;
 
-# 'no strict' makes it possible that we call "&$cmd" (so, if the user 
+# 'no strict' makes it possible that we call "&$cmd" (so, if the user
 # specifies command 'source', we call sub source).
 # As an additional verification step, command name must be listed in @actions
 # (if we didn't check that, the script would break with non-friendly message).
@@ -130,7 +130,7 @@ Options:
   --aptcache       - Specify an alternative apt-cache application to use
   --config          - Specify an alternative configuration file
 ";
-	exit 1;
+    exit 1;
 }
 
 # Since shell returns 0 on success, and our script usually uses true values
@@ -138,33 +138,33 @@ Options:
 # becomes our success (1)
 sub patch
 {
-	print STDERR "-----> Patching (@_) <-----";
-	!system "patch -p$conf{patch_strip} < $_" or return !$? while $_ = shift;
-	return 1;
+    print STDERR "-----> Patching (@_) <-----";
+    !system "patch -p$conf{patch_strip} < $_" or return !$? while $_ = shift;
+    return 1;
 }
 
 sub clean_build
 {
-	print STDERR "-----> Cleaning the build tree <-----";
-	!system "rm -rf $conf{build_dir}/*"
+    print STDERR "-----> Cleaning the build tree <-----";
+    !system "rm -rf $conf{build_dir}/*"
 }
 
 sub remove
 {
-	print STDERR "-----> Removing packages (@_) <-----";
-	!system $conf->apt_get . " @apt_args remove @_"
+    print STDERR "-----> Removing packages (@_) <-----";
+    !system $conf->apt_get . " @apt_args remove @_"
 }
 
 sub update
 {
-	print STDERR "-----> Updating package lists <-----";
-	!system $conf->apt_get . " @apt_args update"
+    print STDERR "-----> Updating package lists <-----";
+    !system $conf->apt_get . " @apt_args update"
 }
 
 sub move_to_repository
 {
-	print STDERR "-----> Moving packages to repository <-----";
-	!system "mv $conf{build_dir}/*.deb $conf{repository_dir}"
+    print STDERR "-----> Moving packages to repository <-----";
+    !system "mv $conf{build_dir}/*.deb $conf{repository_dir}"
 }
 
 
@@ -176,66 +176,66 @@ sub find
     my @res;
     for my $pkg (@_)
     {
-	my @seen; # Skip multiple entries for the same pkg version
-	my @list = $_source->find($pkg);
-		for (@list)
-		{
-	    my $ver = $$_{Version};
-	    grep {/$ver/} @seen and next; # Skip if seen
-	    push @seen, $ver;
-	    unless (defined wantarray)
-	    { # If we're called in void context
-		print "Source: @$_{'Package','Section','Version','Maintainer'}";
-		print "Binaries: @{$$_{Binaries}}";
-	    }
-	    my @files = @{ $$_{Files} };
-	    for (@files)
-	    {
-		my $type = ucfirst $$_{Type};
-		!defined wantarray?
-		    print "$type: $$_{ArchiveURI}" :
-		    push @res, $$_{ArchiveURI};
-	    }
-	    print '';
-	}
-	print '';
+    my @seen; # Skip multiple entries for the same pkg version
+    my @list = $_source->find($pkg);
+        for (@list)
+        {
+        my $ver = $$_{Version};
+        grep {/$ver/} @seen and next; # Skip if seen
+        push @seen, $ver;
+        unless (defined wantarray)
+        { # If we're called in void context
+        print "Source: @$_{'Package','Section','Version','Maintainer'}";
+        print "Binaries: @{$$_{Binaries}}";
+        }
+        my @files = @{ $$_{Files} };
+        for (@files)
+        {
+        my $type = ucfirst $$_{Type};
+        !defined wantarray?
+            print "$type: $$_{ArchiveURI}" :
+            push @res, $$_{ArchiveURI};
+        }
+        print '';
+    }
+    print '';
     }
     return @res if defined wantarray;
-	return 1;
+    return 1;
 }
 
 
 sub info
 {
     my @size;
-    
-	for (@_)
-	{
-	my $pkg = $_;
-	
-	# (full explanation for read_apt_list is below)
-	# We invoke apt-get here to determine package size
-	push @size,
-			read_apt_list($conf->apt_get . " --print-uris @apt_args source $pkg |",
-		      "^'", \&extract_size);
-	
-	# and to determine package dependencies, and their cumulative size
-	my (@size_deps, @deps);
-		read_apt_list($conf->apt_get . " --print-uris @apt_args build-dep $pkg |",
-		      "^'", sub {
-			  push @size_deps, extract_size($_);
-			  push @deps, extract_name($_);
-		      });
-	
-	# print summary
-	my $sumsize = 0;
-	$sumsize += $_ for @size;
-	print "Package: $pkg";
-	print "Source-size: $sumsize";
-	$sumsize = 0;
-	$sumsize += $_ for @size_deps;
-	print "Depends-size: $sumsize";
-	print "Depends: @deps ";
+
+    for (@_)
+    {
+    my $pkg = $_;
+
+    # (full explanation for read_apt_list is below)
+    # We invoke apt-get here to determine package size
+    push @size,
+            read_apt_list($conf->apt_get . " --print-uris @apt_args source $pkg |",
+              "^'", \&extract_size);
+
+    # and to determine package dependencies, and their cumulative size
+    my (@size_deps, @deps);
+        read_apt_list($conf->apt_get . " --print-uris @apt_args build-dep $pkg |",
+              "^'", sub {
+              push @size_deps, extract_size($_);
+              push @deps, extract_name($_);
+              });
+
+    # print summary
+    my $sumsize = 0;
+    $sumsize += $_ for @size;
+    print "Package: $pkg";
+    print "Source-size: $sumsize";
+    $sumsize = 0;
+    $sumsize += $_ for @size_deps;
+    print "Depends-size: $sumsize";
+    print "Depends: @deps ";
     }
     return 1;
 }
@@ -244,27 +244,27 @@ sub source_by_package
 {
     my $pkg_name = shift or die "Missing package name for source_by_package().\n";
     my ($pkg_version, $src_version, $src_name);
-    
+
     if (!($src_version = shift))
     {
-	# no version passed along.
-	    $src_version = &get_src_version($pkg_name);
+    # no version passed along.
+        $src_version = &get_src_version($pkg_name);
     }
-    
+
     $src_name = &get_src_name($pkg_name, $src_version);
-    
+
     return source_by_source ($src_name, $src_version);
 }
 
 sub source_by_source
 {
-	my $src_name = $_[0] or die "Missing source package name for source_by_source().\n";
-	my $src_version = $_[1] or die "Missing version information for source package $src_name in source_by_source().\n";
+    my $src_name = $_[0] or die "Missing source package name for source_by_source().\n";
+    my $src_version = $_[1] or die "Missing version information for source package $src_name in source_by_source().\n";
 
     update() if $conf->update; # to be consistent with install()
-    
-	print STDERR "-----> Downloading source $src_name ($src_version) <-----";
-	return !system $conf->apt_get . " @apt_args source ${src_name}=${src_version}"
+
+    print STDERR "-----> Downloading source $src_name ($src_version) <-----";
+    return !system $conf->apt_get . " @apt_args source ${src_name}=${src_version}"
 }
 
 
@@ -278,48 +278,48 @@ sub build
     @_ == 3 or return;
     my ($src_name, $upver, $maintver) = @_;
     my ($src_version, $control, @packages, $srcpkg, $srcver, $upverchdir, $new);
-    
+
     print STDERR "-----> Building $src_name <-----";
-    
-    $upver =~ s/^\d+://;	# strip epoch
-    
+
+    $upver =~ s/^\d+://;    # strip epoch
+
     chdir $conf{build_dir};
-    
+
     chdir "$src_name-$upver";
-    
-    # Add an entry in changelog 
+
+    # Add an entry in changelog
     system "debchange --local +aptbuild 'Built by apt-build'";
     for (@{$conf->patch})
     {
-	$_ =~ s[.*/(.*)\n$][$1]gio; # basename + chomp
-		system "debchange 'Patched with $_'";
+    $_ =~ s[.*/(.*)\n$][$1]gio; # basename + chomp
+        system "debchange 'Patched with $_'";
     }
-	
+
     # Patch if asked
     my $r = 1;
     for (@{$conf->patch})
     {
-	$r = patch($_);
-	last if (!$r);
+    $r = patch($_);
+    last if (!$r);
     }
 
     if ($r)
     {
-	# Add optimizations infos
-	my $buildoptions;
-	$buildoptions = "Build options: ".
-	    $conf->Olevel." ".$conf->mtune." ".$conf->options;
+    # Add optimizations infos
+    my $buildoptions;
+    $buildoptions = "Build options: ".
+        $conf->Olevel." ".$conf->mtune." ".$conf->options;
 
-	system "debchange \"$buildoptions\"";
-	
-	# Now build
-	$r = !system $conf->build_command;
-	wait;
+    system "debchange \"$buildoptions\"";
+
+    # Now build
+    $r = !system $conf->build_command;
+    wait;
     }
-	
+
     if ($conf->cleanup)
     {
-	print STDERR "----> Cleaning up object files <-----";
+    print STDERR "----> Cleaning up object files <-----";
         system "debclean";
         wait;
     }
@@ -333,17 +333,17 @@ sub build
 sub build_repository
 {
     print STDERR "-----> Building repository <-----";
-    
+
     chdir $conf->repository_dir;
     my $arch = $_config->get("APT::Architecture");
-    
+
     system "mkdir dists" unless -e "dists";
     system "mkdir dists/apt-build" unless -e "dists/apt-build";
     system "mkdir dists/apt-build/main" unless -e "dists/apt-build/main";
     system "ln -s ../../.. dists/apt-build/main/binary-$arch" unless -e "dists/apt-build/main/binary-$arch";
     make_release_file() unless -e "Release";
     system "ln -s ../../Release dists/apt-build/Release" unless -e "dists/apt-build/Release";
-    
+
     system "apt-ftparchive packages . | gzip -9 > Packages.gz";
     wait;
     chdir $conf->build_dir;
@@ -355,9 +355,9 @@ sub make_release_file
     my $release;
     open RELEASE, "< /usr/share/apt-build/Release";
     while (<RELEASE>) {
-	my $arch = $_config->get("APT::Architecture");
-	s/__arch__/$arch/;
-	$release .= $_;
+    my $arch = $_config->get("APT::Architecture");
+    s/__arch__/$arch/;
+    $release .= $_;
     }
     close RELEASE;
     open RELEASEREPO, "> $conf{repository_dir}/Release";
@@ -371,26 +371,26 @@ sub clean_repository
     print STDERR "-----> Cleaning the repository <-----";
     if($conf->repository_dir)
     {
-	(! system("rm -fr $conf{repository_dir}/*.deb")) or die "Error: $!\n";
+    (! system("rm -fr $conf{repository_dir}/*.deb")) or die "Error: $!\n";
     }
     else
     {
-	die "Error: what is repository_dir?";
+    die "Error: what is repository_dir?";
     }
-	  build_repository();
+      build_repository();
 }
 
 sub builddep
 {
     my $pkg = shift or return;
     my $pkg_version = $_[0] || &get_pkg_version($pkg);
-    
+
     if ($conf->remove_builddep)
     {
-	read_apt_list($conf->apt_get . " --print-uris @apt_args build-dep $pkg |",
-		      "^'", \&extract_name);
+    read_apt_list($conf->apt_get . " --print-uris @apt_args build-dep $pkg |",
+              "^'", \&extract_name);
     }
-    
+
     print STDERR "-----> Installing build dependencies (for $pkg=$pkg_version) <-----";
     !system $conf->apt_get . " @apt_args build-dep $pkg=$pkg_version"
 }
@@ -402,7 +402,7 @@ sub get_src_name
     my $src_name;
     foreach (@{$_source->{$pkg_name}})
     {
-	$src_name = $_->{Package} if($src_version eq $_->{Version});
+    $src_name = $_->{Package} if($src_version eq $_->{Version});
     }
 
     return $src_name;
@@ -422,8 +422,8 @@ sub get_src_version
         if (/^Source: (.*)\((.*)\)/)
         {
             $src_version = $2;
-	    last;
-	}
+        last;
+    }
     }
     close(APTCIN);
 
@@ -467,8 +467,8 @@ sub get_pkg_version
         }
         close(APTCIN);
     }
-	  die "Unable to find source candidate for $pkg_name\n" unless ($pkg_version);
-    
+      die "Unable to find source candidate for $pkg_name\n" unless ($pkg_version);
+
     return $pkg_version;
 }
 
@@ -504,9 +504,9 @@ sub install
 
     for (@_)
     {
-	my $pkg_name = $_;
-	my ($pkg_version, $src_name, $src_version, $deb_file, $release);
-	
+    my $pkg_name = $_;
+    my ($pkg_version, $src_name, $src_version, $deb_file, $release);
+
     ($pkg_name,$release) = ($1, $2) if ($pkg_name =~ /(.*)\/(.*)/);
     if( $pkg_name =~ /(.*)=(.*)/ )
     {
@@ -515,238 +515,238 @@ sub install
         # release is ignored if empty
         $pkg_version = &get_pkg_version($pkg_name, $release);
     }
-	$src_version = &get_src_version($pkg_name, $pkg_version);
-	$src_name = &get_src_name($pkg_name, $src_version);
+    $src_version = &get_src_version($pkg_name, $pkg_version);
+    $src_name = &get_src_name($pkg_name, $src_version);
 
     push ( @pkglist, $pkg_name );
 
-	if (!$src_name && $src_version =~ /\+/) {
-		$src_version =~ s/\+.*$//;
-		$src_name = &get_src_name($pkg_name, $src_version);
-	}
+    if (!$src_name && $src_version =~ /\+/) {
+        $src_version =~ s/\+.*$//;
+        $src_name = &get_src_name($pkg_name, $src_version);
+    }
         elsif (!$src_version || !$src_name)
         {
              print "$pkg_name will not be built because it doesn't have a source package."
         }
 
-	die "Unable to find binary candidate for $pkg_name" unless ($pkg_version);
+    die "Unable to find binary candidate for $pkg_name" unless ($pkg_version);
 
-	$deb_file = &build_deb_filename($pkg_name, $pkg_version);
-	
-	if (-f "$conf{build_dir}/$deb_file"
-	    && !($conf->rebuild))
-	{
-	    print "Package $pkg_name already built.";
-	    push(@pkgs, $deb_file);
-	    move_to_repository(@pkgs);
-	    build_repository();
-	}
-	elsif (-f "$conf{repository_dir}/$deb_file"
-	       && !($conf->rebuild))
-	{
-	    print "Package $pkg_name already in repository.";
-	    push @pkgs, $deb_file;
-	}
-	else
-	{
-	    push @pkgs, $deb_file;
+    $deb_file = &build_deb_filename($pkg_name, $pkg_version);
 
-	    builddep($src_name, $src_version) unless $conf->build_only;
-	    source_by_package($pkg_name, $src_version) if $conf->source;
-
-	    # Now build the package
-	    my $upver = $_version->upstream($src_version);
-	    my $maintver = $1 if $src_version =~ /^$upver-(.*)$/;
-	    if (build($src_name, $upver, $maintver))
-	    {
-		&move_to_repository(@pkgs);
-		&build_repository;
-	    }
-	    else
-	    {
-		warn "Error while building $pkg_name!\n" ; 
-		pop @pkgs;
-	    }
-	}
-	
-	unless (@pkgs or $nopkgs_okay)
-	{
-	    print STDERR "Sorry, no package to install.";
-	}
-	
-	# Remove builddep if asked
-	remove(@builddep) if $conf->remove_builddep && !($conf->build_only);
+    if (-f "$conf{build_dir}/$deb_file"
+        && !($conf->rebuild))
+    {
+        print "Package $pkg_name already built.";
+        push(@pkgs, $deb_file);
+        move_to_repository(@pkgs);
+        build_repository();
     }
-    
+    elsif (-f "$conf{repository_dir}/$deb_file"
+           && !($conf->rebuild))
+    {
+        print "Package $pkg_name already in repository.";
+        push @pkgs, $deb_file;
+    }
+    else
+    {
+        push @pkgs, $deb_file;
+
+        builddep($src_name, $src_version) unless $conf->build_only;
+        source_by_package($pkg_name, $src_version) if $conf->source;
+
+        # Now build the package
+        my $upver = $_version->upstream($src_version);
+        my $maintver = $1 if $src_version =~ /^$upver-(.*)$/;
+        if (build($src_name, $upver, $maintver))
+        {
+        &move_to_repository(@pkgs);
+        &build_repository;
+        }
+        else
+        {
+        warn "Error while building $pkg_name!\n" ;
+        pop @pkgs;
+        }
+    }
+
+    unless (@pkgs or $nopkgs_okay)
+    {
+        print STDERR "Sorry, no package to install.";
+    }
+
+    # Remove builddep if asked
+    remove(@builddep) if $conf->remove_builddep && !($conf->build_only);
+    }
+
     # If we have something to install, install
     if(@pkgs && !($conf->build_only))
     {
-	update() if $conf->update;
-	system($conf->apt_get . " -t apt-build @apt_args \\
+    update() if $conf->update;
+    system($conf->apt_get . " -t apt-build @apt_args \\
     -o Apt::Get::AllowUnauthenticated=true install @pkglist");
-	wait;
+    wait;
     }
     return 1;
 }
 
 sub build_source
-{   
+{
     my (@packages, @pkgs, $src_name);
     my (@pkglist) = @_;
     my $nopkgs_okay = 0;
-    
+
     for (@_)
     {
-	my $pkg = $_;
-	open APTIN, $conf->apt_get . " --print-uris @apt_args source $pkg |"; #2>&1 |
-	
+    my $pkg = $_;
+    open APTIN, $conf->apt_get . " --print-uris @apt_args source $pkg |"; #2>&1 |
+
       AI: while (<APTIN>)
       {
-	  if ( /^Package .* is a virtual package provided by/ )
-	  {
-	      system($conf->apt_get . " @apt_args install $pkg");
-	      exit 0;
-	      
-	  } elsif ( /^\'(http|ftp|file|cdrom)/ ) {
-	      @packages = split /\s+/;
-	      $packages[1] =~ /^(.*)_(.*)\.dsc$/ or last; # XXX
-	      my ($src_name, $src_version) = ($1, $2);
-	      my $arch=$_config->get("APT::Architecture");
-	      
-	      my $aptcache = $conf->apt_cache;
-	      my $apcout = qx[$aptcache showsrc $pkg | grep "^Binary:" | head -1];
-	      chomp $apcout;
-	      my $fullversion = qx[$aptcache showsrc $src_name | grep "^Version:" | head -1]; 
-	      chomp $fullversion;
-	      $fullversion =~ s/Version: //;
-	      my $build = 1;
-	      $apcout =~ s/(Binary: |,)//g;
-	      my @genpackages = split / /,$apcout;
-	      print "Building the following packages from source: ";
-	      #my $missing = 0; Some packages are architecture depend, 
-	      #		  so not everything is built
-	      foreach my $gpkg (@genpackages)
-	      {
-		  if ((( -f "$conf{repository_dir}/${gpkg}_${src_version}_${arch}.deb") ||
-		       ( -f "$conf{repository_dir}/${gpkg}_${src_version}_all.deb" ))
-		      && !($conf->rebuild) )
-		  {
-		      print "Package $src_name already in repository.";
-		      $nopkgs_okay++;
-		      $build = 0;
-		  }
-		  #	if (!( -f "$conf{repository_dir}/${gpkg}_${src_version}_${arch}.deb") &&
-		  #	    !( -f "$conf{repository_dir}/${gpkg}_${src_version}_all.deb" )) {
-		  #	        print "Package $src_name missing in repository.";
-		  #		print "Trying to rebuild.";
-		  #		$missing = 1;
-		  #	}
-		  #	last if $missing;
-	      }
-	      wait;
-	      #if ($missing) { $build=1; };
-	      if ($build) {
-		  builddep($src_name) unless $conf->build_only;
-		  source_by_source ($src_name, $fullversion) if $conf->source;
-		  
-		  # Now build the package
-		  my ($maintver, $upver);
-		  if ( $fullversion =~ /(.*)(-.*)$/) {
-		      ($upver, $maintver) = ($1, $2)
-		      } else {
-			  ($upver) = ($fullversion)
-			  }
-		  
-		  $upver =~ s/%3a/:/;
-					if (build($src_name, $upver, $maintver)) {
-		      &move_to_repository;
-		      &build_repository;
-		      $nopkgs_okay++;
-		  } else {
-		      warn "Error while building $pkg!\n" ; 
-		  }
-				}
-	  }
+      if ( /^Package .* is a virtual package provided by/ )
+      {
+          system($conf->apt_get . " @apt_args install $pkg");
+          exit 0;
+
+      } elsif ( /^\'(http|ftp|file|cdrom)/ ) {
+          @packages = split /\s+/;
+          $packages[1] =~ /^(.*)_(.*)\.dsc$/ or last; # XXX
+          my ($src_name, $src_version) = ($1, $2);
+          my $arch=$_config->get("APT::Architecture");
+
+          my $aptcache = $conf->apt_cache;
+          my $apcout = qx[$aptcache showsrc $pkg | grep "^Binary:" | head -1];
+          chomp $apcout;
+          my $fullversion = qx[$aptcache showsrc $src_name | grep "^Version:" | head -1];
+          chomp $fullversion;
+          $fullversion =~ s/Version: //;
+          my $build = 1;
+          $apcout =~ s/(Binary: |,)//g;
+          my @genpackages = split / /,$apcout;
+          print "Building the following packages from source: ";
+          #my $missing = 0; Some packages are architecture depend,
+          #          so not everything is built
+          foreach my $gpkg (@genpackages)
+          {
+          if ((( -f "$conf{repository_dir}/${gpkg}_${src_version}_${arch}.deb") ||
+               ( -f "$conf{repository_dir}/${gpkg}_${src_version}_all.deb" ))
+              && !($conf->rebuild) )
+          {
+              print "Package $src_name already in repository.";
+              $nopkgs_okay++;
+              $build = 0;
+          }
+          #    if (!( -f "$conf{repository_dir}/${gpkg}_${src_version}_${arch}.deb") &&
+          #        !( -f "$conf{repository_dir}/${gpkg}_${src_version}_all.deb" )) {
+          #            print "Package $src_name missing in repository.";
+          #        print "Trying to rebuild.";
+          #        $missing = 1;
+          #    }
+          #    last if $missing;
+          }
+          wait;
+          #if ($missing) { $build=1; };
+          if ($build) {
+          builddep($src_name) unless $conf->build_only;
+          source_by_source ($src_name, $fullversion) if $conf->source;
+
+          # Now build the package
+          my ($maintver, $upver);
+          if ( $fullversion =~ /(.*)(-.*)$/) {
+              ($upver, $maintver) = ($1, $2)
+              } else {
+              ($upver) = ($fullversion)
+              }
+
+          $upver =~ s/%3a/:/;
+                    if (build($src_name, $upver, $maintver)) {
+              &move_to_repository;
+              &build_repository;
+              $nopkgs_okay++;
+          } else {
+              warn "Error while building $pkg!\n" ;
+          }
+                }
       }
-	close APTIN;
-	wait;
-	
-	unless ($nopkgs_okay) {
-	    print STDERR "Some error occured building package";
-	}
-    }
-    
+      }
+    close APTIN;
     wait;
-    
+
+    unless ($nopkgs_okay) {
+        print STDERR "Some error occured building package";
+    }
+    }
+
+    wait;
+
     # Remove builddep if asked
     remove(@builddep) if $conf->remove_builddep && !($conf->build_only);
-    
+
     # If we have something to install, install
     if( @pkgs && !($conf->build_only) )
     {
-	update() if $conf->update;
-		system($conf->apt_get . " -t apt-build @apt_args install @pkglist");
+    update() if $conf->update;
+        system($conf->apt_get . " -t apt-build @apt_args install @pkglist");
     }
 }
 
-sub update_source 
+sub update_source
 {
     chdir $conf->build_dir;
-    
+
     print STDERR "-----> Updating sources <-----";
-    
+
     open DSCIN, "find *.dsc|";
-    
+
     while (<DSCIN>)
     {
-	chomp $_;
-	my $pkg=$_;
-	$pkg =~ /^(.*)_(.*)\.dsc/ or warn;
-	my ($buildpkg, $version) = ($1, $2);
-	my $apt_cache = $conf->apt_cache;
-	my $newversion = qx[$apt_cache showsrc $buildpkg | grep "^Version:" | head -1]; chomp $newversion;
-	$newversion =~ s/Version: //;
-	$newversion =~ s/[0-9]://;
-	if ($newversion ne $version)
-	{
-	    print "New version for $pkg available.";
-	    print "Updating from $version to $newversion";
-	}
-	else
-	{
-	    print "$buildpkg-$version is up to date.";
-	}
-	build_source($buildpkg);
+    chomp $_;
+    my $pkg=$_;
+    $pkg =~ /^(.*)_(.*)\.dsc/ or warn;
+    my ($buildpkg, $version) = ($1, $2);
+    my $apt_cache = $conf->apt_cache;
+    my $newversion = qx[$apt_cache showsrc $buildpkg | grep "^Version:" | head -1]; chomp $newversion;
+    $newversion =~ s/Version: //;
+    $newversion =~ s/[0-9]://;
+    if ($newversion ne $version)
+    {
+        print "New version for $pkg available.";
+        print "Updating from $version to $newversion";
     }
-    
+    else
+    {
+        print "$buildpkg-$version is up to date.";
+    }
+    build_source($buildpkg);
+    }
+
     close DSCIN;
 }
 
 sub clean_sources
 {
     chdir $conf->build_dir;
-    
+
     print STDERR "-----> Cleaning sources <-----";
-    
+
     open DSCIN, "find *.dsc|";
-    
+
     while (<DSCIN>)
     {
-	chomp $_;
-	my $pkg=$_;
-	$pkg =~ /^(.*)_(.*)\.dsc/ or warn;
-	my ($buildpkg, $version) = ($1, $2);
-	$version =~ s/-[0-9]$//;
-	
-	print "${buildpkg}-${version}";
-		if (-d "${buildpkg}-${version}")
-		{
-	    chdir "${buildpkg}-${version}";
-	    print STDERR "----> Cleaning up object files <-----";
-	    print STDERR "Package $buildpkg";
-	    system "debclean";
-	    chdir $conf->build_dir;
-	}
+    chomp $_;
+    my $pkg=$_;
+    $pkg =~ /^(.*)_(.*)\.dsc/ or warn;
+    my ($buildpkg, $version) = ($1, $2);
+    $version =~ s/-[0-9]$//;
+
+    print "${buildpkg}-${version}";
+        if (-d "${buildpkg}-${version}")
+        {
+        chdir "${buildpkg}-${version}";
+        print STDERR "----> Cleaning up object files <-----";
+        print STDERR "Package $buildpkg";
+        system "debclean";
+        chdir $conf->build_dir;
+    }
     }
 }
 
@@ -754,16 +754,16 @@ sub world
 {
     print STDERR "-----> Rebuilding the world! <-----";
     print STDERR "-----> Building package list <-----";
-    
+
     die "Please read README.Debian first.\n" if ! -e "/etc/apt/apt-build.list";
-    
+
     open IGNORELIST, "< /etc/apt/apt-build.list";
     while(<IGNORELIST>)
     {
-	my $p = $_;
-	chomp($p);
-	install($p);
-    }	
+    my $p = $_;
+    chomp($p);
+    install($p);
+    }
     close IGNORELIST;
     return 1;
 }
@@ -772,8 +772,8 @@ sub upgrade
 {
     print STDERR "-----> Upgrading (@_) <-----";
     @_ or @_ = read_apt_list(
-			$conf->apt_get . " --print-uris @apt_args upgrade |", "^'", \&extract_name);
-    
+            $conf->apt_get . " --print-uris @apt_args upgrade |", "^'", \&extract_name);
+
     @_ ? install(@_) : print STDERR "No packages need to be upgraded";
     return 1;
 }
@@ -803,71 +803,71 @@ EOM
 # perldoc AppConfig for more. (AppConfig is very well documented and the man
 # page is easy to understand).
 sub parse_config
-{   
+{
     $conf = AppConfig->new(
-			   {
-			       CASE => 1,
-			       DEBUG => 0,
-			       CREATE => 0,
-			       GLOBAL => {
-				   ARGCOUNT => ARGCOUNT_NONE,
-				   DEFAULT => 0,
-			       }
-			   },
-			   # ALIAS =>, so imperfect and universe-breaking, and we still need it.
-			   "config|cfg=s",       { DEFAULT => "/etc/apt/apt-build.conf",
-						   ALIAS => "config",
-						   ACTION => sub
-						   {
-							$conf->file ($_[2]) if -r $_[2];
-						   },
-						 },
-			   "remove_builddep!",   { ALIAS => "remove-builddep" },
-			   "wrapper!",           { DEFAULT => 1 },
-			   "purge!",             { ACTION => \&apt_args_modify },
-			   "build_command=s",    { DEFAULT=> "dpkg-buildpackage -b -us -uc",
-						   ALIAS => "build-command" },
-			   "reinstall|r!",       { ACTION => \&apt_args_modify },
-			   "yes|y!",             { ACTION => \&apt_args_modify, DEFAULT => 1 },
-			   "force_yes!",         { ACTION => \&apt_args_modify, ALIAS => 'force-yes', DEFAULT => 0 },
-			   "patch=s@",           { },
-			   "patch_strip=i",      { DEFAULT => 1, ALIAS => "patch-strip|p" },
-			   "target-release|t=s", { ACTION => sub
-						   {
-						       &apt_args_modify(@_);
-						       $_config->set("APT::Default-Release", $_[2]);
-						   },
-					       },
-			   "source!",            { DEFAULT => 1 },
-			   "build_only!",        { ALIAS => "build-only" },
-			   "rebuild!",           { DEFAULT => 0 },
-			   "build_dir=s",        { DEFAULT => "/var/cache/apt-build/build/",
-						   ALIAS => "build-dir" },
-			   "repository_dir=s",   { DEFAULT => "/var/cache/apt-build/repository/",
-						   ALIAS => "repository-dir" },
-			   "sources_list=s",     { ACTION => \&apt_args_modify,
-						   DEFAULT => "/etc/apt/sources.list",
-						   ALIAS => "sources-list" },
-			   "update!",            { DEFAULT => 1 },
-			   "cleanup!",           { DEFAULT => 1 }, # call debian/rules clean after build
-			   "apt_get|aptget=s",   { DEFAULT => "apt-get",
-			   			   ALIAS => "apt-get" },
-			   "apt_cache|aptcache=s", { DEFAULT => "apt-cache",
-			   			     ALIAS => "apt-cache" },
-			   "Olevel=s",           {},
-			   "mtune=s",             {},
-			   "options=s",          {},
-			   "make_options=s",{},
-			   "version",            {
-			       ACTION => sub { print "apt-build version $VERSION"; exit 0 }
-			   },
-			   ) or die "Can't initialize the AppConfig object\n";
-    
+               {
+                   CASE => 1,
+                   DEBUG => 0,
+                   CREATE => 0,
+                   GLOBAL => {
+                   ARGCOUNT => ARGCOUNT_NONE,
+                   DEFAULT => 0,
+                   }
+               },
+               # ALIAS =>, so imperfect and universe-breaking, and we still need it.
+               "config|cfg=s",       { DEFAULT => "/etc/apt/apt-build.conf",
+                           ALIAS => "config",
+                           ACTION => sub
+                           {
+                            $conf->file ($_[2]) if -r $_[2];
+                           },
+                         },
+               "remove_builddep!",   { ALIAS => "remove-builddep" },
+               "wrapper!",           { DEFAULT => 1 },
+               "purge!",             { ACTION => \&apt_args_modify },
+               "build_command=s",    { DEFAULT=> "dpkg-buildpackage -b -us -uc",
+                           ALIAS => "build-command" },
+               "reinstall|r!",       { ACTION => \&apt_args_modify },
+               "yes|y!",             { ACTION => \&apt_args_modify, DEFAULT => 1 },
+               "force_yes!",         { ACTION => \&apt_args_modify, ALIAS => 'force-yes', DEFAULT => 0 },
+               "patch=s@",           { },
+               "patch_strip=i",      { DEFAULT => 1, ALIAS => "patch-strip|p" },
+               "target-release|t=s", { ACTION => sub
+                           {
+                               &apt_args_modify(@_);
+                               $_config->set("APT::Default-Release", $_[2]);
+                           },
+                           },
+               "source!",            { DEFAULT => 1 },
+               "build_only!",        { ALIAS => "build-only" },
+               "rebuild!",           { DEFAULT => 0 },
+               "build_dir=s",        { DEFAULT => "/var/cache/apt-build/build/",
+                           ALIAS => "build-dir" },
+               "repository_dir=s",   { DEFAULT => "/var/cache/apt-build/repository/",
+                           ALIAS => "repository-dir" },
+               "sources_list=s",     { ACTION => \&apt_args_modify,
+                           DEFAULT => "/etc/apt/sources.list",
+                           ALIAS => "sources-list" },
+               "update!",            { DEFAULT => 1 },
+               "cleanup!",           { DEFAULT => 1 }, # call debian/rules clean after build
+               "apt_get|aptget=s",   { DEFAULT => "apt-get",
+                              ALIAS => "apt-get" },
+               "apt_cache|aptcache=s", { DEFAULT => "apt-cache",
+                                ALIAS => "apt-cache" },
+               "Olevel=s",           {},
+               "mtune=s",             {},
+               "options=s",          {},
+               "make_options=s",{},
+               "version",            {
+                   ACTION => sub { print "apt-build version $VERSION"; exit 0 }
+               },
+               ) or die "Can't initialize the AppConfig object\n";
+
     tie %conf, 'AptBuild::ObjHash', \$conf; # see AptBuild::ObjHash below
-    
+
     $conf->getopt;                              # parse command line
     $conf->file($conf->get("config"));
-    
+
     $APT_BUILD_WRAPPER++ if $conf->wrapper; # define ENV var
     unshift @PATH, "/usr/lib/apt-build" if $conf->wrapper;
     return 1;
@@ -887,7 +887,7 @@ sub parse_config
 # Filtering can be done in the handler function as well, but this pre-filter
 # step is just a small convenience.
 # The trick is that $handler is a function reference, which can be specified
-# by either passing \&func_name as argument, or by including the whole 
+# by either passing \&func_name as argument, or by including the whole
 # subroutine directly, in-place as the 3rd argument.
 # The info() function has an example of both (passing a reference and specifying
 # sub{} in-place).
@@ -897,14 +897,14 @@ sub parse_config
 # containing all non-empty results from invocation of $&handler.
 sub read_apt_list
 {
-	my ($line, $pattern, $handler) = @_;
-	my @results;
-	open IN, "$line";
-	while (local $_ = <IN>) {
-		if (/$pattern/i) { local $_ = &$handler(); push @results, $_ if $_ }
-	}
-	close IN;
-	return @results
+    my ($line, $pattern, $handler) = @_;
+    my @results;
+    open IN, "$line";
+    while (local $_ = <IN>) {
+        if (/$pattern/i) { local $_ = &$handler(); push @results, $_ if $_ }
+    }
+    close IN;
+    return @results
 }
 
 
@@ -915,35 +915,35 @@ sub extract_name { ($_ = (split /\s+/)[1]) =~ s/_.*// if /_/; $_ }
 sub extract_filename { return (split /\s+/)[1] }
 
 sub extract_size { return (split /\s+/)[2] }
-	
+
 # This function modifies @apt_args (either adds or removes arguments
 # from it).
 sub apt_args_modify
 {
-	my ($self, $name, $value) = @_;
+    my ($self, $name, $value) = @_;
 
-	if (!( $self->{ARGCOUNT}->{$name} )) # if option takes no argument
-	{
-	    $name =~ s|\_|\-|g;
-	    if ($value) { push @apt_args, "--$name" }
-	    else { @apt_args = grep {!/^--$name$/} @apt_args }
+    if (!( $self->{ARGCOUNT}->{$name} )) # if option takes no argument
+    {
+        $name =~ s|\_|\-|g;
+        if ($value) { push @apt_args, "--$name" }
+        else { @apt_args = grep {!/^--$name$/} @apt_args }
 
-	}
-	elsif ($self->{ARGCOUNT}->{$name} == ARGCOUNT_ONE)  # or if takes 1 arg
-	{
-		@apt_args = grep {!/^--$name /} @apt_args; # just to be sure
-		
-		# special parsing for --sources-list
-    # that is now deprecated because Dir::Etc::SourceList and 
+    }
+    elsif ($self->{ARGCOUNT}->{$name} == ARGCOUNT_ONE)  # or if takes 1 arg
+    {
+        @apt_args = grep {!/^--$name /} @apt_args; # just to be sure
+
+        # special parsing for --sources-list
+    # that is now deprecated because Dir::Etc::SourceList and
     # Dir::Etc::sourceparts is already in use
     if($name =~ /^sources.list$/)
     { $name = "-oDir::Etc::SourceList=$value"; }
     else
     { $name = "--$name $value"; }
-		
-		push @apt_args, "$name";
-		
-	}
+
+        push @apt_args, "$name";
+
+    }
 }
 
 
@@ -953,7 +953,7 @@ sub apt_args_modify
 # This is very handy inside strings, because this would be invalid:
 #  print "$c->build_dir" (inside strings, the -> has no special meaning).
 # But thanks to AptBuild::ObjHash, we can get the intended results with:
-#  print "$c{build_dir}" (which is a valid syntax). 
+#  print "$c{build_dir}" (which is a valid syntax).
 # For more info on how it all works, perldoc perltie
 package AptBuild::ObjHash;
 
@@ -980,3 +980,4 @@ sub STORE
     return ${@$self[0]}->set("$key", $val)
 }
 
+# vim: set ai ts=4 sts=4 et sw=4 ft=perl:

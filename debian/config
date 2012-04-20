@@ -15,20 +15,20 @@ make_options=
 
 # load config file
 if [ -e $CONFFILE ] ; then
-  
+
   # TODO: instead of sed here to source config file, improve config parsing in
   # config.c for compatibility with shell variables
   tmpfile=$(mktemp)
   cat $CONFFILE > $tmpfile
   sed -i 's|^\([^=]*\) = |\1=|' $tmpfile
   sed -i 's|build-dir|build_dir|; s|repository-dir|repository_dir|' $tmpfile
-  
+
   . $tmpfile
   rm -f $tmpfile
-  
+
   db_set apt-build/build_dir "$build_dir"
   db_set apt-build/repository_dir "$repository_dir"
-  
+
   case "$Olevel" in
     -O1)
       olevel=Light
@@ -44,7 +44,7 @@ if [ -e $CONFFILE ] ; then
       ;;
   esac
   db_set apt-build/olevel "$olevel"
-  
+
   db_set apt-build/archtype "$mtune"
   db_set apt-build/options "$options"
   #db_set apt-build/make_options "$make_options"
@@ -85,7 +85,7 @@ if [ ! -e $CONFFILE ] ; then
   db_set apt-build/add_to_sourceslist "true"
 else
   db_set apt-build/add_to_sourceslist "false"
-  
+
   # run loop to prevent errors if some sources does not exist
   for source in /"$etcdir""$sourceslist" /"$etcdir""$sourcesparts"/*.list ; do
     if [ -e "$source" ] ; then
@@ -160,7 +160,7 @@ for i in 1 2 ; do
 		  db_get apt-build/arch_amd64
 		  ;;
   esac
-  
+
   if [ $i -eq 1 ] ; then
     db_go || true
   else

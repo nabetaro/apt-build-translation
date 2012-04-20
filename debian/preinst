@@ -5,9 +5,9 @@ set -e
 if [ "upgrade" = "$1" ] ; then
   if dpkg --compare-versions "$2" lt '0.10.0' ; then
     rm -f /usr/bin/gcc
-	  rm -f /usr/bin/g++
-	  dpkg-divert --package apt-build --remove --rename /usr/bin/gcc
-	  dpkg-divert --package apt-build --remove --rename /usr/bin/g++
+    rm -f /usr/bin/g++
+    dpkg-divert --package apt-build --remove --rename /usr/bin/gcc
+    dpkg-divert --package apt-build --remove --rename /usr/bin/g++
   fi
 fi
 
