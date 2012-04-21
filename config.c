@@ -1,6 +1,7 @@
 /*
  * config.c - Wrapper configuration for gcc used for apt-build
  * (c) 2005-2008 - Julien Danjou <acid@debian.org>
+ * (c) 2012      - Dominique Lasserre <lasserre.d@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2, as
@@ -13,39 +14,68 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <ctype.h>
+#include <libgen.h>
+
 #include "config.h"
 #include "apt-build.h"
 
-static char *
-parse_options (char * file_content)
+char
+rm_trail_whtsp (char * argument)
 {
-  unsigned int i, j;
+  char * tmpstr = argument;
+  int l = strlen (tmpstr);
+
+  while (* tmpstr && isspace (* tmpstr))
+    tmpstr++, l--;
+
+  memmove (argument, tmpstr, l + 1);
+
+  /* Return 'true' if chars were moved */
+  if (l == 0)
+    return 0;
+  else
+    return 1;
+}
+
+char
+rm_matching_chars (char * argument, const char c)
+{
+  unsigned int i, j = 0;
+  for (i = 0; i < strlen (argument); i++)
+    {
+      if (argument[i] == c || argument[i] == '\\' )
+        {
+          if (argument[i] == c || (argument[i] == '\\' && argument[i+1] == c ))
+            j++;
+          memmove (&argument[i], &argument[i+1], strlen (argument) - i);
+        }
+    }
+  //printf("j:%d||arg:%s\n",j,argument);
+
+  /* Return 'true' if matching quotes were found */
+  if (j % 2 == 0)
+    return 1;
+  else
+    return 0;
+}
+
+static char *
+parse_options (char * arguments)
+{
+  unsigned int i;
   char *result;
+  char c[] = {'\"', '\''};
 
-  /* Search the first " */
-  for (i = 0; i <= strlen (file_content) && file_content[i] != '"'; i++);
-  file_content += i + 1;
+  for (i = 0; i < 2; i++)  // 2 = length of c[]
+    if (!rm_matching_chars (arguments, c[i]))
+      {
+        fprintf (stderr, "[apt-build-wrapper]: Error parsing options, check configuration file.\n");
+        exit (EXIT_FAILURE);
+      }
 
-  /* Remove the first spaces if they exist */
-  while (file_content[0] == ' ')
-    file_content++;
-
-  /* Search the last " */
-  for (j = strlen (file_content); j >= 1 && file_content[j - 1] != '"'; j--);
-
-  if (j == 0)
-    {
-      fprintf (stderr, "Error parsing options, check configuration file.\n");
-      exit (EXIT_FAILURE);
-    }
-
-  if (strlen (file_content) > 2)
-    {
-      result = strndup (file_content, j - 1);
-      return result;
-    }
-
-  return NULL;
+  result = strdup (arguments);
+  return result;
 }
 
 char **
@@ -77,20 +107,29 @@ parse_conf (unsigned int argc, char **argv)
 
   while (fgets (file_content, BUF_SIZE, conf))
     {
-      if (sscanf (file_content, "%s = %s", opt, buf))
-    {
-      if (!strncmp (opt, "Olevel", 6))
-        args.Olevel = strdup (buf);
+      *buf = '\0';
+      /* Remove trailing whitespaces */
+      rm_trail_whtsp (file_content);
+      if (*file_content == '\0')
+        continue;
 
-      if (!strncmp (opt, "mtune", 4))
-        args.mtune = strdup (buf);
+      if (sscanf (file_content, "%[^=]=%[^\n]",opt,buf))
+        {
+          //printf("||%s(%d)||%s||\n",opt,(int) strlen(opt),buf);
 
-      if (!strncmp (opt, "options", 7))
-        args.options = parse_options (file_content);
-
-      if (!strncmp (opt, "make_options", 13))
-        args.make_options = parse_options (file_content);
-    }
+          /* parse options */
+          if (rm_trail_whtsp (buf))
+            {
+              if (!strcmp (opt, "Olevel"))
+                args.Olevel = parse_options (buf);
+              else if (!strcmp (opt, "mtune"))
+                args.mtune = parse_options (buf);
+              else if (!strcmp (opt, "options"))
+                args.options = parse_options (buf);
+              else if (!strcmp (opt, "make_options"))
+                args.make_options = parse_options (buf);
+            }
+        }
     }
   fclose (conf);
   free (file_content);
@@ -102,10 +141,8 @@ parse_conf (unsigned int argc, char **argv)
   cmd_line_args[nb_apt_build_options++] = strdup (argv[0]);
 
   /* make options */
-  if(!strcmp(basename(argv[0]), "make"))
-    {
-      options = args.make_options;
-    }
+  if(!strcmp (basename(argv[0]), "make"))
+    options = args.make_options;
   else
     {
       options = args.options;
@@ -113,6 +150,7 @@ parse_conf (unsigned int argc, char **argv)
     }
 
   /* Apply options as specified by the configuration file. */
+  //TODO: proper splitting of option string - preserve quotes
   if (options &&
       strlen (options) &&
       (str = strtok (options, " ")))
@@ -122,13 +160,13 @@ parse_conf (unsigned int argc, char **argv)
         cmd_line_args = (char **)
         realloc (cmd_line_args,
              sizeof (char *) * (argc + MAX_ARGC + nb_apt_build_options + 1));
-      cmd_line_args[nb_apt_build_options++] = strdup (str);
+        cmd_line_args[nb_apt_build_options++] = strdup (str);
       }
       while((str = strtok(NULL, " ")));
     }
 
-    /* Copy the rest of the line */
-    for(i = 1; i < argc; i++)
+  /* Copy the rest of the line */
+  for(i = 1; i < argc; i++)
     cmd_line_args[nb_apt_build_options++] = strdup (argv[i]);
 
   /* Apply GCC options at the end to override the default options. */

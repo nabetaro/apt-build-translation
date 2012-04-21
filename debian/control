@@ -1,17 +1,29 @@
 Source: apt-build
 Section: devel
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
-Build-Depends: debhelper (>= 9), po4a, po-debconf
+Maintainer: Dominique Lasserre <lasserre.d@gmail.com>
+Build-Depends: debhelper (>= 9),
+         po4a,
+         po-debconf
 Standards-Version: 3.9.3
 Vcs-Git: git://git.debian.org/git/apt-build/apt-build.git
 Vcs-Browser: http://git.debian.org/?p=apt-build/apt-build.git
 
 Package: apt-build
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, ${perl:Depends}, apt (>= 0.5), gcc, g++, dpkg-dev (>= 1.9), libappconfig-perl (>= 1.5), libapt-pkg-perl (>= 0.1.11), debconf | debconf-2.0, devscripts, apt-utils
+Depends: ${misc:Depends}, ${shlibs:Depends}, ${perl:Depends},
+         apt (>= 0.5),
+         gcc,
+         g++,
+         dpkg-dev (>= 1.9),
+         libappconfig-perl (>= 1.5),
+         libapt-pkg-perl (>= 0.1.11),
+         debconf | debconf-2.0,
+         devscripts,
+         apt-utils
 Pre-Depends: dpkg (>= 1.15.7.2~)
 Recommends: fakeroot, build-essential
+Suggests: gfortran
 Description: frontend to apt to build, optimize and install packages
  This is an apt-get front-end for compiling software optimized
  for your architecture by creating a local repository with built packages.

@@ -126,8 +126,8 @@ Options:
   --repository-dir  - Specify the repository directory
   --target-release  - Distribution to fetch packages from
   --sources-list    - Specify sources.list file
-  --aptget         - Specify an alternative apt-get application to use
-  --aptcache       - Specify an alternative apt-cache application to use
+  --aptget          - Specify an alternative apt-get application to use
+  --aptcache        - Specify an alternative apt-cache application to use
   --config          - Specify an alternative configuration file
 ";
     exit 1;
@@ -809,68 +809,111 @@ sub parse_config
                    CASE => 1,
                    DEBUG => 0,
                    CREATE => 0,
-                   GLOBAL => {
-                   ARGCOUNT => ARGCOUNT_NONE,
-                   DEFAULT => 0,
-                   }
+                   GLOBAL => { ARGCOUNT => ARGCOUNT_NONE,
+                               DEFAULT => 0,
+                             }
                },
                # ALIAS =>, so imperfect and universe-breaking, and we still need it.
                "config|cfg=s",       { DEFAULT => "/etc/apt/apt-build.conf",
-                           ALIAS => "config",
-                           ACTION => sub
+                                       ALIAS => "config",
+                                       ACTION => sub
                            {
-                            $conf->file ($_[2]) if -r $_[2];
+                                 $conf->file ($_[2]) if -r $_[2];
                            },
-                         },
+                                      VALIDATE => \&config_checker
+                                     },
                "remove_builddep!",   { ALIAS => "remove-builddep" },
                "wrapper!",           { DEFAULT => 1 },
                "purge!",             { ACTION => \&apt_args_modify },
                "build_command=s",    { DEFAULT=> "dpkg-buildpackage -b -us -uc",
-                           ALIAS => "build-command" },
+                                       ALIAS => "build-command",
+                                       VALIDATE => \&config_checker
+                                     },
                "reinstall|r!",       { ACTION => \&apt_args_modify },
-               "yes|y!",             { ACTION => \&apt_args_modify, DEFAULT => 1 },
-               "force_yes!",         { ACTION => \&apt_args_modify, ALIAS => 'force-yes', DEFAULT => 0 },
-               "patch=s@",           { },
-               "patch_strip=i",      { DEFAULT => 1, ALIAS => "patch-strip|p" },
+               "yes|y!",             { ACTION => \&apt_args_modify,
+                                       DEFAULT => 1
+                                     },
+               "force_yes!",         { ACTION => \&apt_args_modify,
+                                       ALIAS => 'force-yes',
+                                       DEFAULT => 0
+                                     },
+               "patch=s@",           {},
+               "patch_strip=i",      { DEFAULT => 1,
+                                       ALIAS => "patch-strip|p"
+                                     },
                "target-release|t=s", { ACTION => sub
                            {
                                &apt_args_modify(@_);
                                $_config->set("APT::Default-Release", $_[2]);
                            },
-                           },
+                                       VALIDATE => \&config_checker
+                                     },
                "source!",            { DEFAULT => 1 },
                "build_only!",        { ALIAS => "build-only" },
                "rebuild!",           { DEFAULT => 0 },
                "build_dir=s",        { DEFAULT => "/var/cache/apt-build/build/",
-                           ALIAS => "build-dir" },
+                                       ALIAS => "build-dir",
+                                       VALIDATE => \&config_checker
+                                     },
                "repository_dir=s",   { DEFAULT => "/var/cache/apt-build/repository/",
-                           ALIAS => "repository-dir" },
+                                       ALIAS => "repository-dir",
+                                     },
                "sources_list=s",     { ACTION => \&apt_args_modify,
-                           DEFAULT => "/etc/apt/sources.list",
-                           ALIAS => "sources-list" },
+                                       DEFAULT => "/etc/apt/sources.list",
+                                       ALIAS => "sources-list",
+                                       VALIDATE => \&config_checker
+                                     },
                "update!",            { DEFAULT => 1 },
                "cleanup!",           { DEFAULT => 1 }, # call debian/rules clean after build
                "apt_get|aptget=s",   { DEFAULT => "apt-get",
-                              ALIAS => "apt-get" },
+                                       ALIAS => "apt-get",
+                                       VALIDATE => \&config_checker
+                                     },
                "apt_cache|aptcache=s", { DEFAULT => "apt-cache",
-                                ALIAS => "apt-cache" },
-               "Olevel=s",           {},
-               "mtune=s",             {},
-               "options=s",          {},
-               "make_options=s",{},
-               "version",            {
-                   ACTION => sub { print "apt-build version $VERSION"; exit 0 }
-               },
+                                       ALIAS => "apt-cache",
+                                       VALIDATE => \&config_checker
+                                     },
+               "Olevel=s",           { VALIDATE => \&config_checker },
+               "mtune=s",            { VALIDATE => \&config_checker },
+               "options=s",          { VALIDATE => \&config_checker },
+               "make_options=s",     { VALIDATE => \&config_checker },
+               "version",            { ACTION => sub
+                           {
+                                 print "apt-build version $VERSION"; exit 0
+                           }
+                                     },
                ) or die "Can't initialize the AppConfig object\n";
 
     tie %conf, 'AptBuild::ObjHash', \$conf; # see AptBuild::ObjHash below
 
-    $conf->getopt;                              # parse command line
-    $conf->file($conf->get("config"));
+    $conf->file($conf->get("config")) or &config_parsing_error(0);
+    $conf->getopt or &config_parsing_error(1); # parse command line
 
     $APT_BUILD_WRAPPER++ if $conf->wrapper; # define ENV var
     unshift @PATH, "/usr/lib/apt-build" if $conf->wrapper;
     return 1;
+}
+
+
+# Check that there are no spaces before and after = in config file to simulate
+# shell like config file parsing.
+# Return 'false' if maching space characters are found.
+sub config_checker
+{
+    # When parsing command line, $_ is not defined but getopt checks proper
+    # usage so always return 'true'.
+    return 1 unless defined $_;
+
+    (/$_[0](\s+=|=\s+)/) ? { return 0 } : { return 1 };
+}
+
+
+# Abort on error with conf object (parsing config file and cli options).
+sub config_parsing_error
+{
+  my $errortype = $_[0] ? "command line options" : "configuration file";
+  print STDERR "Error parsing $errortype.";
+  exit 1;
 }
 
 

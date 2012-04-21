@@ -1,9 +1,6 @@
 apt-build for Debian
 --------------------
 
-apt-build is an orphan package. If you want to adopt it, see
-http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=365427
-
 WARNING:
 --------
 -> Do not upload packages on Debian:

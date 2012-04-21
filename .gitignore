@@ -5,5 +5,5 @@ man/po/apt-build.pot
 debian/apt-build
 man/apt-build.*
 debian/files
-debian/apt-build.*.debhelper
+debian/apt-build*.debhelper*
 debian/apt-build.substvars

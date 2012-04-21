@@ -16,15 +16,15 @@ make_options=
 # load config file
 if [ -e $CONFFILE ] ; then
 
-  # TODO: instead of sed here to source config file, improve config parsing in
-  # config.c for compatibility with shell variables
-  tmpfile=$(mktemp)
-  cat $CONFFILE > $tmpfile
-  sed -i 's|^\([^=]*\) = |\1=|' $tmpfile
-  sed -i 's|build-dir|build_dir|; s|repository-dir|repository_dir|' $tmpfile
+  # Conversion from old format < 0.13.1 and removal of space characters at
+  # beginning of (uncommented) lines.
+  sed -e '/^[[:space:]]*#/!s|^[[:space:]]*\([^=[:space:]]*\)[[:space:]]*=[[:space:]]*|\1=|' \
+      -e '/^[[:space:]]*#/!s|build-dir|build_dir|' \
+      -e '/^[[:space:]]*#/!s|repository-dir|repository_dir|' \
+      < $CONFFILE > $CONFFILE.tmp
+  mv -f $CONFFILE.tmp $CONFFILE
 
-  . $tmpfile
-  rm -f $tmpfile
+  . $CONFFILE
 
   db_set apt-build/build_dir "$build_dir"
   db_set apt-build/repository_dir "$repository_dir"
@@ -130,35 +130,35 @@ for i in 1 2 ; do
   RET=
   case "$(dpkg-architecture -qDEB_HOST_ARCH)" in
     i[3-9]86|x86|x86pc|k5|k6|k6-2|k6-3|pentium*|athlon*|i586-i686)
-	    if [ -r /proc/cpuinfo ] ; then
+      if [ -r /proc/cpuinfo ] ; then
         case "$(grep 'vendor_id' /proc/cpuinfo | cut -d ':' -f 2 | head -n 1)" in
-		      *AMD*)
-			      db_input critical apt-build/arch_amd || true
-			      db_get apt-build/arch_amd
-			      ;;
-			    *Intel*)
-			      db_input critical apt-build/arch_intel || true
-			      db_get apt-build/arch_intel
-			      ;;
-		    esac
-	    fi
-	    ;;
-	  sparc*)
-		  db_input critical apt-build/arch_sparc || true
-		  db_get apt-build/arch_sparc
-		  ;;
-	  alpha)
-		  db_input critical apt-build/arch_alpha || true
-		  db_get apt-build/arch_alpha
-		  ;;
-	  arm*)
-		  db_input critical apt-build/arch_arm || true
-		  db_get apt-build/arch_arm
-		  ;;
-	  amd64|*-amd64)
-		  db_input critical apt-build/arch_amd64 || true
-		  db_get apt-build/arch_amd64
-		  ;;
+          *AMD*)
+            db_input critical apt-build/arch_amd || true
+            db_get apt-build/arch_amd
+            ;;
+          *Intel*)
+            db_input critical apt-build/arch_intel || true
+            db_get apt-build/arch_intel
+            ;;
+        esac
+      fi
+      ;;
+    sparc*)
+      db_input critical apt-build/arch_sparc || true
+      db_get apt-build/arch_sparc
+      ;;
+    alpha)
+      db_input critical apt-build/arch_alpha || true
+      db_get apt-build/arch_alpha
+      ;;
+    arm*)
+      db_input critical apt-build/arch_arm || true
+      db_get apt-build/arch_arm
+      ;;
+    amd64|*-amd64)
+      db_input critical apt-build/arch_amd64 || true
+      db_get apt-build/arch_amd64
+      ;;
   esac
 
   if [ $i -eq 1 ] ; then

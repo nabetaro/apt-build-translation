@@ -118,39 +118,39 @@ if [ "$1" = "configure" ] ; then
   # Configuration options
   # if config file does not exist
   if [ ! -e $CONFFILE ] ; then
-    echo "build-dir =" > $CONFFILE
-    echo "repository-dir =" >> $CONFFILE
-    echo "Olevel =" >> $CONFFILE
-    #echo "march =" >> $CONFFILE
-    echo "mtune =" >> $CONFFILE
-    echo "options =" >> $CONFFILE
-    echo "make_options =" >> $CONFFILE
+    echo "build_dir=" > $CONFFILE
+    echo "repository_dir=" >> $CONFFILE
+    echo "Olevel=" >> $CONFFILE
+    #echo "march=" >> $CONFFILE
+    echo "mtune=" >> $CONFFILE
+    echo "options=" >> $CONFFILE
+    echo "make_options=" >> $CONFFILE
   fi
 
   cp -a -f $CONFFILE $CONFFILE.tmp
 
   # (re)add deleted or commented variables
-  test -z "build-dir" || grep -Eq '^[[:space:]]*build-dir =' $CONFFILE || \
-    echo "build-dir =" >> $CONFFILE
-  test -z "repository-dir" || grep -Eq '^[[:space:]]*repository-dir =' $CONFFILE || \
-    echo "repository-dir =" >> $CONFFILE
-  test -z "Olevel" || grep -Eq '^[[:space:]]*Olevel =' $CONFFILE || \
-    echo "Olevel =" >> $CONFFILE
-  #test -z "march" || grep -Eq '^[[:space:]]*march =' $CONFFILE || \
-  #  echo "march =" >> $CONFFILE
-  test -z "mtune" || grep -Eq '^[[:space:]]*mtune =' $CONFFILE || \
-    echo "mtune =" >> $CONFFILE
-  test -z "options" || grep -Eq '^[[:space:]]*options =' $CONFFILE || \
-    echo "options =" >> $CONFFILE
-  test -z "make_options" || grep -Eq '^[[:space:]]*make_options =' $CONFFILE || \
-    echo "make_options =" >> $CONFFILE
+  test -z "build_dir" || grep -Eq '^[[:space:]]*build_dir=' $CONFFILE || \
+    echo "build_dir=" >> $CONFFILE
+  test -z "repository_dir" || grep -Eq '^[[:space:]]*repository_dir=' $CONFFILE || \
+    echo "repository_dir=" >> $CONFFILE
+  test -z "Olevel" || grep -Eq '^[[:space:]]*Olevel=' $CONFFILE || \
+    echo "Olevel=" >> $CONFFILE
+  #test -z "march" || grep -Eq '^[[:space:]]*march=' $CONFFILE || \
+  #  echo "march=" >> $CONFFILE
+  test -z "mtune" || grep -Eq '^[[:space:]]*mtune=' $CONFFILE || \
+    echo "mtune=" >> $CONFFILE
+  test -z "options" || grep -Eq '^[[:space:]]*options=' $CONFFILE || \
+    echo "options=" >> $CONFFILE
+  test -z "make_options" || grep -Eq '^[[:space:]]*make_options=' $CONFFILE || \
+    echo "make_options=" >> $CONFFILE
 
-  sed -e "s|^[:space:]*build-dir =.*|build-dir = $build_dir|" \
-      -e "s|^[:space:]*repository-dir =.*|repository-dir = $repository_dir|" \
-      -e "s|^[:space:]*Olevel =.*|Olevel = $Olevel|" \
-      -e "s|^[:space:]*mtune =.*|mtune = $mtune|" \
-      -e "s|^[:space:]*options =.*|options = \" $options\"|" \
-      -e "s|^[:space:]*make_options =.*|make_options = \" $make_options\"|" \
+  sed -e "s|^[[:space:]]*build_dir=.*|build_dir=$build_dir|" \
+      -e "s|^[[:space:]]*repository_dir=.*|repository_dir=$repository_dir|" \
+      -e "s|^[[:space:]]*Olevel=.*|Olevel=$Olevel|" \
+      -e "s|^[[:space:]]*mtune=.*|mtune=$mtune|" \
+      -e "s|^[[:space:]]*options=.*|options=\" $options\"|" \
+      -e "s|^[[:space:]]*make_options=.*|make_options=\" $make_options\"|" \
       < $CONFFILE > $CONFFILE.tmp
 
   mv -f $CONFFILE.tmp $CONFFILE
