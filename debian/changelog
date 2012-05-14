@@ -1,16 +1,22 @@
-apt-build (0.13.1) unstable; urgency=low
+apt-build (0.13.0) UNRELEASED; urgency=low
 
-  * Upload to unstable.
   * New maintainer. Closes: #365427
   * Switch copyright format to DEP-5 1.0.
-  * Patch from Kumar Appaiah: Fix compiler links with host names. Closes:
-    #502377
-  * Patch from Kumar Appaiah: Add gfortran support. Closes: #502379
   * Introduce (basic) shell like config file parsing.
   * Simplify debian/rules.
   * Added me to authors of debian/* and config.c.
 
  -- Dominique Lasserre <lasserre.d@gmail.com>  Sat, 21 Apr 2012 18:28:09 +0200
+
+apt-build (0.12.43) unstable; urgency=low
+
+  * QA upload.
+  * Upload to unstable
+  * Patch from Kumar Appaiah: Fix compiler links with host names. Closes:
+    #502377
+  * Patch from Kumar Appaiah: Add gfortran support. Closes: #502379
+
+ -- Dominique Lasserre <lasserre.d@gmail.com>  Wed, 11 Apr 2012 23:13:55 +0200
 
 apt-build (0.12.42) experimental; urgency=low
 
