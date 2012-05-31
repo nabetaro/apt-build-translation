@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2012-05-22 11:28+0900\n"
-"PO-Revision-Date: 2012-05-22 16:45+0900\n"
+"PO-Revision-Date: 2012-05-31 12:26+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@debian.or.jp>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -42,7 +42,8 @@ msgstr "名前"
 
 #. type: Plain text
 #: apt-build.1:5
-msgid "apt-build - Fetch sources and build packages optimized for your architecture."
+msgid ""
+"apt-build - Fetch sources and build packages optimized for your architecture."
 msgstr "apt-build - ソースの取得とアーキテクチャに最適化したパッケージの構築"
 
 #. type: SH
@@ -53,8 +54,12 @@ msgstr "書式"
 
 #. type: Plain text
 #: apt-build.1:15
-msgid "B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
-msgstr "B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
+msgid ""
+"B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> "
+"I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
+msgstr ""
+"B<apt-build [> I<options> B<] [ update ] [ upgrade ] [ world ] [ install> "
+"I<pkg> B<] [ remove> I<pkg> B<] [ info> I<pkg> B<]>"
 
 #. type: SH
 #: apt-build.1:15
@@ -64,8 +69,12 @@ msgstr "説明"
 
 #. type: Plain text
 #: apt-build.1:19
-msgid "B<apt-build> is an apt-get frontend to build and install architecture optimized packages."
+msgid ""
+"B<apt-build> is an apt-get frontend to build and install architecture "
+"optimized packages."
 msgstr ""
+"B<apt-build> は、アーキテクチャに最適化したパッケージを構築・インストールす"
+"る apt-get のフロントエンドです。"
 
 #. type: SH
 #: apt-build.1:20
@@ -82,7 +91,7 @@ msgstr "B<update>"
 #. type: Plain text
 #: apt-build.1:24
 msgid "Retrieve new lists of packages"
-msgstr ""
+msgstr "新しいパッケージリストの取得"
 
 #. type: TP
 #: apt-build.1:24
@@ -93,7 +102,7 @@ msgstr "B<upgrade>"
 #. type: Plain text
 #: apt-build.1:27
 msgid "Perform an upgrade"
-msgstr "アップグレードを行う"
+msgstr "アップグレード実行"
 
 #. type: TP
 #: apt-build.1:27
@@ -126,7 +135,7 @@ msgstr "B<source>"
 #. type: Plain text
 #: apt-build.1:36
 msgid "Download and extract source in the build directory"
-msgstr ""
+msgstr "構築ディレクトリへの、ソースのダウンロード・展開"
 
 #. type: TP
 #: apt-build.1:36
@@ -170,7 +179,7 @@ msgstr "B<clean-sources>"
 #. type: Plain text
 #: apt-build.1:48
 msgid "Call debian/rules clean in source directories"
-msgstr ""
+msgstr "ソースディレクトリでの debian/rules clean の呼び出し"
 
 #. type: TP
 #: apt-build.1:48
@@ -181,7 +190,7 @@ msgstr "B<build-source>"
 #. type: Plain text
 #: apt-build.1:51
 msgid "Build source without installing them"
-msgstr ""
+msgstr "インストールせずにソースを構築"
 
 #. type: TP
 #: apt-build.1:51
@@ -242,7 +251,7 @@ msgstr "B<--remove-builddep>"
 #. type: Plain text
 #: apt-build.1:67
 msgid "Remove build-dependencies installed by apt-build"
-msgstr ""
+msgstr "apt-build でインストールした構築依存関係の削除"
 
 #. type: TP
 #: apt-build.1:67
@@ -318,8 +327,9 @@ msgstr "B<--patch> E<lt>I<file>E<gt>"
 
 #. type: Plain text
 #: apt-build.1:88
-msgid "Apply this patch before build (you can use this option one or several times)"
-msgstr ""
+msgid ""
+"Apply this patch before build (you can use this option one or several times)"
+msgstr "構築前のパッチ適用 (このオプションは複数回指定できます)"
 
 #. type: TP
 #: apt-build.1:88
@@ -330,7 +340,7 @@ msgstr "B<--patch-strip>, B<-p> E<lt>I<number>E<gt>"
 #. type: Plain text
 #: apt-build.1:91
 msgid "Prefix to strip on patch (0 = -p0, 1 = -p1 ...)"
-msgstr ""
+msgstr "パッチのストリッププレフィックス (0 = -p0, 1 = -p1 ...)"
 
 #. type: TP
 #: apt-build.1:91
@@ -363,7 +373,7 @@ msgstr "B<--noupdate>"
 #. type: Plain text
 #: apt-build.1:100
 msgid "Do not run 'apt-get update' before package installation"
-msgstr ""
+msgstr "パッケージインストール前の 'apt-get update' 実行なし"
 
 #. type: TP
 #: apt-build.1:100
@@ -418,7 +428,7 @@ msgstr "B<--source>"
 #. type: Plain text
 #: apt-build.1:121
 msgid "Do not download source (sources are extracted already)"
-msgstr ""
+msgstr "ソースのダウンロードなし (ソースは既に展開済み)"
 
 #. type: TP
 #: apt-build.1:121
@@ -483,6 +493,9 @@ msgstr "著者"
 
 #. type: Plain text
 #: apt-build.1:140
-msgid "B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with many contributors."
+msgid ""
+"B<apt-build> was written by Julien Danjou E<lt>acid@debian.orgE<gt> with "
+"many contributors."
 msgstr ""
-
+"B<apt-build> は Julien Danjou E<lt>acid@debian.orgE<gt> とたくさんの協力者た"
+"ちによって書かれました。"
